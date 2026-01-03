@@ -1,0 +1,275 @@
+[
+  {
+    "subject": "Deutsch",
+    "type": "Beispielaufgabe",
+    "title": "Beispielaufgabe Deutsch",
+    "description": "Kurze Aufgabe aus dem Unterricht mit Lösungsskizze.",
+    "link": "#"
+  },
+  {
+    "subject": "Deutsch",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Deutsch",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Deutsch",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Deutsch",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Geschichte",
+    "type": "Beispielaufgabe",
+    "title": "Beispielaufgabe Geschichte",
+    "description": "Kurze Aufgabe aus dem Unterricht mit Lösungsskizze.",
+    "link": "#"
+  },
+  {
+    "subject": "Geschichte",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Geschichte",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Geschichte",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Geschichte",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Politik",
+    "type": "Beispielaufgabe",
+    "title": "Beispielaufgabe Politik",
+    "description": "Kurze Aufgabe aus dem Unterricht mit Lösungsskizze.",
+    "link": "#"
+  },
+  {
+    "subject": "Politik",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Politik",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Politik",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Politik",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Geografie",
+    "type": "Beispielaufgabe",
+    "title": "Beispielaufgabe Geografie",
+    "description": "Kurze Aufgabe aus dem Unterricht mit Lösungsskizze.",
+    "link": "#"
+  },
+  {
+    "subject": "Geografie",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Geografie",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Geografie",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Geografie",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Biologie",
+    "type": "Beispielaufgabe",
+    "title": "Beispielaufgabe Biologie",
+    "description": "Kurze Aufgabe aus dem Unterricht mit Lösungsskizze.",
+    "link": "#"
+  },
+  {
+    "subject": "Biologie",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Biologie",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Biologie",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Biologie",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Musik",
+    "type": "Beispielaufgabe",
+    "title": "Beispielaufgabe Musik",
+    "description": "Kurze Aufgabe aus dem Unterricht mit Lösungsskizze.",
+    "link": "#"
+  },
+  {
+    "subject": "Musik",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Musik",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Musik",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Musik",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Mathe",
+    "type": "Beispielaufgabe",
+    "title": "Beispielaufgabe Mathe",
+    "description": "Kurze Aufgabe aus dem Unterricht mit Lösungsskizze.",
+    "link": "#"
+  },
+  {
+    "subject": "Mathe",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Mathe",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Mathe",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Mathe",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Physik",
+    "type": "Beispielaufgabe",
+    "title": "Beispielaufgabe Physik",
+    "description": "Kurze Aufgabe aus dem Unterricht mit Lösungsskizze.",
+    "link": "#"
+  },
+  {
+    "subject": "Physik",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Physik",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Physik",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Physik",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Englisch",
+    "type": "Beispielaufgabe",
+    "title": "Beispielaufgabe Englisch",
+    "description": "Kurze Aufgabe aus dem Unterricht mit Lösungsskizze.",
+    "link": "#"
+  },
+  {
+    "subject": "Englisch",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Englisch",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Englisch",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Englisch",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Chemie",
+    "type": "Beispielaufgabe",
+    "title": "Beispielaufgabe Chemie",
+    "description": "Kurze Aufgabe aus dem Unterricht mit Lösungsskizze.",
+    "link": "#"
+  },
+  {
+    "subject": "Chemie",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Chemie",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Chemie",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Chemie",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Kunst",
+    "type": "Beispielaufgabe",
+    "title": "Beispielaufgabe Kunst",
+    "description": "Kurze Aufgabe aus dem Unterricht mit Lösungsskizze.",
+    "link": "#"
+  },
+  {
+    "subject": "Kunst",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Kunst",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Kunst",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Kunst",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Französisch",
+    "type": "Beispielaufgabe",
+    "title": "Beispielaufgabe Französisch",
+    "description": "Kurze Aufgabe aus dem Unterricht mit Lösungsskizze.",
+    "link": "#"
+  },
+  {
+    "subject": "Französisch",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Französisch",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Französisch",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Französisch",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Philosophie",
+    "type": "Beispielaufgabe",
+    "title": "Beispielaufgabe Philosophie",
+    "description": "Kurze Aufgabe aus dem Unterricht mit Lösungsskizze.",
+    "link": "#"
+  },
+  {
+    "subject": "Philosophie",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Philosophie",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Philosophie",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Philosophie",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  }
+]
