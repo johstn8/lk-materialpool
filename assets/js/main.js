@@ -25,6 +25,108 @@ if(yearEl){
   yearEl.textContent = new Date().getFullYear();
 }
 
+const subjectPillsContainers = document.querySelectorAll('.subject-pills');
+subjectPillsContainers.forEach((container) => {
+  const pills = Array.from(container.querySelectorAll('.subject-pill'));
+  if(pills.length === 0){
+    return;
+  }
+
+  const prevButton = document.createElement('button');
+  prevButton.type = 'button';
+  prevButton.className = 'subject-pill subject-pill--more';
+  prevButton.textContent = '...';
+  prevButton.setAttribute('aria-label', 'Vorherige Fächer');
+
+  const nextButton = document.createElement('button');
+  nextButton.type = 'button';
+  nextButton.className = 'subject-pill subject-pill--more';
+  nextButton.textContent = '...';
+  nextButton.setAttribute('aria-label', 'Weitere Fächer');
+
+  let pages = [];
+  let currentPage = 0;
+  const MIN_TAB_WIDTH = 96;
+
+  const buildPages = () => {
+    const availableWidth = container.clientWidth;
+    const maxTabs = Math.max(2, Math.floor(availableWidth / MIN_TAB_WIDTH));
+    if(pills.length <= maxTabs){
+      pages = [pills];
+      return;
+    }
+    const pageSize = Math.max(1, maxTabs - 1);
+    pages = [];
+    for(let i = 0; i < pills.length; i += pageSize){
+      pages.push(pills.slice(i, i + pageSize));
+    }
+  };
+
+  const renderPage = () => {
+    pills.forEach((pill) => {
+      pill.hidden = true;
+    });
+    const totalPages = pages.length;
+    if(totalPages <= 1){
+      prevButton.remove();
+      nextButton.remove();
+      pills.forEach((pill) => {
+        pill.hidden = false;
+      });
+      return;
+    }
+
+    pages[currentPage].forEach((pill) => {
+      pill.hidden = false;
+    });
+
+    if(currentPage > 0){
+      if(!container.contains(prevButton)){
+        container.prepend(prevButton);
+      }
+      prevButton.hidden = false;
+    } else {
+      prevButton.hidden = true;
+      prevButton.remove();
+    }
+
+    if(currentPage < totalPages - 1){
+      if(!container.contains(nextButton)){
+        container.append(nextButton);
+      }
+      nextButton.hidden = false;
+    } else {
+      nextButton.hidden = true;
+      nextButton.remove();
+    }
+  };
+
+  const update = () => {
+    buildPages();
+    currentPage = Math.min(currentPage, pages.length - 1);
+    renderPage();
+  };
+
+  prevButton.addEventListener('click', () => {
+    currentPage = Math.max(0, currentPage - 1);
+    renderPage();
+  });
+
+  nextButton.addEventListener('click', () => {
+    currentPage = Math.min(pages.length - 1, currentPage + 1);
+    renderPage();
+  });
+
+  update();
+
+  if('ResizeObserver' in window){
+    const observer = new ResizeObserver(update);
+    observer.observe(container);
+  } else {
+    window.addEventListener('resize', update);
+  }
+});
+
 // Timeline data: maintain events here
 const timelineEvents = [
   { date: '2025-09-02', displayDate: 'September', title: 'Zeitstreifen-Platzhalter 1', category: 'Platzhalter', description: 'Hier folgt später ein Meilenstein für den Materialpool.' },
