@@ -27,20 +27,13 @@ if(yearEl){
 
 // Timeline data: maintain events here
 const timelineEvents = [
-  { date: '2025-09-08', title: 'Schuljahresbeginn', category: 'Start', description: '' },
-  { date: '2025-09-08', displayDate: '08.09. – 22.09.', title: 'Wahl der Klassen- und Jahrgangssprecher:innen', category: 'Wahlen', description: 'Gemeinsam habt ihr eure Klassen- und Jahrgangssprecher:innen gewählt – mit klaren Zuständigkeiten für die neuen Teams.' },
-  { date: '2025-10-01', title: 'Wahl des Schülersprecher:innen-Teams', category: 'Wahlen', description: 'Mit eurer Mehrheit wurde das neue Schülersprecher:innen-Team gewählt – Danke für das Vertrauen!' },
-  { date: '2025-10-07', title: '1. GSV', category: 'GSV', description: 'Auftakt der Gesamtschülervertretung, Sammeln eurer Themen für das Schuljahr.' },
-  { date: '2025-10-20', title: 'Video über die Gremien an unserer Schule', category: 'Transparenz', description: 'Kurzes Erklärvideo zu GSV, Schulkonferenz und Fachkonferenzen – damit klar ist, wo ihr mitsprechen könnt.' },
-  { date: '2025-11-14', title: 'YOLO-Party & Kultur-Dinner', category: 'Event', description: 'Gemeinsam mit dem Stadtteilzentrum Kladow und Raneem Hachim für Vielfalt: Party, Kultur-Dinner und eure Playlist.' },
-  { date: '2025-11-17', title: '1. Schulkonferenz', category: 'Schulkonferenz', description: 'Erfolgreicher Antrag: Protokolle sollen zeitnah veröffentlicht werden, damit alle informiert bleiben.' },
-  { date: '2025-11-29', title: 'Bestellung 2. Hygiene-Box', category: 'Hygiene', description: 'Wir haben die zweite Box bestellt, damit Hygieneartikel verlässlich an mehreren Standorten verfügbar sind.' },
-  { date: '2025-12-05', displayDate: 'Dezember', title: 'Hygiene-Artikel & 1. Schulkonferenz', category: 'Hygiene', description: 'Weitere Box bestellt, kostenlose Hygieneartikel aufgefüllt und unser Schulkonferenz-Antrag zur Veröffentlichung der Protokolle angenommen.' },
-  { date: '2025-12-08', displayDate: 'Dezember', title: 'Upload LK Materialpool', category: 'LK', description: 'Materialien zur Leistungskurswahl plus Notenrechner – alles an einem Ort für eure Entscheidung.' },
-  { date: '2025-12-12', displayDate: 'Dezember', title: 'Schachturnier', category: 'Event', description: 'Turnier für die 5.–7. Klassen – Taktik, Teamgeist und faire Partien kurz vor den Ferien.' },
-  { date: '2025-12-17', title: '2. GSV', category: 'GSV', description: 'Rückblick auf erste Maßnahmen und Planung weiterer Projekte.' },
-  { date: '2026-02-10', displayDate: 'Februar 2026', title: 'Zwischenumfrage zur SV-Arbeit', category: 'Transparenz', description: 'Wir wollen Feedback: Was läuft gut, wo können wir nachsteuern? Deine Meinung entscheidet über die nächsten Schritte.' },
-  { date: '2026-06-20', displayDate: 'Juni/Juli 2026', title: 'Fußballspiel', category: 'Sport', description: 'Geplantes Fußballspiel für mehrere Jahrgänge. Genauer Termin folgt.' },
+  { date: '2025-09-02', displayDate: 'September', title: 'Kick-off Materialpool', category: 'Start', description: 'Sammlung der ersten Ideen und Themenfelder für den LK Materialpool.' },
+  { date: '2025-09-18', displayDate: 'September', title: 'Erste Materialabgabe', category: 'Material', description: 'Kurse liefern Beispielklausuren, Aufgaben und Lernhilfen für den Pool.' },
+  { date: '2025-10-10', displayDate: 'Oktober', title: 'Prototyp online', category: 'Web', description: 'Erste Version der Übersicht mit Fächerbuttons und Platzhaltern geht live.' },
+  { date: '2025-11-04', displayDate: 'November', title: 'Feedbackrunde', category: 'Feedback', description: 'Schüler:innen geben Rückmeldungen zur Struktur und gewünschten Inhalten.' },
+  { date: '2025-12-01', displayDate: 'Dezember', title: 'Infomarkt-Vorbereitung', category: 'Infomarkt', description: 'Abstimmung der Infomarkt-Stände, Plakate und Info-Slides.' },
+  { date: '2026-01-20', displayDate: 'Januar', title: 'LK-Infomarkt', category: 'Infomarkt', description: 'Präsenztermine, Austausch mit Q3/Q1 und Zugriff auf den Materialpool.' },
+  { date: '2026-02-12', displayDate: 'Februar', title: 'Aktualisierung & Ausbau', category: 'Material', description: 'Ergänzung neuer Lerninhalte wie Podcasts, Präsentationen und Plakate.' },
 ];
 
 const formatDate = (event) => event.displayDate ?? new Intl.DateTimeFormat('de-DE', { day: '2-digit', month: '2-digit' }).format(new Date(event.dateObj));
@@ -121,3 +114,27 @@ document.querySelectorAll('form').forEach((form) => {
     alert('Danke! Dein Formular wurde abgeschickt.');
   });
 });
+
+const subjectPage = document.querySelector('[data-subject-page]');
+if(subjectPage){
+  const subject = subjectPage.dataset.subject;
+  const videoHost = subjectPage.querySelector('[data-subject-video]');
+  const gradeHost = subjectPage.querySelector('[data-subject-grade]');
+  const materialsHost = subjectPage.querySelector('[data-subject-materials]');
+
+  const loadJSON = (path) => fetch(path).then((response) => response.json());
+
+  Promise.all([
+    loadJSON('data/videos.json'),
+    loadJSON('data/grades.json'),
+    loadJSON('data/materials.json'),
+  ]).then(([videos, grades, materials]) => {
+    const video = videos.find((item) => item.subject === subject);
+    const grade = grades.find((item) => item.subject === subject);
+    const subjectMaterials = materials.filter((item) => item.subject === subject);
+
+    if(videoHost){
+      if(video){
+        videoHost.innerHTML = `\n          <div class=\"framed-video\">\n            <iframe src=\"${video.url}\" title=\"${video.title}\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen loading=\"lazy\"></iframe>\n          </div>\n          <p class=\"desc\">${video.description}</p>\n        `;\n      } else {\n        videoHost.innerHTML = '<p class=\"desc\">Video-Platzhalter wird später ergänzt.</p>';\n      }\n    }\n+
+    if(gradeHost){\n      gradeHost.innerHTML = `\n        <div class=\"subject-grade\">\n          <span class=\"grade-pill\">Ø ${grade ? grade.average : '—'}</span>\n          <div>\n            <h3>Notenschnitt</h3>\n            <p>${grade ? grade.note : 'Platzhalter für den Notendurchschnitt.'}</p>\n          </div>\n        </div>\n      `;\n    }\n+
+    if(materialsHost){\n      if(subjectMaterials.length){\n        materialsHost.innerHTML = subjectMaterials.map((item) => `\n          <article class=\"card subject-card\">\n            <span class=\"timeline-tag\">${item.type}</span>\n            <h3>${item.title}</h3>\n            <p>${item.description}</p>\n            <a href=\"${item.link}\">Platzhalter-Link</a>\n          </article>\n        `).join('');\n      } else {\n        materialsHost.innerHTML = '<p class=\"desc\">Weitere Lerninhalte werden später ergänzt.</p>';\n      }\n    }\n+  }).catch(() => {\n+    if(videoHost){\n+      videoHost.innerHTML = '<p class=\"desc\">Video-Platzhalter wird später ergänzt.</p>';\n+    }\n+    if(gradeHost){\n+      gradeHost.innerHTML = '<p class=\"desc\">Platzhalter für den Notendurchschnitt.</p>';\n+    }\n+    if(materialsHost){\n+      materialsHost.innerHTML = '<p class=\"desc\">Weitere Lerninhalte werden später ergänzt.</p>';\n+    }\n+  });\n+}
