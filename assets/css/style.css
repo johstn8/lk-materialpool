@@ -61,26 +61,33 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 
 .subject-strip{border-bottom:1px solid var(--border); background:var(--bg-alt)}
 .subject-strip__label{margin:0; padding:18px 0 10px; font-weight:800; color:var(--muted); font-size:clamp(1rem, 2vw, 1.2rem)}
-.subject-pills{display:flex; flex-wrap:nowrap; gap:8px; padding-bottom:0; align-items:flex-end; overflow-x:auto; scrollbar-width:none}
-.subject-pills::-webkit-scrollbar{display:none}
+.subject-pills{display:flex; flex-wrap:nowrap; gap:0; padding-bottom:0; align-items:stretch; overflow:hidden}
 .subject-pill{
-  padding:12px 14px 14px;
-  border-radius:18px 18px 0 0;
+  padding:12px 10px 14px;
+  border-radius:0;
   border:1px solid var(--border);
+  border-left-width:0;
   background:#fff;
   color:var(--text);
   font-weight:700;
   font-size:clamp(0.62rem, 1.35vw, 0.95rem);
   letter-spacing:.01em;
   white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
   text-decoration:none;
-  box-shadow:var(--shadow);
+  box-shadow:none;
   margin-bottom:-1px;
   display:flex;
   align-items:center;
   justify-content:center;
+  flex:1 1 0;
+  min-width:0;
   transition:transform .2s ease, box-shadow .2s ease, color .2s ease;
 }
+.subject-pill:first-child{border-left-width:1px; border-top-left-radius:18px}
+.subject-pill:last-child{border-top-right-radius:18px}
+.subject-pill--more{font-size:clamp(0.75rem, 1.4vw, 1rem); cursor:pointer}
 .subject-pill:hover{transform:translateY(-2px); box-shadow:var(--shadow-strong); text-decoration:none}
 
 .hero-card{margin-top:18px}
