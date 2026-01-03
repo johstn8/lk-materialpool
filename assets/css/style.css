@@ -48,6 +48,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 
 .hero{padding:72px 0 46px; background:linear-gradient(180deg, rgba(201,64,121,.07), transparent)}
 .hero-grid{display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 520px); gap:40px; align-items:center}
+.hero-grid--single{grid-template-columns:minmax(0, 1fr)}
 .hero-text{max-width:640px}
 .hero-media{position:relative; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-strong); border:1px solid rgba(255,255,255,.7)}
 .hero-media::after{content:""; position:absolute; inset:0; background:linear-gradient(135deg, rgba(201,64,121,.18), transparent); pointer-events:none}
@@ -59,10 +60,28 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .cta{margin-top:20px; display:flex; gap:12px; flex-wrap:wrap}
 
 .subject-strip{border-bottom:1px solid var(--border); background:var(--bg-alt)}
-.subject-strip__label{margin:0; padding:14px 0 6px; font-weight:700; color:var(--muted)}
-.subject-pills{display:flex; flex-wrap:wrap; gap:10px; padding-bottom:18px}
-.subject-pill{padding:8px 14px; border-radius:999px; border:1px solid var(--border); background:#fff; color:var(--text); font-weight:600; font-size:.95rem; transition:all .2s ease; text-decoration:none}
-.subject-pill:hover{background:var(--accent); color:#fff; border-color:var(--accent); text-decoration:none}
+.subject-strip__label{margin:0; padding:18px 0 10px; font-weight:800; color:var(--muted); font-size:clamp(1rem, 2vw, 1.2rem)}
+.subject-pills{display:flex; flex-wrap:nowrap; gap:8px; padding-bottom:0; align-items:flex-end; overflow-x:auto; scrollbar-width:none}
+.subject-pills::-webkit-scrollbar{display:none}
+.subject-pill{
+  padding:12px 14px 14px;
+  border-radius:18px 18px 0 0;
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--text);
+  font-weight:700;
+  font-size:clamp(0.62rem, 1.35vw, 0.95rem);
+  letter-spacing:.01em;
+  white-space:nowrap;
+  text-decoration:none;
+  box-shadow:var(--shadow);
+  margin-bottom:-1px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform .2s ease, box-shadow .2s ease, color .2s ease;
+}
+.subject-pill:hover{transform:translateY(-2px); box-shadow:var(--shadow-strong); text-decoration:none}
 
 .hero-card{margin-top:18px}
 .pictogram-card{display:flex; gap:16px; align-items:flex-start}

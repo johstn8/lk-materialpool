@@ -27,13 +27,9 @@ if(yearEl){
 
 // Timeline data: maintain events here
 const timelineEvents = [
-  { date: '2025-09-02', displayDate: 'September', title: 'Kick-off Materialpool', category: 'Start', description: 'Sammlung der ersten Ideen und Themenfelder für den LK Materialpool.' },
-  { date: '2025-09-18', displayDate: 'September', title: 'Erste Materialabgabe', category: 'Material', description: 'Kurse liefern Beispielklausuren, Aufgaben und Lernhilfen für den Pool.' },
-  { date: '2025-10-10', displayDate: 'Oktober', title: 'Prototyp online', category: 'Web', description: 'Erste Version der Übersicht mit Fächerbuttons und Platzhaltern geht live.' },
-  { date: '2025-11-04', displayDate: 'November', title: 'Feedbackrunde', category: 'Feedback', description: 'Schüler:innen geben Rückmeldungen zur Struktur und gewünschten Inhalten.' },
-  { date: '2025-12-01', displayDate: 'Dezember', title: 'Infomarkt-Vorbereitung', category: 'Infomarkt', description: 'Abstimmung der Infomarkt-Stände, Plakate und Info-Slides.' },
-  { date: '2026-01-20', displayDate: 'Januar', title: 'LK-Infomarkt', category: 'Infomarkt', description: 'Präsenztermine, Austausch mit Q3/Q1 und Zugriff auf den Materialpool.' },
-  { date: '2026-02-12', displayDate: 'Februar', title: 'Aktualisierung & Ausbau', category: 'Material', description: 'Ergänzung neuer Lerninhalte wie Podcasts, Präsentationen und Plakate.' },
+  { date: '2025-09-02', displayDate: 'September', title: 'Zeitstreifen-Platzhalter 1', category: 'Platzhalter', description: 'Hier folgt später ein Meilenstein für den Materialpool.' },
+  { date: '2025-10-10', displayDate: 'Oktober', title: 'Zeitstreifen-Platzhalter 2', category: 'Platzhalter', description: 'Platzhalter-Text für eine künftige Aktion oder einen Termin.' },
+  { date: '2025-11-18', displayDate: 'November', title: 'Zeitstreifen-Platzhalter 3', category: 'Platzhalter', description: 'Weitere Details werden ergänzt, sobald die Planung steht.' },
 ];
 
 const formatDate = (event) => event.displayDate ?? new Intl.DateTimeFormat('de-DE', { day: '2-digit', month: '2-digit' }).format(new Date(event.dateObj));
@@ -128,13 +124,61 @@ if(subjectPage){
     loadJSON('data/videos.json'),
     loadJSON('data/grades.json'),
     loadJSON('data/materials.json'),
-  ]).then(([videos, grades, materials]) => {
-    const video = videos.find((item) => item.subject === subject);
-    const grade = grades.find((item) => item.subject === subject);
-    const subjectMaterials = materials.filter((item) => item.subject === subject);
+  ])
+    .then(([videos, grades, materials]) => {
+      const video = videos.find((item) => item.subject === subject);
+      const grade = grades.find((item) => item.subject === subject);
+      const subjectMaterials = materials.filter((item) => item.subject === subject);
 
-    if(videoHost){
-      if(video){
-        videoHost.innerHTML = `\n          <div class=\"framed-video\">\n            <iframe src=\"${video.url}\" title=\"${video.title}\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen loading=\"lazy\"></iframe>\n          </div>\n          <p class=\"desc\">${video.description}</p>\n        `;\n      } else {\n        videoHost.innerHTML = '<p class=\"desc\">Video-Platzhalter wird später ergänzt.</p>';\n      }\n    }\n+
-    if(gradeHost){\n      gradeHost.innerHTML = `\n        <div class=\"subject-grade\">\n          <span class=\"grade-pill\">Ø ${grade ? grade.average : '—'}</span>\n          <div>\n            <h3>Notenschnitt</h3>\n            <p>${grade ? grade.note : 'Platzhalter für den Notendurchschnitt.'}</p>\n          </div>\n        </div>\n      `;\n    }\n+
-    if(materialsHost){\n      if(subjectMaterials.length){\n        materialsHost.innerHTML = subjectMaterials.map((item) => `\n          <article class=\"card subject-card\">\n            <span class=\"timeline-tag\">${item.type}</span>\n            <h3>${item.title}</h3>\n            <p>${item.description}</p>\n            <a href=\"${item.link}\">Platzhalter-Link</a>\n          </article>\n        `).join('');\n      } else {\n        materialsHost.innerHTML = '<p class=\"desc\">Weitere Lerninhalte werden später ergänzt.</p>';\n      }\n    }\n+  }).catch(() => {\n+    if(videoHost){\n+      videoHost.innerHTML = '<p class=\"desc\">Video-Platzhalter wird später ergänzt.</p>';\n+    }\n+    if(gradeHost){\n+      gradeHost.innerHTML = '<p class=\"desc\">Platzhalter für den Notendurchschnitt.</p>';\n+    }\n+    if(materialsHost){\n+      materialsHost.innerHTML = '<p class=\"desc\">Weitere Lerninhalte werden später ergänzt.</p>';\n+    }\n+  });\n+}
+      if(videoHost){
+        if(video){
+          videoHost.innerHTML = `
+            <div class="framed-video">
+              <iframe src="${video.url}" title="${video.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <p class="desc">${video.description}</p>
+          `;
+        } else {
+          videoHost.innerHTML = '<p class="desc">Video-Platzhalter wird später ergänzt.</p>';
+        }
+      }
+
+      if(gradeHost){
+        gradeHost.innerHTML = `
+          <div class="subject-grade">
+            <span class="grade-pill">Ø ${grade ? grade.average : '—'}</span>
+            <div>
+              <h3>Notenschnitt</h3>
+              <p>${grade ? grade.note : 'Platzhalter für den Notendurchschnitt.'}</p>
+            </div>
+          </div>
+        `;
+      }
+
+      if(materialsHost){
+        if(subjectMaterials.length){
+          materialsHost.innerHTML = subjectMaterials.map((item) => `
+            <article class="card subject-card">
+              <span class="timeline-tag">${item.type}</span>
+              <h3>${item.title}</h3>
+              <p>${item.description}</p>
+              <a href="${item.link}">Platzhalter-Link</a>
+            </article>
+          `).join('');
+        } else {
+          materialsHost.innerHTML = '<p class="desc">Weitere Lerninhalte werden später ergänzt.</p>';
+        }
+      }
+    })
+    .catch(() => {
+      if(videoHost){
+        videoHost.innerHTML = '<p class="desc">Video-Platzhalter wird später ergänzt.</p>';
+      }
+      if(gradeHost){
+        gradeHost.innerHTML = '<p class="desc">Platzhalter für den Notendurchschnitt.</p>';
+      }
+      if(materialsHost){
+        materialsHost.innerHTML = '<p class="desc">Weitere Lerninhalte werden später ergänzt.</p>';
+      }
+    });
+}
