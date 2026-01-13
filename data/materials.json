@@ -1,0 +1,204 @@
+[
+  {
+    "subject": "Deutsch",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Deutsch",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Deutsch",
+    "type": "Lernprodukt",
+    "title": "Podcasts Deutsch: Politische Sprache",
+    "description": "Podcastreihe als Lernprodukt zum Thema politische Sprache.",
+    "link": "https://hcg-berlin.de/politische-sprache/"
+  },
+  {
+    "subject": "Geschichte",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Geschichte",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Geschichte",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Geschichte",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Politik",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Politik",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Politik",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Politik",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Geografie",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Geografie",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Geografie",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Geografie",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Biologie",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Biologie (2015)",
+    "description": "Originalklausur zur Vorbereitung auf den LK.",
+    "link": "assets/documents/beispielklausur-biologie-2015.pdf"
+  },
+  {
+    "subject": "Biologie",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Biologie",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Musik",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Musik",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Musik",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Musik",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Mathe",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Mathe",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Mathe",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Mathe",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Physik",
+    "type": "Beispielklausuren",
+    "title": "Beispielklausuren Physik (Lehrerhefte)",
+    "description": "Drei vollständige LK-Klausuren mit Lehrerheft zur Vorbereitung.",
+    "links": [
+      {
+        "title": "Physik LK 2017 (Lehrerheft)",
+        "url": "https://www.isq.berlin/wordpress/wp-content/uploads/2018/04/2017_Physik_Physik-Leistungskurs-Lehrerheft.pdf"
+      },
+      {
+        "title": "Physik LK 2016 (Lehrerheft)",
+        "url": "https://www.isq.berlin/wordpress/wp-content/uploads/2018/04/2016_Physik_Physik-Leistungskurs-Lehrerheft.pdf"
+      },
+      {
+        "title": "Physik LK 2015 (Lehrerheft)",
+        "url": "https://www.isq.berlin/wordpress/wp-content/uploads/2018/04/2015_Physik_Physik-Leistungskurs-Lehrerheft.pdf"
+      }
+    ]
+  },
+  {
+    "subject": "Physik",
+    "type": "Lernprodukt",
+    "title": "Video zum Zyklotron",
+    "description": "Erklärvideo zum Zyklotron als Lernprodukt für den LK.",
+    "link": "https://youtu.be/EUE9OsmNnuM"
+  },
+  {
+    "subject": "Englisch",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Englisch",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Englisch",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Englisch",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Chemie",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Chemie",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Chemie",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Chemie",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Kunst",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Kunst",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Kunst",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Kunst",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Französisch",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Französisch Q1",
+    "description": "Originalklausur zur Vorbereitung auf den LK.",
+    "link": "assets/documents/beispielklausur-franzoesisch-q1.pdf"
+  },
+  {
+    "subject": "Französisch",
+    "type": "Arbeitsblätter",
+    "title": "ABs Französisch",
+    "description": "Arbeitsblätter zum Einbetten für den Französisch-Kurs.",
+    "link": "assets/documents/abs-franzoesisch.pdf"
+  },
+  {
+    "subject": "Französisch",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Französisch",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  },
+  {
+    "subject": "Philosophie",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Philosophie",
+    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "link": "#"
+  },
+  {
+    "subject": "Philosophie",
+    "type": "Lerninhalt",
+    "title": "Lerninhalt Philosophie",
+    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
+    "link": "#"
+  }
+]

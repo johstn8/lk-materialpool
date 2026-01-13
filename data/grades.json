@@ -1,0 +1,67 @@
+[
+  {
+    "subject": "Deutsch",
+    "average": "7,77",
+    "note": "Durchschnitt der letzten Klausuren im Leistungskurs."
+  },
+  {
+    "subject": "Geschichte",
+    "average": "9,00",
+    "note": "Durchschnitt der letzten Klausuren im Leistungskurs."
+  },
+  {
+    "subject": "Politik",
+    "average": "7,87",
+    "note": "Durchschnitt der letzten Klausuren im Leistungskurs."
+  },
+  {
+    "subject": "Geografie",
+    "average": "8,28",
+    "note": "Durchschnitt der letzten Klausuren im Leistungskurs."
+  },
+  {
+    "subject": "Biologie",
+    "average": "9,38",
+    "note": "Durchschnitt der letzten Klausuren im Leistungskurs."
+  },
+  {
+    "subject": "Musik",
+    "average": "k. A.",
+    "note": "Aktuell liegen noch keine Durchschnittsdaten vor."
+  },
+  {
+    "subject": "Mathe",
+    "average": "8,11",
+    "note": "Durchschnitt der letzten Klausuren im Leistungskurs."
+  },
+  {
+    "subject": "Physik",
+    "average": "9,32",
+    "note": "Durchschnitt der letzten Klausuren im Leistungskurs."
+  },
+  {
+    "subject": "Englisch",
+    "average": "9,21",
+    "note": "Durchschnitt der letzten Klausuren im Leistungskurs."
+  },
+  {
+    "subject": "Chemie",
+    "average": "k. A.",
+    "note": "Aktuell liegen noch keine Durchschnittsdaten vor."
+  },
+  {
+    "subject": "Kunst",
+    "average": "k. A.",
+    "note": "Aktuell liegen noch keine Durchschnittsdaten vor."
+  },
+  {
+    "subject": "Französisch",
+    "average": "9,40",
+    "note": "Durchschnitt der letzten Klausuren im Leistungskurs."
+  },
+  {
+    "subject": "Philosophie",
+    "average": "k. A.",
+    "note": "Aktuell liegen noch keine Durchschnittsdaten vor."
+  }
+]
