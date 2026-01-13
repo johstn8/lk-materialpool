@@ -71,10 +71,10 @@
   },
   {
     "subject": "Musik",
-    "type": "Beispielklausur",
-    "title": "Beispielklausur Musik",
+    "type": "Semesterklausur",
+    "title": "Semesterklausur aus Q1 mit EWH",
     "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
-    "link": "#"
+    "link": "assets/documents/Beispielklausur-Musik-Q1.pdf"
   },
   {
     "subject": "Musik",
