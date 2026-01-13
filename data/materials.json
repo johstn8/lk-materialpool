@@ -85,10 +85,10 @@
   },
   {
     "subject": "Mathe",
-    "type": "Beispielklausur",
-    "title": "Beispielklausur Mathe",
-    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
-    "link": "#"
+    "type": "Abiturklausur",
+    "title": "Abiturklausur von 2015",
+    "description": "Klausur inklusive Erwartungshorizont.",
+    "link": "https://bildungsserver.berlin-brandenburg.de/fileadmin/bbb/unterricht/pruefungen/abitur_bb/Zabi_Mathematik/BE_15_Ma_LK_Aufgaben.pdf"
   },
   {
     "subject": "Mathe",
