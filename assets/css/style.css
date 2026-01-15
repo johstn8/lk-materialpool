@@ -94,6 +94,9 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 
 .hero-card{margin-top:18px}
 .pictogram-card{display:flex; gap:16px; align-items:flex-start}
+.pictogram-card--button{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); font:inherit; color:inherit; text-align:left; cursor:pointer; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
+.pictogram-card--button:hover{transform:translateY(-2px); box-shadow:var(--shadow-strong); border-color:rgba(201, 64, 121, 0.4)}
+.pictogram-card--button:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 .pictogram{height:52px; width:52px; border-radius:16px; background:rgba(201,64,121,.12); color:var(--accent); font-size:1.6rem; display:flex; align-items:center; justify-content:center; flex:0 0 auto}
 
 .sheet-download{display:flex; align-items:center; justify-content:flex-start}
@@ -152,9 +155,9 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .timeline-scroller::-webkit-scrollbar{display:none}
 .timeline-body{display:flex; flex-direction:column; gap:10px; min-width:720px; width:max-content}
 .timeline-track{position:relative; height:26px; margin:18px 0 10px; min-width:720px}
-.timeline-track .track-past,.timeline-track .track-future{position:absolute; top:50%; transform:translateY(-50%); height:6px; border-radius:999px}
-.track-past{left:0; background:var(--muted); background-image:repeating-linear-gradient(90deg, rgba(255,255,255,.9) 0 12px, transparent 12px 22px)}
-.track-future{right:auto; background:var(--accent)}
+.timeline-track::before{content:""; position:absolute; left:0; right:18px; top:50%; height:4px; transform:translateY(-50%); background:#000; border-radius:999px}
+.timeline-track::after{content:""; position:absolute; right:6px; top:50%; width:14px; height:14px; border-right:4px solid #000; border-top:4px solid #000; transform:translateY(-50%) rotate(45deg)}
+.timeline-track .track-past,.timeline-track .track-future{display:none}
 .today-marker{position:absolute; top:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; transform:translate(-50%, -50%)}
 .today-marker .today-label{position:absolute; bottom:100%; margin-bottom:14px; padding:6px 10px; border-radius:12px; border:1px solid var(--border); background:#fff; box-shadow:var(--shadow); font-weight:700; color:var(--accent)}
 .today-marker .dot{width:14px; height:14px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px rgba(201,64,121,.18); flex:0 0 auto}
@@ -202,6 +205,13 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .grade-chart--shared-axis .grade-chart__plot::after{opacity:0}
 .grade-point__dot{height:12px; width:12px; border-radius:999px; background:var(--accent); box-shadow:0 0 0 6px rgba(201,64,121,.16)}
 .grade-point__label{background:rgba(255,255,255,.95); border:1px solid var(--border); border-radius:999px; padding:4px 10px; font-size:.85rem; font-weight:600; color:var(--text); white-space:nowrap}
+.grade-chart__note{margin-top:16px}
+
+.overview-modal__content{display:flex; flex-direction:column; gap:24px}
+.overview-modal__group h3{margin:0 0 12px}
+.overview-modal__group + .overview-modal__group{margin-top:16px}
+.overview-modal__video{display:flex; flex-direction:column; gap:12px}
+.overview-modal__video p{margin:0; color:var(--muted)}
 
 .goal-grid{grid-template-columns:repeat(auto-fit, minmax(220px, 1fr))}
 .goal-card{cursor:default; text-align:left; display:flex; flex-direction:column; gap:12px; transition:box-shadow .2s ease; font:inherit; color:inherit}

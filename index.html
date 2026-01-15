@@ -57,7 +57,7 @@
         <div class="hero-text">
           <span class="badge"><i></i> Leistungskurse am HCG</span>
           <h1>LK Materialpool</h1>
-          <p class="lead">Hier entsteht der zentrale Materialpool der Schülervertretung: Wir bündeln Erfahrungsberichte, Lernhilfen und Überblicksinfos zu allen Leistungskursen – übersichtlich, vergleichbar und jederzeit erweiterbar.</p>
+          <p class="lead">Leistungskurse sind der Schwerpunkt eurer Oberstufe. Mit fünf Wochenstunden pro Fach sammelt ihr bis zum Abitur rund 380 Unterrichtsstunden pro LK. Entsprechend stark fließen sie in eure Gesamtnote ein: etwa 40 % des Abiturs hängen an euren Leistungskursen. Um die Entscheidung dieser Leistungskurse gut zu treffen, findet ihr hier Materialien, Einblicke und Erläuterungen zu den allen angebotenen Möglichkeiten bei uns am HCG.</p>
           <div class="card hero-card">
             <h3>Kurzer Einstiegstext</h3>
             <p>Hier sammelt die Schülervertretung alle wichtigen Infos zur Leistungskurswahl: Erfahrungsberichte, Lernhilfen, Notenübersichten und Materiallinks auf einen Blick.</p>
@@ -71,38 +71,65 @@
 
     <section class="section">
       <div class="container">
-        <h2>Was dich im Materialpool erwartet</h2>
+        <h2>Was dich im Materialpool erwartet…</h2>
         <p class="desc">Drei kurze Highlights, die später mit euren eigenen Inhalten ersetzt werden.</p>
-        <div class="grid cols-3">
-          <article class="card pictogram-card">
+        <div class="grid cols-3" data-overview-section>
+          <button class="card pictogram-card pictogram-card--button" type="button" data-overview-modal="overview-videos">
             <div class="pictogram">🎥</div>
             <div>
               <h3>Video-Einblicke</h3>
-              <p>Kurze Clips aus dem Unterricht geben einen authentischen Eindruck vom Fach.</p>
+              <p>Worum geht’s im LK, was solltet ihr mitbringen und was macht am meisten Spaß? Das erfahrt ihr hier.</p>
             </div>
-          </article>
-          <article class="card pictogram-card">
+          </button>
+          <button class="card pictogram-card pictogram-card--button" type="button" data-overview-modal="overview-klausuren">
             <div class="pictogram">📄</div>
             <div>
               <h3>Klausur-Beispiele</h3>
-              <p>Beispielaufgaben zeigen dir typische Formate und geben ein Gefühl für das Niveau.</p>
+              <p>Format, Aufgabenstellungen und Umfang: So sehen LK-Klausuren wirklich aus.</p>
             </div>
-          </article>
-          <article class="card pictogram-card">
+          </button>
+          <button class="card pictogram-card pictogram-card--button" type="button" data-overview-modal="overview-abs">
             <div class="pictogram">🧭</div>
             <div>
               <h3>Orientierung</h3>
-              <p>Tipps, welche Stärken im Fach hilfreich sind und wie der LK aufgebaut ist.</p>
+              <p>Typische Arbeitsblätter und Aufgaben: So wird im Leistungskurs gearbeitet.</p>
             </div>
-          </article>
+          </button>
+        </div>
+        <div class="goal-overlay overview-modal" id="overview-videos" hidden>
+          <div class="goal-overlay__card overview-modal__card" role="dialog" aria-modal="true" aria-labelledby="overview-videos-title">
+            <button class="goal-overlay__close" type="button" data-overview-close aria-label="Pop-up schließen">×</button>
+            <div class="goal-overlay__body">
+              <h2 id="overview-videos-title">Video-Einblicke</h2>
+              <div class="overview-modal__content" data-overview-videos></div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-overlay overview-modal" id="overview-klausuren" hidden>
+          <div class="goal-overlay__card overview-modal__card" role="dialog" aria-modal="true" aria-labelledby="overview-klausuren-title">
+            <button class="goal-overlay__close" type="button" data-overview-close aria-label="Pop-up schließen">×</button>
+            <div class="goal-overlay__body">
+              <h2 id="overview-klausuren-title">Klausur-Beispiele</h2>
+              <div class="overview-modal__content" data-overview-klausuren></div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-overlay overview-modal" id="overview-abs" hidden>
+          <div class="goal-overlay__card overview-modal__card" role="dialog" aria-modal="true" aria-labelledby="overview-abs-title">
+            <button class="goal-overlay__close" type="button" data-overview-close aria-label="Pop-up schließen">×</button>
+            <div class="goal-overlay__body">
+              <h2 id="overview-abs-title">Orientierung</h2>
+              <div class="overview-modal__content" data-overview-abs></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <h2>Excel-Übersicht</h2>
-        <p class="desc">Öffne die Übersicht mit Abitur-Planer und Zusatzinfos direkt im Browser.</p>
+        <h2>Excel Kurswahltool und Notenrechner</h2>
+        <p class="desc">Öffne den Abiplaner direkt im Browser.</p>
         <div class="sheet-download">
           <a class="btn btn-accent" href="assets/documents/abitur-planer-berlin.xlsx" data-excel-link>Excel-Datei im Browser öffnen</a>
         </div>
@@ -112,7 +139,7 @@
     <section class="section">
       <div class="container">
         <h2>Durchschnittsnoten nach Aufgabenfeldern</h2>
-        <p class="desc">Die Punkte zeigen die Durchschnittsnote (Skala 0–15) je Kurs innerhalb der drei Aufgabenfelder.</p>
+        <p class="desc">Hier seht ihr die Gesamtdurchschnittsnoten der Semesterklausuren aus den jeweiligen LKs.</p>
         <div class="grade-chart grade-chart--shared-axis">
           <article class="grade-chart__column">
             <h3>Aufgabenfeld 1</h3>
@@ -169,13 +196,14 @@
             </div>
           </article>
         </div>
+        <p class="desc grade-chart__note">Die Punkte zeigen die Durchschnittsnote (Skala 0–15) je Kurs innerhalb der drei Aufgabenfelder.</p>
       </div>
     </section>
 
     <section class="section" id="zeitstrahl">
       <div class="container">
-        <h2>Zeitstrahl: Materialpool & Infomarkt</h2>
-        <p class="desc">Alle Termine rund um die Leistungskurswahl im Überblick.</p>
+        <h2>Zeitstrahl: Kurswahl-Unterstützung</h2>
+        <p class="desc">Alle Termine rund um die Kurswahlen im Überblick.</p>
         <div class="timeline-shell" tabindex="0" aria-label="Zeitstrahl des Materialpools">
           <div class="timeline-scroller" data-timeline-scroller tabindex="0" aria-label="Zeitleiste Materialpool">
             <div class="timeline-body">
