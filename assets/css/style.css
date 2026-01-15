@@ -116,7 +116,9 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .subject-card--button:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 .subject-card__cta{margin-top:auto; font-weight:700; color:var(--accent); font-size:.95rem}
 .subject-modal__links{display:flex; flex-direction:column; gap:12px; margin-top:18px}
+.subject-modal__links--cards{gap:16px}
 .subject-modal__link{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:var(--bg-alt); text-decoration:none; color:inherit; font-weight:600; transition:border-color .2s ease, box-shadow .2s ease}
+.subject-modal__link--large{min-height:72px; padding:18px 20px; font-size:1rem}
 .subject-modal__link:hover{border-color:rgba(201, 64, 121, 0.4); box-shadow:var(--shadow)}
 .subject-modal__link:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 .subject-modal__cta{font-size:.9rem; color:var(--accent)}

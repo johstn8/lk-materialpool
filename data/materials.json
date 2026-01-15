@@ -8,8 +8,22 @@
   },
   {
     "subject": "Deutsch",
-    "type": "Lernprodukt",
-    "title": "Podcasts Deutsch: Politische Sprache",
+    "type": "Arbeitsblätter",
+    "title": "Arbeitsblätter Deutsch",
+    "description": "Arbeitsblätter und Aufgaben für den Deutsch-LK.",
+    "modalCta": "Arbeitsblätter auswählen",
+    "modalVariant": "cards",
+    "links": [
+      {
+        "title": "Materialpool Deutsch (PDF)",
+        "url": "assets/documents/arbeitsblaetter/deutsch-arbeitsblaetter-lk-materialpool.pdf"
+      }
+    ]
+  },
+  {
+    "subject": "Deutsch",
+    "type": "Podcast",
+    "title": "Podcastreihe: Politische Sprache",
     "description": "Podcastreihe als Lernprodukt zum Thema politische Sprache.",
     "link": "https://hcg-berlin.de/politische-sprache/"
   },
@@ -22,10 +36,17 @@
   },
   {
     "subject": "Geschichte",
-    "type": "Lerninhalt",
-    "title": "Lerninhalt Geschichte",
-    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
-    "link": "#"
+    "type": "Arbeitsblätter",
+    "title": "Arbeitsblätter Geschichte",
+    "description": "Arbeitsblätter und Aufgaben für den Geschichte-LK.",
+    "modalCta": "Arbeitsblätter auswählen",
+    "modalVariant": "cards",
+    "links": [
+      {
+        "title": "Materialpool Geschichte (PDF)",
+        "url": "assets/documents/arbeitsblaetter/geschichte-arbeitsblaetter-materialpool.pdf"
+      }
+    ]
   },
   {
     "subject": "Politik",
@@ -36,10 +57,31 @@
   },
   {
     "subject": "Politik",
-    "type": "Lerninhalt",
-    "title": "Lerninhalt Politik",
-    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
-    "link": "#"
+    "type": "Arbeitsblätter",
+    "title": "Arbeitsblätter Politik",
+    "description": "Arbeitsblätter und Aufgaben für den Politik-LK.",
+    "modalCta": "Arbeitsblätter auswählen",
+    "modalVariant": "cards",
+    "links": [
+      {
+        "title": "Arbeitsblatt Politik (PDF)",
+        "url": "assets/documents/arbeitsblaetter/politik-arbeitsblatt-lk.pdf"
+      }
+    ]
+  },
+  {
+    "subject": "Politik",
+    "type": "Positionspapiere",
+    "title": "LK-Börse: Positionspapiere",
+    "description": "Positionspapiere aus der LK-Börse als Lernprodukt.",
+    "link": "assets/documents/lernprodukte/politik-positionspapiere-lk-boerse.pdf"
+  },
+  {
+    "subject": "Politik",
+    "type": "Präsentation",
+    "title": "LK-Börse: Präsentation",
+    "description": "Präsentation aus der LK-Börse als Lernprodukt.",
+    "link": "assets/documents/lernprodukte/politik-praesentation-lk-boerse.pdf"
   },
   {
     "subject": "Geografie",
@@ -50,10 +92,31 @@
   },
   {
     "subject": "Geografie",
-    "type": "Lerninhalt",
-    "title": "Lerninhalt Geografie",
-    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
-    "link": "#"
+    "type": "Arbeitsblätter",
+    "title": "Arbeitsblätter Geografie",
+    "description": "Arbeitsblätter und Aufgaben für den Geografie-LK.",
+    "modalCta": "Arbeitsblätter auswählen",
+    "modalVariant": "cards",
+    "links": [
+      {
+        "title": "Materialpool Geografie (PDF)",
+        "url": "assets/documents/arbeitsblaetter/geografie-arbeitsblaetter-lk-materialpool.pdf"
+      }
+    ]
+  },
+  {
+    "subject": "Geografie",
+    "type": "Wirkungsgefüge",
+    "title": "Wirkungsgefüge: Schwammstadt",
+    "description": "Wirkungsgefüge zur Schwammstadt als Lernprodukt.",
+    "link": "assets/documents/lernprodukte/geografie-wirkungsgefuege-schwammstadt.pdf"
+  },
+  {
+    "subject": "Geografie",
+    "type": "Podcast",
+    "title": "Podcast: Land Grabbing in der EU",
+    "description": "Podcastfolge zum Thema Land Grabbing in der EU.",
+    "link": "assets/documents/lernprodukte/geografie-podcast-land-grabbing-eu.mp3"
   },
   {
     "subject": "Biologie",
@@ -63,13 +126,6 @@
     "link": "assets/documents/beispielklausur-biologie-2015.pdf"
   },
   {
-    "subject": "Biologie",
-    "type": "Lerninhalt",
-    "title": "Lerninhalt Biologie",
-    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
-    "link": "#"
-  },
-  {
     "subject": "Musik",
     "type": "Semesterklausur",
     "title": "Semesterklausur aus Q1 mit EWH",
@@ -77,25 +133,11 @@
     "link": "assets/documents/Beispielklausur-Musik-Q1.pdf"
   },
   {
-    "subject": "Musik",
-    "type": "Lerninhalt",
-    "title": "Lerninhalt Musik",
-    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
-    "link": "#"
-  },
-  {
     "subject": "Mathe",
     "type": "Abiturklausur",
     "title": "Abiturklausur von 2015",
     "description": "Klausur inklusive Erwartungshorizont.",
     "link": "https://bildungsserver.berlin-brandenburg.de/fileadmin/bbb/unterricht/pruefungen/abitur_bb/Zabi_Mathematik/BE_15_Ma_LK_Aufgaben.pdf"
-  },
-  {
-    "subject": "Mathe",
-    "type": "Lerninhalt",
-    "title": "Lerninhalt Mathe",
-    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
-    "link": "#"
   },
   {
     "subject": "Physik",
@@ -119,8 +161,8 @@
   },
   {
     "subject": "Physik",
-    "type": "Lernprodukt",
-    "title": "Video zum Zyklotron",
+    "type": "Erklärvideo",
+    "title": "Erklärvideo: Zyklotron",
     "description": "Erklärvideo zum Zyklotron als Lernprodukt für den LK.",
     "link": "https://youtu.be/EUE9OsmNnuM"
   },
@@ -133,10 +175,31 @@
   },
   {
     "subject": "Englisch",
-    "type": "Lerninhalt",
-    "title": "Lerninhalt Englisch",
-    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
-    "link": "#"
+    "type": "Arbeitsblätter",
+    "title": "Arbeitsblätter Englisch",
+    "description": "Arbeitsblätter und Aufgaben für den Englisch-LK.",
+    "modalCta": "Arbeitsblätter auswählen",
+    "modalVariant": "cards",
+    "links": [
+      {
+        "title": "Materialpool Englisch (PDF)",
+        "url": "assets/documents/arbeitsblaetter/englisch-arbeitsblaetter-materialpool.pdf"
+      }
+    ]
+  },
+  {
+    "subject": "Englisch",
+    "type": "Poster",
+    "title": "Poster: Climate Change & Mental Health",
+    "description": "Lernposter zum Einfluss von Climate Change auf Mental Health.",
+    "link": "assets/documents/lernprodukte/englisch-poster-climate-change-mental-health.jpeg"
+  },
+  {
+    "subject": "Englisch",
+    "type": "Short Story",
+    "title": "Short Story: The White Whale",
+    "description": "Short Story als Lernprodukt für den Englisch-LK.",
+    "link": "assets/documents/lernprodukte/englisch-short-story-the-white-whale.png"
   },
   {
     "subject": "Chemie",
@@ -147,23 +210,23 @@
   },
   {
     "subject": "Chemie",
-    "type": "Lerninhalt",
-    "title": "Lerninhalt Chemie",
-    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
-    "link": "#"
+    "type": "Arbeitsblätter",
+    "title": "Arbeitsblätter Chemie",
+    "description": "Arbeitsblätter und Aufgaben für den Chemie-LK.",
+    "modalCta": "Arbeitsblätter auswählen",
+    "modalVariant": "cards",
+    "links": [
+      {
+        "title": "Arbeitsblätter Q1–Q3 (PDF)",
+        "url": "assets/documents/arbeitsblaetter/chemie-arbeitsblaetter-lk-q1-q3.pdf"
+      }
+    ]
   },
   {
     "subject": "Kunst",
     "type": "Beispielklausur",
     "title": "Beispielklausur Kunst",
     "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
-    "link": "#"
-  },
-  {
-    "subject": "Kunst",
-    "type": "Lerninhalt",
-    "title": "Lerninhalt Kunst",
-    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
     "link": "#"
   },
   {
@@ -176,29 +239,22 @@
   {
     "subject": "Französisch",
     "type": "Arbeitsblätter",
-    "title": "ABs Französisch",
-    "description": "Arbeitsblätter zum Einbetten für den Französisch-Kurs.",
-    "link": "assets/documents/abs-franzoesisch.pdf"
-  },
-  {
-    "subject": "Französisch",
-    "type": "Lerninhalt",
-    "title": "Lerninhalt Französisch",
-    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
-    "link": "#"
+    "title": "Arbeitsblätter Französisch",
+    "description": "Arbeitsblätter und Aufgaben für den Französisch-LK.",
+    "modalCta": "Arbeitsblätter auswählen",
+    "modalVariant": "cards",
+    "links": [
+      {
+        "title": "Arbeitsblätter Französisch (PDF)",
+        "url": "assets/documents/arbeitsblaetter/franzoesisch-arbeitsblaetter.pdf"
+      }
+    ]
   },
   {
     "subject": "Philosophie",
     "type": "Beispielklausur",
     "title": "Beispielklausur Philosophie",
     "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
-    "link": "#"
-  },
-  {
-    "subject": "Philosophie",
-    "type": "Lerninhalt",
-    "title": "Lerninhalt Philosophie",
-    "description": "Podcast, Präsentation oder Plakat – wird später ergänzt.",
     "link": "#"
   }
 ]
