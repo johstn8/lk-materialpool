@@ -128,9 +128,22 @@
   {
     "subject": "Musik",
     "type": "Semesterklausur",
-    "title": "Semesterklausur aus Q1 mit EWH",
-    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
+    "title": "Semesterklausur Q1 (EWH)",
+    "description": "Semesterklausur zur Orientierung inklusive Erwartungshorizont.",
     "link": "assets/documents/Beispielklausur-Musik-Q1.pdf"
+  },
+  {
+    "subject": "Musik",
+    "type": "Arbeitsblätter",
+    "title": "Arbeitsblatt: Fahrplan Komponieren",
+    "description": "Arbeitsblatt zur Kompositionsplanung im Musik-LK.",
+    "modalCta": "Arbeitsblatt öffnen",
+    "links": [
+      {
+        "title": "Fahrplan Komponieren (PDF)",
+        "url": "assets/documents/arbeitsblaetter/musik-arbeitsblatt-fahrplan-komponieren.pdf"
+      }
+    ]
   },
   {
     "subject": "Mathe",
@@ -204,9 +217,9 @@
   {
     "subject": "Chemie",
     "type": "Beispielklausur",
-    "title": "Beispielklausur Chemie",
-    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
-    "link": "#"
+    "title": "Beispielaufgaben Chemie LK (Fachbrief 08)",
+    "description": "Offizielle Beispielaufgaben aus dem Fachbrief Chemie.",
+    "link": "https://bildungsserver.berlin-brandenburg.de/fileadmin/bbb/unterricht/fachbriefe_berlin/chemie/fachbrief_chemie_08_beispielaufgaben_lk.pdf"
   },
   {
     "subject": "Chemie",
@@ -224,10 +237,17 @@
   },
   {
     "subject": "Kunst",
-    "type": "Beispielklausur",
-    "title": "Beispielklausur Kunst",
-    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
-    "link": "#"
+    "type": "Abiturklausur",
+    "title": "Abiturklausur Kunst 2015",
+    "description": "Original-Abiturklausur aus 2015 zur Vorbereitung.",
+    "link": "assets/documents/abi-klausur-kunst-2015.pdf"
+  },
+  {
+    "subject": "Kunst",
+    "type": "Lernprodukte",
+    "title": "Lernprodukte: Emotion",
+    "description": "Lernprodukte aus dem Kunst-LK rund um das Thema Emotion.",
+    "link": "https://hcg-berlin.de/emotion/"
   },
   {
     "subject": "Französisch",
@@ -249,12 +269,5 @@
         "url": "assets/documents/arbeitsblaetter/franzoesisch-arbeitsblaetter.pdf"
       }
     ]
-  },
-  {
-    "subject": "Philosophie",
-    "type": "Beispielklausur",
-    "title": "Beispielklausur Philosophie",
-    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
-    "link": "#"
   }
 ]
