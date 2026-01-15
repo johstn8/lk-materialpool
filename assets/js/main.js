@@ -540,19 +540,21 @@ if(subjectPage){
           const materialItems = subjectMaterials.map((item, index) => {
             if(item.links && item.links.length){
               const modalId = `material-modal-${subject.toLowerCase()}-${index}`;
+              const linksClass = item.modalVariant === 'cards' ? 'subject-modal__link subject-modal__link--large' : 'subject-modal__link';
               const linksMarkup = item.links.map((link) => `
-                <a class="subject-modal__link" href="${link.url}" target="_blank" rel="noopener">
+                <a class="${linksClass}" href="${link.url}" target="_blank" rel="noopener">
                   <span>${link.title}</span>
                   <span class="subject-modal__cta">Öffnen</span>
                 </a>
               `).join('');
+              const modalButtonCta = item.modalCta || (/arbeitsblätter/i.test(item.type) ? 'Arbeitsblätter auswählen' : 'Klausur auswählen');
 
               return `
                 <button class="subject-card subject-card--button" type="button" data-modal-open="${modalId}">
                   <span class="timeline-tag">${item.type}</span>
                   <h3>${item.title}</h3>
                   <p>${item.description}</p>
-                  <span class="subject-card__cta">Klausur auswählen</span>
+                  <span class="subject-card__cta">${modalButtonCta}</span>
                 </button>
                 <div class="goal-overlay subject-modal" id="${modalId}" hidden>
                   <div class="goal-overlay__card subject-modal__card" role="dialog" aria-modal="true" aria-labelledby="${modalId}-title">
@@ -560,7 +562,7 @@ if(subjectPage){
                     <div class="goal-overlay__body">
                       <h2 id="${modalId}-title">${item.title}</h2>
                       <p>${item.description}</p>
-                      <div class="subject-modal__links">
+                      <div class="subject-modal__links${item.modalVariant === 'cards' ? ' subject-modal__links--cards' : ''}">
                         ${linksMarkup}
                       </div>
                     </div>
