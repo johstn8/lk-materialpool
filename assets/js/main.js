@@ -218,35 +218,35 @@ const timelineEvents = [
     displayDate: '12.–16.01.',
     title: 'Infos durch Herrn Ruge',
     category: 'Info',
-    description: 'Herr Ruge informiert die 10. Klassen über die bevorstehende Leistungskurswahl.',
+    description: 'Herr Ruge informiert euch über die bevorstehende Leistungskurswahl.',
+  },
+  {
+    date: '2025-01-16',
+    displayDate: '16.01.',
+    title: 'Upload LK-Materialpool',
+    category: 'Erste Eindrücke',
+    description: 'Der LK-Materialpool wird für euch zugänglich veröffentlicht.',
   },
   {
     date: '2025-02-16',
     displayDate: '16.02.',
     title: 'LK-Börse',
-    category: 'Mitmachen',
-    description: 'Die Schülerinnen und Schüler können in vier verschiedene Leistungskurse hineinschnuppern und am Unterricht teilnehmen.',
+    category: 'Einblicke',
+    description: 'Ihr könnt in vier verschiedene Leistungskurse für jeweils eine Stunde reinschauen.',
   },
   {
-    date: '2025-01-18',
-    displayDate: '18.01.',
-    title: 'LK-Materialpool',
-    category: 'Start',
-    description: 'Der Materialpool mit Videos, Beispielaufgaben, Abitur-Planer und Klausurdurchschnittsnoten wird veröffentlicht.',
-  },
-  {
-    date: '2025-01-17',
-    displayDate: 'nach 18.01.',
+    date: '2025-02-18',
+    displayDate: '18.02.',
     title: 'LK-Infomarkt',
     category: 'Austausch',
-    description: 'Schülerinnen und Schüler können mit der Oberstufe ins Gespräch gehen und Erfahrungen austauschen.',
+    description: 'Ihr könnt mit Schülerinnen und Schülern aus den jeweiligen LKs ins Gespräch gehen und Erfahrungen austauschen.',
   },
   {
     date: '2025-02-23',
     displayDate: '23.02.',
     title: 'LK-Wahl',
     category: 'Abgabe',
-    description: 'Die Schülerinnen und Schüler geben ihre Leistungskurswahl bei der Oberstufenkoordination ab.',
+    description: 'Ihr gebt eure finale Kurswahl für die Oberstufe bei der Oberstufenkoordination ab.',
   },
 ];
 
@@ -316,7 +316,7 @@ if(eventsHost && scroller && trackPast && trackFuture && todayMarker){
   todayMarker.style.left = `${markerPercent}%`;
   const todayLabel = todayMarker.querySelector('.today-label');
   if(todayLabel){
-    todayLabel.textContent = 'Heute';
+    todayLabel.textContent = 'Kurswahl 23.02.';
   }
 }
 
