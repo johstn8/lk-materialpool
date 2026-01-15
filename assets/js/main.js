@@ -221,22 +221,22 @@ const timelineEvents = [
     description: 'Herr Ruge informiert die 10. Klassen über die bevorstehende Leistungskurswahl.',
   },
   {
-    date: '2025-01-15',
-    displayDate: '15.01.',
+    date: '2025-02-16',
+    displayDate: '16.02.',
     title: 'LK-Börse',
     category: 'Mitmachen',
     description: 'Die Schülerinnen und Schüler können in vier verschiedene Leistungskurse hineinschnuppern und am Unterricht teilnehmen.',
   },
   {
-    date: '2025-01-16',
-    displayDate: '16.01.',
+    date: '2025-01-18',
+    displayDate: '18.01.',
     title: 'LK-Materialpool',
     category: 'Start',
     description: 'Der Materialpool mit Videos, Beispielaufgaben, Abitur-Planer und Klausurdurchschnittsnoten wird veröffentlicht.',
   },
   {
     date: '2025-01-17',
-    displayDate: 'nach 16.01.',
+    displayDate: 'nach 18.01.',
     title: 'LK-Infomarkt',
     category: 'Austausch',
     description: 'Schülerinnen und Schüler können mit der Oberstufe ins Gespräch gehen und Erfahrungen austauschen.',
@@ -342,25 +342,165 @@ if(excelLink){
   }
 }
 
+const loadJSON = (path) => fetch(path).then((response) => response.json());
+const withHdVideoParams = (url) => {
+  if(!url || !url.includes('youtube.com/embed')){
+    return url;
+  }
+  const parsed = new URL(url, window.location.href);
+  parsed.searchParams.set('vq', 'hd1080');
+  parsed.searchParams.set('rel', '0');
+  parsed.searchParams.set('modestbranding', '1');
+  parsed.searchParams.set('playsinline', '1');
+  return parsed.toString();
+};
+
+const overviewSection = document.querySelector('[data-overview-section]');
+if(overviewSection){
+  const modalButtons = overviewSection.querySelectorAll('[data-overview-modal]');
+  const modals = document.querySelectorAll('.overview-modal');
+  const closeButtons = document.querySelectorAll('[data-overview-close]');
+  const openModal = (modal) => {
+    if(!modal){
+      return;
+    }
+    modal.removeAttribute('hidden');
+    document.body.classList.add('is-modal-open');
+  };
+  const closeModal = (modal) => {
+    if(!modal){
+      return;
+    }
+    modal.setAttribute('hidden', '');
+    document.body.classList.remove('is-modal-open');
+  };
+
+  modalButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const modalId = button.getAttribute('data-overview-modal');
+      const modal = document.getElementById(modalId);
+      openModal(modal);
+    });
+  });
+
+  closeButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.overview-modal');
+      closeModal(modal);
+    });
+  });
+
+  modals.forEach((modal) => {
+    modal.addEventListener('click', (event) => {
+      if(event.target === modal){
+        closeModal(modal);
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if(event.key !== 'Escape'){
+      return;
+    }
+    const activeModal = document.querySelector('.overview-modal:not([hidden])');
+    if(activeModal){
+      closeModal(activeModal);
+    }
+  });
+
+  Promise.all([loadJSON('data/videos.json'), loadJSON('data/materials.json')])
+    .then(([videos, materials]) => {
+      const videosHost = overviewSection.querySelector('[data-overview-videos]');
+      const klausurenHost = overviewSection.querySelector('[data-overview-klausuren]');
+      const absHost = overviewSection.querySelector('[data-overview-abs]');
+
+      if(videosHost){
+        const videoMarkup = videos.map((video) => `
+          <article class="overview-modal__video">
+            <h3>${video.subject}</h3>
+            <div class="framed-video">
+              <iframe src="${withHdVideoParams(video.url)}" title="${video.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            ${video.description ? `<p>${video.description}</p>` : ''}
+          </article>
+        `).join('');
+        videosHost.innerHTML = videoMarkup || '<p class="desc">Video-Platzhalter wird später ergänzt.</p>';
+      }
+
+      const renderMaterialsBySubject = (filter) => {
+        const filtered = materials.filter(filter);
+        const grouped = filtered.reduce((acc, item) => {
+          acc[item.subject] = acc[item.subject] || [];
+          acc[item.subject].push(item);
+          return acc;
+        }, {});
+
+        return Object.entries(grouped).map(([subject, items]) => {
+          const linksMarkup = items.map((item) => {
+            if(item.links && item.links.length){
+              return item.links.map((link) => `
+                <a class="subject-modal__link" href="${link.url}" target="_blank" rel="noopener">
+                  <span>${link.title}</span>
+                  <span class="subject-modal__cta">Öffnen</span>
+                </a>
+              `).join('');
+            }
+
+            if(item.link){
+              return `
+                <a class="subject-modal__link" href="${item.link}" target="_blank" rel="noopener">
+                  <span>${item.title}</span>
+                  <span class="subject-modal__cta">Öffnen</span>
+                </a>
+              `;
+            }
+
+            return '';
+          }).join('');
+
+          return `
+            <section class="overview-modal__group">
+              <h3>${subject}</h3>
+              <div class="subject-modal__links">
+                ${linksMarkup}
+              </div>
+            </section>
+          `;
+        }).join('');
+      };
+
+      if(klausurenHost){
+        const klausurenMarkup = renderMaterialsBySubject((item) => /klausur/i.test(item.type));
+        klausurenHost.innerHTML = klausurenMarkup || '<p class="desc">Beispielklausuren werden später ergänzt.</p>';
+      }
+
+      if(absHost){
+        const absMarkup = renderMaterialsBySubject((item) => /arbeitsblätter|aufgaben/i.test(item.type));
+        absHost.innerHTML = absMarkup || '<p class="desc">Arbeitsblätter werden später ergänzt.</p>';
+      }
+    })
+    .catch(() => {
+      const videosHost = overviewSection.querySelector('[data-overview-videos]');
+      const klausurenHost = overviewSection.querySelector('[data-overview-klausuren]');
+      const absHost = overviewSection.querySelector('[data-overview-abs]');
+      if(videosHost){
+        videosHost.innerHTML = '<p class="desc">Video-Platzhalter wird später ergänzt.</p>';
+      }
+      if(klausurenHost){
+        klausurenHost.innerHTML = '<p class="desc">Beispielklausuren werden später ergänzt.</p>';
+      }
+      if(absHost){
+        absHost.innerHTML = '<p class="desc">Arbeitsblätter werden später ergänzt.</p>';
+      }
+    });
+}
+
 const subjectPage = document.querySelector('[data-subject-page]');
 if(subjectPage){
   const subject = subjectPage.dataset.subject;
   const videoHost = subjectPage.querySelector('[data-subject-video]');
   const gradeHost = subjectPage.querySelector('[data-subject-grade]');
   const materialsHost = subjectPage.querySelector('[data-subject-materials]');
-
-  const loadJSON = (path) => fetch(path).then((response) => response.json());
-  const withHdVideoParams = (url) => {
-    if(!url || !url.includes('youtube.com/embed')){
-      return url;
-    }
-    const parsed = new URL(url, window.location.href);
-    parsed.searchParams.set('vq', 'hd1080');
-    parsed.searchParams.set('rel', '0');
-    parsed.searchParams.set('modestbranding', '1');
-    parsed.searchParams.set('playsinline', '1');
-    return parsed.toString();
-  };
 
   Promise.all([
     loadJSON('data/videos.json'),
