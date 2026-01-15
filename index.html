@@ -46,7 +46,6 @@
         <a class="subject-pill" href="chemie.html">Chemie</a>
         <a class="subject-pill" href="kunst.html">Kunst</a>
         <a class="subject-pill" href="franzoesisch.html">Französisch</a>
-        <a class="subject-pill" href="philosophie.html">Philo</a>
       </div>
     </div>
   </div>
@@ -74,54 +73,27 @@
         <h2>Was dich im Materialpool erwartet…</h2>
         <p class="desc">Drei kurze Highlights, die später mit euren eigenen Inhalten ersetzt werden.</p>
         <div class="grid cols-3" data-overview-section>
-          <button class="card pictogram-card pictogram-card--button" type="button" data-overview-modal="overview-videos">
+          <a class="card pictogram-card pictogram-card--link" href="interviews.html">
             <div class="pictogram">🎤</div>
             <div>
               <h3>Interviews mit den Lehrkräften</h3>
               <p>Worum geht’s im LK, was solltet ihr mitbringen und was macht am meisten Spaß? Das erfahrt ihr hier.</p>
             </div>
-          </button>
-          <button class="card pictogram-card pictogram-card--button" type="button" data-overview-modal="overview-klausuren">
+          </a>
+          <a class="card pictogram-card pictogram-card--link" href="klausuren.html">
             <div class="pictogram">📝</div>
             <div>
               <h3>beispielhafte Klausuren</h3>
               <p>Format, Aufgabenstellungen und Umfang: So sehen LK-Klausuren wirklich aus.</p>
             </div>
-          </button>
-          <button class="card pictogram-card pictogram-card--button" type="button" data-overview-modal="overview-abs">
+          </a>
+          <a class="card pictogram-card pictogram-card--link" href="arbeitsblaetter.html">
             <div class="pictogram">🗂️</div>
             <div>
               <h3>ABs und Aufgabenstellung</h3>
               <p>Typische Arbeitsblätter und Aufgaben: So wird im Leistungskurs gearbeitet.</p>
             </div>
-          </button>
-        </div>
-        <div class="goal-overlay overview-modal" id="overview-videos" hidden>
-          <div class="goal-overlay__card overview-modal__card" role="dialog" aria-modal="true" aria-labelledby="overview-videos-title">
-            <button class="goal-overlay__close" type="button" data-overview-close aria-label="Pop-up schließen">×</button>
-            <div class="goal-overlay__body">
-              <h2 id="overview-videos-title">Interviews mit den Lehrkräften</h2>
-              <div class="overview-modal__content" data-overview-videos></div>
-            </div>
-          </div>
-        </div>
-        <div class="goal-overlay overview-modal" id="overview-klausuren" hidden>
-          <div class="goal-overlay__card overview-modal__card" role="dialog" aria-modal="true" aria-labelledby="overview-klausuren-title">
-            <button class="goal-overlay__close" type="button" data-overview-close aria-label="Pop-up schließen">×</button>
-            <div class="goal-overlay__body">
-              <h2 id="overview-klausuren-title">beispielhafte Klausuren</h2>
-              <div class="overview-modal__content" data-overview-klausuren></div>
-            </div>
-          </div>
-        </div>
-        <div class="goal-overlay overview-modal" id="overview-abs" hidden>
-          <div class="goal-overlay__card overview-modal__card" role="dialog" aria-modal="true" aria-labelledby="overview-abs-title">
-            <button class="goal-overlay__close" type="button" data-overview-close aria-label="Pop-up schließen">×</button>
-            <div class="goal-overlay__body">
-              <h2 id="overview-abs-title">ABs und Aufgabenstellung</h2>
-              <div class="overview-modal__content" data-overview-abs></div>
-            </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -141,10 +113,16 @@
         <h2>Durchschnittsnoten nach Aufgabenfeldern</h2>
         <p class="desc">Hier seht ihr die Gesamtdurchschnittsnoten der Semesterklausuren aus den jeweiligen LKs der letzten Jahrgänge am HCG.</p>
         <div class="grade-chart grade-chart--shared-axis">
+          <div class="grade-chart__axis" aria-hidden="true">
+            <span class="grade-chart__axis-label">Punkte</span>
+            <span class="grade-chart__axis-line"></span>
+            <span class="grade-chart__axis-tick grade-chart__axis-tick--top">15</span>
+            <span class="grade-chart__axis-tick grade-chart__axis-tick--mid">7,5</span>
+            <span class="grade-chart__axis-tick grade-chart__axis-tick--bottom">0</span>
+          </div>
           <article class="grade-chart__column">
             <h3>Aufgabenfeld 1</h3>
             <div class="grade-chart__plot" role="img" aria-label="Durchschnittsnoten Aufgabenfeld 1">
-              <span class="grade-chart__y-label">Punkte</span>
               <div class="grade-point" style="--grade:9.40;">
                 <span class="grade-point__dot" aria-hidden="true"></span>
                 <span class="grade-point__label">Französisch <strong>9,40</strong></span>
@@ -162,7 +140,6 @@
           <article class="grade-chart__column">
             <h3>Aufgabenfeld 2</h3>
             <div class="grade-chart__plot" role="img" aria-label="Durchschnittsnoten Aufgabenfeld 2">
-              <span class="grade-chart__y-label">Punkte</span>
               <div class="grade-point" style="--grade:9.00;">
                 <span class="grade-point__dot" aria-hidden="true"></span>
                 <span class="grade-point__label">Geschichte <strong>9,00</strong></span>
@@ -180,7 +157,6 @@
           <article class="grade-chart__column">
             <h3>Aufgabenfeld 3</h3>
             <div class="grade-chart__plot" role="img" aria-label="Durchschnittsnoten Aufgabenfeld 3">
-              <span class="grade-chart__y-label">Punkte</span>
               <div class="grade-point" style="--grade:9.38;">
                 <span class="grade-point__dot" aria-hidden="true"></span>
                 <span class="grade-point__label">Biologie <strong>9,38</strong></span>

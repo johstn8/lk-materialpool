@@ -355,66 +355,60 @@ const withHdVideoParams = (url) => {
   return parsed.toString();
 };
 
-const overviewSection = document.querySelector('[data-overview-section]');
-if(overviewSection){
-  const modalButtons = overviewSection.querySelectorAll('[data-overview-modal]');
-  const modals = document.querySelectorAll('.overview-modal');
-  const closeButtons = document.querySelectorAll('[data-overview-close]');
-  const openModal = (modal) => {
-    if(!modal){
-      return;
-    }
-    modal.removeAttribute('hidden');
-    document.body.classList.add('is-modal-open');
+const overviewPage = document.querySelector('[data-overview-page]');
+if(overviewPage){
+  const overviewType = overviewPage.dataset.overviewPage;
+  const contentHost = overviewPage.querySelector('[data-overview-content]');
+
+  const renderMaterialsBySubject = (materials, filter) => {
+    const filtered = materials.filter(filter);
+    const grouped = filtered.reduce((acc, item) => {
+      acc[item.subject] = acc[item.subject] || [];
+      acc[item.subject].push(item);
+      return acc;
+    }, {});
+
+    return Object.entries(grouped).map(([subject, items]) => {
+      const linksMarkup = items.map((item) => {
+        if(item.links && item.links.length){
+          return item.links.map((link) => `
+            <a class="subject-modal__link" href="${link.url}" target="_blank" rel="noopener">
+              <span>${link.title}</span>
+              <span class="subject-modal__cta">Öffnen</span>
+            </a>
+          `).join('');
+        }
+
+        if(item.link){
+          return `
+            <a class="subject-modal__link" href="${item.link}" target="_blank" rel="noopener">
+              <span>${item.title}</span>
+              <span class="subject-modal__cta">Öffnen</span>
+            </a>
+          `;
+        }
+
+        return '';
+      }).join('');
+
+      return `
+        <section class="overview-modal__group">
+          <h3>${subject}</h3>
+          <div class="subject-modal__links">
+            ${linksMarkup}
+          </div>
+        </section>
+      `;
+    }).join('');
   };
-  const closeModal = (modal) => {
-    if(!modal){
-      return;
-    }
-    modal.setAttribute('hidden', '');
-    document.body.classList.remove('is-modal-open');
-  };
-
-  modalButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const modalId = button.getAttribute('data-overview-modal');
-      const modal = document.getElementById(modalId);
-      openModal(modal);
-    });
-  });
-
-  closeButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const modal = button.closest('.overview-modal');
-      closeModal(modal);
-    });
-  });
-
-  modals.forEach((modal) => {
-    modal.addEventListener('click', (event) => {
-      if(event.target === modal){
-        closeModal(modal);
-      }
-    });
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if(event.key !== 'Escape'){
-      return;
-    }
-    const activeModal = document.querySelector('.overview-modal:not([hidden])');
-    if(activeModal){
-      closeModal(activeModal);
-    }
-  });
 
   Promise.all([loadJSON('data/videos.json'), loadJSON('data/materials.json')])
     .then(([videos, materials]) => {
-      const videosHost = overviewSection.querySelector('[data-overview-videos]');
-      const klausurenHost = overviewSection.querySelector('[data-overview-klausuren]');
-      const absHost = overviewSection.querySelector('[data-overview-abs]');
+      if(!contentHost){
+        return;
+      }
 
-      if(videosHost){
+      if(overviewType === 'videos'){
         const videoMarkup = videos.map((video) => `
           <article class="overview-modal__video">
             <h3>${video.subject}</h3>
@@ -424,73 +418,24 @@ if(overviewSection){
             ${video.description ? `<p>${video.description}</p>` : ''}
           </article>
         `).join('');
-        videosHost.innerHTML = videoMarkup || '<p class="desc">Video-Platzhalter wird später ergänzt.</p>';
+        contentHost.innerHTML = videoMarkup || '<p class="desc">Video-Platzhalter wird später ergänzt.</p>';
+        return;
       }
 
-      const renderMaterialsBySubject = (filter) => {
-        const filtered = materials.filter(filter);
-        const grouped = filtered.reduce((acc, item) => {
-          acc[item.subject] = acc[item.subject] || [];
-          acc[item.subject].push(item);
-          return acc;
-        }, {});
-
-        return Object.entries(grouped).map(([subject, items]) => {
-          const linksMarkup = items.map((item) => {
-            if(item.links && item.links.length){
-              return item.links.map((link) => `
-                <a class="subject-modal__link" href="${link.url}" target="_blank" rel="noopener">
-                  <span>${link.title}</span>
-                  <span class="subject-modal__cta">Öffnen</span>
-                </a>
-              `).join('');
-            }
-
-            if(item.link){
-              return `
-                <a class="subject-modal__link" href="${item.link}" target="_blank" rel="noopener">
-                  <span>${item.title}</span>
-                  <span class="subject-modal__cta">Öffnen</span>
-                </a>
-              `;
-            }
-
-            return '';
-          }).join('');
-
-          return `
-            <section class="overview-modal__group">
-              <h3>${subject}</h3>
-              <div class="subject-modal__links">
-                ${linksMarkup}
-              </div>
-            </section>
-          `;
-        }).join('');
-      };
-
-      if(klausurenHost){
-        const klausurenMarkup = renderMaterialsBySubject((item) => /klausur/i.test(item.type));
-        klausurenHost.innerHTML = klausurenMarkup || '<p class="desc">Beispielklausuren werden später ergänzt.</p>';
+      if(overviewType === 'klausuren'){
+        const klausurenMarkup = renderMaterialsBySubject(materials, (item) => /klausur/i.test(item.type));
+        contentHost.innerHTML = klausurenMarkup || '<p class="desc">Beispielklausuren werden später ergänzt.</p>';
+        return;
       }
 
-      if(absHost){
-        const absMarkup = renderMaterialsBySubject((item) => /arbeitsblätter|aufgaben/i.test(item.type));
-        absHost.innerHTML = absMarkup || '<p class="desc">Arbeitsblätter werden später ergänzt.</p>';
+      if(overviewType === 'abs'){
+        const absMarkup = renderMaterialsBySubject(materials, (item) => /arbeitsblätter|aufgaben/i.test(item.type));
+        contentHost.innerHTML = absMarkup || '<p class="desc">Arbeitsblätter werden später ergänzt.</p>';
       }
     })
     .catch(() => {
-      const videosHost = overviewSection.querySelector('[data-overview-videos]');
-      const klausurenHost = overviewSection.querySelector('[data-overview-klausuren]');
-      const absHost = overviewSection.querySelector('[data-overview-abs]');
-      if(videosHost){
-        videosHost.innerHTML = '<p class="desc">Video-Platzhalter wird später ergänzt.</p>';
-      }
-      if(klausurenHost){
-        klausurenHost.innerHTML = '<p class="desc">Beispielklausuren werden später ergänzt.</p>';
-      }
-      if(absHost){
-        absHost.innerHTML = '<p class="desc">Arbeitsblätter werden später ergänzt.</p>';
+      if(contentHost){
+        contentHost.innerHTML = '<p class="desc">Inhalte werden später ergänzt.</p>';
       }
     });
 }
@@ -500,7 +445,10 @@ if(subjectPage){
   const subject = subjectPage.dataset.subject;
   const videoHost = subjectPage.querySelector('[data-subject-video]');
   const gradeHost = subjectPage.querySelector('[data-subject-grade]');
-  const materialsHost = subjectPage.querySelector('[data-subject-materials]');
+  const klausurenHost = subjectPage.querySelector('[data-subject-klausuren]');
+  const assignmentsHost = subjectPage.querySelector('[data-subject-assignments]');
+  const learningProductsHost = subjectPage.querySelector('[data-subject-learning-products]');
+  const subjectSlug = subject ? subject.toLowerCase().replace(/[^a-z0-9]+/g, '-') : 'subject';
 
   Promise.all([
     loadJSON('data/videos.json'),
@@ -510,7 +458,11 @@ if(subjectPage){
     .then(([videos, grades, materials]) => {
       const video = videos.find((item) => item.subject === subject);
       const grade = grades.find((item) => item.subject === subject);
-      const subjectMaterials = materials.filter((item) => item.subject === subject);
+      const subjectMaterials = materials
+        .map((item, index) => ({ item, index }))
+        .filter(({ item }) => item.subject === subject);
+      const isKlausur = (item) => /klausur/i.test(item.type);
+      const isAssignment = (item) => /arbeitsblätter|aufgaben/i.test(item.type);
 
       if(videoHost){
         if(video){
@@ -535,108 +487,124 @@ if(subjectPage){
         `;
       }
 
-      if(materialsHost){
-        if(subjectMaterials.length){
-          const materialItems = subjectMaterials.map((item, index) => {
-            if(item.links && item.links.length){
-              const modalId = `material-modal-${subject.toLowerCase()}-${index}`;
-              const linksClass = item.modalVariant === 'cards' ? 'subject-modal__link subject-modal__link--large' : 'subject-modal__link';
-              const linksMarkup = item.links.map((link) => `
-                <a class="${linksClass}" href="${link.url}" target="_blank" rel="noopener">
-                  <span>${link.title}</span>
-                  <span class="subject-modal__cta">Öffnen</span>
-                </a>
-              `).join('');
-              const modalButtonCta = item.modalCta || (/arbeitsblätter/i.test(item.type) ? 'Arbeitsblätter auswählen' : 'Klausur auswählen');
+      const buildMaterialMarkup = ({ item, index }) => {
+        if(item.links && item.links.length){
+          const modalId = `material-modal-${subjectSlug}-${index}`;
+          const linksClass = item.modalVariant === 'cards' ? 'subject-modal__link subject-modal__link--large' : 'subject-modal__link';
+          const linksMarkup = item.links.map((link) => `
+            <a class="${linksClass}" href="${link.url}" target="_blank" rel="noopener">
+              <span>${link.title}</span>
+              <span class="subject-modal__cta">Öffnen</span>
+            </a>
+          `).join('');
+          const modalButtonCta = item.modalCta
+            || (isAssignment(item) ? 'Arbeitsblätter auswählen' : isKlausur(item) ? 'Klausur auswählen' : 'Material öffnen');
 
-              return `
-                <button class="subject-card subject-card--button" type="button" data-modal-open="${modalId}">
-                  <span class="timeline-tag">${item.type}</span>
-                  <h3>${item.title}</h3>
+          return `
+            <button class="subject-card subject-card--button" type="button" data-modal-open="${modalId}">
+              <span class="timeline-tag">${item.type}</span>
+              <h3>${item.title}</h3>
+              <p>${item.description}</p>
+              <span class="subject-card__cta">${modalButtonCta}</span>
+            </button>
+            <div class="goal-overlay subject-modal" id="${modalId}" hidden>
+              <div class="goal-overlay__card subject-modal__card" role="dialog" aria-modal="true" aria-labelledby="${modalId}-title">
+                <button class="goal-overlay__close" type="button" data-modal-close aria-label="Pop-up schließen">×</button>
+                <div class="goal-overlay__body">
+                  <h2 id="${modalId}-title">${item.title}</h2>
                   <p>${item.description}</p>
-                  <span class="subject-card__cta">${modalButtonCta}</span>
-                </button>
-                <div class="goal-overlay subject-modal" id="${modalId}" hidden>
-                  <div class="goal-overlay__card subject-modal__card" role="dialog" aria-modal="true" aria-labelledby="${modalId}-title">
-                    <button class="goal-overlay__close" type="button" data-modal-close aria-label="Pop-up schließen">×</button>
-                    <div class="goal-overlay__body">
-                      <h2 id="${modalId}-title">${item.title}</h2>
-                      <p>${item.description}</p>
-                      <div class="subject-modal__links${item.modalVariant === 'cards' ? ' subject-modal__links--cards' : ''}">
-                        ${linksMarkup}
-                      </div>
-                    </div>
+                  <div class="subject-modal__links${item.modalVariant === 'cards' ? ' subject-modal__links--cards' : ''}">
+                    ${linksMarkup}
                   </div>
                 </div>
-              `;
-            }
-
-            return `
-              <a class="card subject-card subject-card--link" href="${item.link}" target="_blank" rel="noopener">
-                <span class="timeline-tag">${item.type}</span>
-                <h3>${item.title}</h3>
-                <p>${item.description}</p>
-                <span class="subject-card__cta">Zum Öffnen klicken</span>
-              </a>
-            `;
-          });
-
-          materialsHost.innerHTML = materialItems.join('');
-
-          const modalButtons = materialsHost.querySelectorAll('[data-modal-open]');
-          const closeButtons = materialsHost.querySelectorAll('[data-modal-close]');
-          const closeModal = (modal) => {
-            if(!modal){
-              return;
-            }
-            modal.setAttribute('hidden', '');
-            document.body.classList.remove('is-modal-open');
-          };
-          const openModal = (modal) => {
-            if(!modal){
-              return;
-            }
-            modal.removeAttribute('hidden');
-            document.body.classList.add('is-modal-open');
-          };
-
-          modalButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-              const modalId = button.getAttribute('data-modal-open');
-              const modal = materialsHost.querySelector(`#${modalId}`);
-              openModal(modal);
-            });
-          });
-
-          closeButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-              const modal = button.closest('.subject-modal');
-              closeModal(modal);
-            });
-          });
-
-          const modals = materialsHost.querySelectorAll('.subject-modal');
-          modals.forEach((modal) => {
-            modal.addEventListener('click', (event) => {
-              if(event.target === modal){
-                closeModal(modal);
-              }
-            });
-          });
-
-          document.addEventListener('keydown', (event) => {
-            if(event.key !== 'Escape'){
-              return;
-            }
-            const activeModal = document.querySelector('.subject-modal:not([hidden])');
-            if(activeModal){
-              closeModal(activeModal);
-            }
-          });
-        } else {
-          materialsHost.innerHTML = '<p class="desc">Weitere Lerninhalte werden später ergänzt.</p>';
+              </div>
+            </div>
+          `;
         }
-      }
+
+        if(item.link){
+          return `
+            <a class="card subject-card subject-card--link" href="${item.link}" target="_blank" rel="noopener">
+              <span class="timeline-tag">${item.type}</span>
+              <h3>${item.title}</h3>
+              <p>${item.description}</p>
+              <span class="subject-card__cta">Zum Öffnen klicken</span>
+            </a>
+          `;
+        }
+
+        return '';
+      };
+
+      const renderSection = (items, host, emptyText) => {
+        if(!host){
+          return;
+        }
+        if(!items.length){
+          host.innerHTML = `<p class="desc">${emptyText}</p>`;
+          return;
+        }
+        host.innerHTML = items.map(buildMaterialMarkup).join('');
+      };
+
+      const klausuren = subjectMaterials.filter(({ item }) => isKlausur(item));
+      const assignments = subjectMaterials.filter(({ item }) => isAssignment(item));
+      const learningProducts = subjectMaterials.filter(({ item }) => !isKlausur(item) && !isAssignment(item));
+
+      renderSection(klausuren, klausurenHost, 'Beispielklausuren werden später ergänzt.');
+      renderSection(assignments, assignmentsHost, 'Arbeitsblätter werden später ergänzt.');
+      renderSection(learningProducts, learningProductsHost, 'Weitere Lerninhalte werden später ergänzt.');
+
+      const modalButtons = subjectPage.querySelectorAll('[data-modal-open]');
+      const closeButtons = subjectPage.querySelectorAll('[data-modal-close]');
+      const closeModal = (modal) => {
+        if(!modal){
+          return;
+        }
+        modal.setAttribute('hidden', '');
+        document.body.classList.remove('is-modal-open');
+      };
+      const openModal = (modal) => {
+        if(!modal){
+          return;
+        }
+        modal.removeAttribute('hidden');
+        document.body.classList.add('is-modal-open');
+      };
+
+      modalButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const modalId = button.getAttribute('data-modal-open');
+          const modal = subjectPage.querySelector(`#${modalId}`);
+          openModal(modal);
+        });
+      });
+
+      closeButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const modal = button.closest('.subject-modal');
+          closeModal(modal);
+        });
+      });
+
+      const modals = subjectPage.querySelectorAll('.subject-modal');
+      modals.forEach((modal) => {
+        modal.addEventListener('click', (event) => {
+          if(event.target === modal){
+            closeModal(modal);
+          }
+        });
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if(event.key !== 'Escape'){
+          return;
+        }
+        const activeModal = document.querySelector('.subject-modal:not([hidden])');
+        if(activeModal){
+          closeModal(activeModal);
+        }
+      });
     })
     .catch(() => {
       if(videoHost){
@@ -645,8 +613,14 @@ if(subjectPage){
       if(gradeHost){
         gradeHost.innerHTML = '<p class="desc">Platzhalter für den Notendurchschnitt.</p>';
       }
-      if(materialsHost){
-        materialsHost.innerHTML = '<p class="desc">Weitere Lerninhalte werden später ergänzt.</p>';
+      if(klausurenHost){
+        klausurenHost.innerHTML = '<p class="desc">Beispielklausuren werden später ergänzt.</p>';
+      }
+      if(assignmentsHost){
+        assignmentsHost.innerHTML = '<p class="desc">Arbeitsblätter werden später ergänzt.</p>';
+      }
+      if(learningProductsHost){
+        learningProductsHost.innerHTML = '<p class="desc">Weitere Lerninhalte werden später ergänzt.</p>';
       }
     });
 }
