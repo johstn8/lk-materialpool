@@ -538,6 +538,18 @@ if(subjectPage){
       }
 
       const buildMaterialMarkup = ({ item, index }) => {
+        if(item.links && item.links.length === 1 && isAssignment(item)){
+          const link = item.links[0];
+          const ctaLabel = item.modalCta || 'Arbeitsblatt öffnen';
+          return `
+            <a class="card subject-card subject-card--link" href="${link.url}" target="_blank" rel="noopener">
+              <h3>${item.title}</h3>
+              <p>${item.description}</p>
+              <span class="subject-card__cta">${ctaLabel}</span>
+            </a>
+          `;
+        }
+
         if(item.links && item.links.length){
           const modalId = `material-modal-${subjectSlug}-${index}`;
           const linksClass = item.modalVariant === 'cards' ? 'subject-modal__link subject-modal__link--large' : 'subject-modal__link';
