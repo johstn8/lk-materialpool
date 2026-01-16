@@ -9,10 +9,12 @@
   --radius: 14px;
   --shadow: 0 10px 20px rgba(0,0,0,.06);
   --shadow-strong: 0 18px 40px rgba(0,0,0,.14);
+  --subject-strip-height: 0px;
+  --subject-strip-collapsed-height: 0px;
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth; overflow-x:hidden}
+html{scroll-behavior:smooth; overflow-x:hidden; scroll-padding-top:calc(var(--header-height, 0px) + var(--subject-strip-collapsed-height, 0px))}
 body{margin:0;min-height:100vh;display:flex;flex-direction:column;font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color:var(--text); background:var(--bg); overflow-x:hidden; padding-top:var(--header-height, 0px)}
 a{color:var(--accent); text-decoration: none}
 a:hover{text-decoration:underline}
@@ -115,7 +117,7 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .sheet-download{display:flex; align-items:center; justify-content:flex-start}
 .sheet-download .btn{min-width:240px}
 
-.subject-hero{padding:38px 0 16px}
+.subject-hero{padding:calc(38px + var(--subject-strip-collapsed-height, 0px)) 0 16px}
 .subject-hero .container{text-align:center}
 .subject-hero h1{margin:12px 0 6px}
 .subject-meta{color:var(--muted); max-width:70ch; line-height:1.6}
