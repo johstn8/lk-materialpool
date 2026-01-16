@@ -4,6 +4,7 @@ const navLinks = document.getElementById('navlinks');
 const navAnchors = navLinks?.querySelectorAll('a');
 const headerEl = document.querySelector('header');
 const subjectStrip = document.querySelector('.subject-strip');
+const subjectStripLabel = subjectStrip?.querySelector('.subject-strip__label');
 
 if(navToggle && navLinks){
   navToggle.addEventListener('click', () => {
@@ -30,13 +31,33 @@ const setHeaderHeight = () => {
   return height;
 };
 
+const setSubjectStripMetrics = () => {
+  if(!subjectStrip){
+    return { labelHeight: 0, stripHeight: 0, collapsedHeight: 0 };
+  }
+  const wasCollapsed = subjectStrip.classList.contains('is-collapsed');
+  if(wasCollapsed){
+    subjectStrip.classList.remove('is-collapsed');
+  }
+  const labelHeight = subjectStripLabel?.getBoundingClientRect().height ?? 0;
+  const stripHeight = subjectStrip.getBoundingClientRect().height;
+  const collapsedHeight = Math.max(0, stripHeight - labelHeight);
+  document.documentElement.style.setProperty('--subject-strip-height', `${stripHeight}px`);
+  document.documentElement.style.setProperty('--subject-strip-collapsed-height', `${collapsedHeight}px`);
+  if(wasCollapsed){
+    subjectStrip.classList.add('is-collapsed');
+  }
+  return { labelHeight, stripHeight, collapsedHeight };
+};
+
 const updateSubjectStripState = () => {
   if(!subjectStrip){
     return;
   }
-  const headerHeight = setHeaderHeight();
-  const stripTop = subjectStrip.getBoundingClientRect().top;
-  const isCollapsed = stripTop <= headerHeight + 1;
+  setHeaderHeight();
+  const { labelHeight } = setSubjectStripMetrics();
+  const collapseThreshold = Math.max(0, labelHeight);
+  const isCollapsed = window.scrollY > collapseThreshold;
   subjectStrip.classList.toggle('is-collapsed', isCollapsed);
 };
 
