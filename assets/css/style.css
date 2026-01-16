@@ -277,6 +277,8 @@ textarea{min-height:140px; resize:vertical}
 @media (max-width: 760px){
   nav{flex-wrap:wrap}
   .brand{width:100%; justify-content:space-between}
+  .brand-copy span{font-size:clamp(18px, 6vw, 24px)}
+  .brand-copy small{display:none}
   .sv-logo{width:100%; justify-content:flex-start}
   .sv-logo img{height:46px}
   .lk-menu{display:block}
