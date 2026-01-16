@@ -32,15 +32,16 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .brand-link{display:flex; align-items:center; gap:12px; color:inherit; text-decoration:none}
 .brand-link:hover,
 .brand-link:focus-visible{color:inherit; text-decoration:none !important}
+.brand-link::before{content:""; display:none; width:46px; height:46px; background:url("../../media/logo-hcg.svg") no-repeat center/contain; flex:0 0 auto}
 .sv-logo{display:flex; align-items:center; justify-content:flex-end}
 .sv-logo img{height:54px; width:auto; max-width:140px; object-fit:contain}
 .lk-menu{display:none; margin-left:auto; position:relative}
 .lk-menu__toggle{list-style:none; cursor:pointer; border:1px solid var(--border); background:#fff; border-radius:12px; padding:10px 14px; font-size:.95rem; font-weight:600; color:var(--text)}
 .lk-menu__toggle::-webkit-details-marker{display:none}
 .lk-menu__toggle:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
-.lk-menu__links{display:none; position:absolute; right:0; top:calc(100% + 8px); min-width:200px; padding:12px; border-radius:14px; border:1px solid var(--border); background:#fff; box-shadow:var(--shadow); flex-direction:column; gap:10px; z-index:30}
+.lk-menu__links{display:flex; position:absolute; right:0; top:calc(100% + 8px); min-width:200px; padding:12px; border-radius:14px; border:1px solid var(--border); background:#fff; box-shadow:var(--shadow); flex-direction:column; gap:10px; z-index:30; opacity:0; transform:translateY(-6px); pointer-events:none; visibility:hidden; transition:opacity .2s ease, transform .2s ease}
 .lk-menu__links a{color:var(--text); font-weight:600}
-.lk-menu[open] .lk-menu__links{display:flex}
+.lk-menu[open] .lk-menu__links{opacity:1; transform:translateY(0); pointer-events:auto; visibility:visible}
 .brand-mark{height:46px; width:46px; border-radius:14px; background:#fff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; padding:6px; box-shadow:var(--shadow)}
 .brand-mark img{height:100%; width:100%; object-fit:contain}
 .brand-copy span{display:block; font-size:clamp(20px, 4vw, 30px); font-weight:600; line-height:1}
@@ -286,8 +287,12 @@ textarea{min-height:140px; resize:vertical}
   .home nav{flex-wrap:nowrap}
   .brand{width:100%; justify-content:space-between}
   .home .brand{width:auto; justify-content:flex-start}
+  .brand-copy{display:none}
   .brand-copy span{font-size:clamp(18px, 6vw, 24px)}
   .brand-copy small{display:none}
+  .brand-link::before{display:block}
+  .sv-logo,
+  .brand-mark{display:none}
   .sv-logo{width:100%; justify-content:flex-start}
   .home .sv-logo{width:auto}
   .sv-logo img{height:46px}
@@ -302,6 +307,7 @@ textarea{min-height:140px; resize:vertical}
   .hero-grid{grid-template-columns:1fr}
   .hero-logo{display:none}
   .hero-media{display:block}
+  .subject-hero{padding:28px 0 14px}
   .subject-strip{display:none}
   .subject-video{flex-direction:column}
   .subject-video__media,
