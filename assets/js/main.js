@@ -28,8 +28,8 @@ if(yearEl){
 const parseGermanFloat = (value) => Number.parseFloat(String(value).trim().replace(',', '.'));
 
 const setupGradeCharts = () => {
-  const MIN_GRADE = 4;
-  const MAX_GRADE = 12;
+  const MIN_GRADE = 7;
+  const MAX_GRADE = 11;
   const plots = document.querySelectorAll('.grade-chart__plot');
 
   plots.forEach((plot) => {
@@ -54,15 +54,21 @@ const setupGradeCharts = () => {
         gradeValue = MIN_GRADE;
       }
 
-      const clamped = Math.min(MAX_GRADE, Math.max(MIN_GRADE, gradeValue));
-      const pct = ((clamped - MIN_GRADE) / (MAX_GRADE - MIN_GRADE)) * 100;
+      if(gradeValue < MIN_GRADE || gradeValue > MAX_GRADE){
+        point.hidden = true;
+        return { point, gradeValue, visible: false };
+      }
+
+      const pct = ((gradeValue - MIN_GRADE) / (MAX_GRADE - MIN_GRADE)) * 100;
+      point.hidden = false;
       point.style.setProperty('--grade-pct', `${pct}%`);
 
-      return { point, gradeValue };
+      return { point, gradeValue, visible: true };
     });
 
     parsedPoints
       .slice()
+      .filter(({ visible }) => visible)
       .sort((a, b) => b.gradeValue - a.gradeValue)
       .forEach(({ point }) => plot.appendChild(point));
   });
