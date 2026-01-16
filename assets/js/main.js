@@ -491,7 +491,6 @@ const subjectPage = document.querySelector('[data-subject-page]');
 if(subjectPage){
   const subject = subjectPage.dataset.subject;
   const videoHost = subjectPage.querySelector('[data-subject-video]');
-  const gradeHost = subjectPage.querySelector('[data-subject-grade]');
   const klausurenHost = subjectPage.querySelector('[data-subject-klausuren]');
   const assignmentsHost = subjectPage.querySelector('[data-subject-assignments]');
   const learningProductsHost = subjectPage.querySelector('[data-subject-learning-products]');
@@ -502,12 +501,10 @@ if(subjectPage){
 
   Promise.all([
     loadJSON('data/videos.json'),
-    loadJSON('data/grades.json'),
     loadJSON('data/materials.json'),
   ])
-    .then(([videos, grades, materials]) => {
+    .then(([videos, materials]) => {
       const video = videos.find((item) => item.subject === subject);
-      const grade = grades.find((item) => item.subject === subject);
       const subjectMaterials = materials
         .map((item, index) => ({ item, index }))
         .filter(({ item }) => item.subject === subject);
@@ -524,17 +521,6 @@ if(subjectPage){
         } else {
           videoHost.innerHTML = '<p class="desc">Video-Platzhalter wird später ergänzt.</p>';
         }
-      }
-
-      if(gradeHost){
-        gradeHost.innerHTML = `
-          <div class="subject-grade">
-            <span class="grade-pill">Ø ${grade ? grade.average : '—'}</span>
-            <div>
-              <p>${grade ? grade.note : 'Platzhalter für den Notendurchschnitt.'}</p>
-            </div>
-          </div>
-        `;
       }
 
       const buildMaterialMarkup = ({ item, index }) => {
@@ -672,9 +658,6 @@ if(subjectPage){
     .catch(() => {
       if(videoHost){
         videoHost.innerHTML = '<p class="desc">Video-Platzhalter wird später ergänzt.</p>';
-      }
-      if(gradeHost){
-        gradeHost.innerHTML = '<p class="desc">Platzhalter für den Notendurchschnitt.</p>';
       }
       if(klausurenHost){
         klausurenHost.innerHTML = '';
