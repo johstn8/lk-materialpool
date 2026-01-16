@@ -28,7 +28,7 @@ if(yearEl){
 const parseGermanFloat = (value) => Number.parseFloat(String(value).trim().replace(',', '.'));
 
 const setupGradeCharts = () => {
-  const MIN_GRADE = 7;
+  const MIN_GRADE = 7.7;
   const MAX_GRADE = 10;
   const plots = document.querySelectorAll('.grade-chart__plot');
 
