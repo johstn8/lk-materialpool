@@ -29,7 +29,7 @@ const parseGermanFloat = (value) => Number.parseFloat(String(value).trim().repla
 
 const setupGradeCharts = () => {
   const MIN_GRADE = 7;
-  const MAX_GRADE = 11;
+  const MAX_GRADE = 10;
   const plots = document.querySelectorAll('.grade-chart__plot');
 
   plots.forEach((plot) => {
