@@ -3,8 +3,8 @@
     "subject": "Deutsch",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Deutsch",
-    "description": "Arbeitsblätter und Aufgaben für den Deutsch-LK.",
-    "modalCta": "Arbeitsblätter auswählen",
+    "description": "Kurzprosa-Analyse, Argumentation, Schreibtraining.",
+    "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
       {
@@ -17,15 +17,15 @@
     "subject": "Deutsch",
     "type": "Podcast",
     "title": "Podcastreihe: Politische Sprache",
-    "description": "Podcastreihe als Lernprodukt zum Thema politische Sprache.",
+    "description": "Politische Sprache, Rhetorik, Wirkung.",
     "link": "https://hcg-berlin.de/politische-sprache/"
   },
   {
     "subject": "Geschichte",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Geschichte",
-    "description": "Arbeitsblätter und Aufgaben für den Geschichte-LK.",
-    "modalCta": "Arbeitsblätter auswählen",
+    "description": "Quellenanalyse, Zeitlinien, Deutung.",
+    "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
       {
@@ -38,8 +38,8 @@
     "subject": "Politik",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Politik",
-    "description": "Arbeitsblätter und Aufgaben für den Politik-LK.",
-    "modalCta": "Arbeitsblätter auswählen",
+    "description": "Urteilsbildung, Grundrechte, Positionen.",
+    "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
       {
@@ -52,14 +52,14 @@
     "subject": "Politik",
     "type": "Positionspapiere",
     "title": "Positionspapier der ESN",
-    "description": "Positionspapier der ESN aus dem Politik-LK.",
+    "description": "Positionsarbeit zu schulpolitischen Themen.",
     "link": "assets/documents/lernprodukte/politik-positionspapiere-lk-boerse.pdf"
   },
   {
     "subject": "Politik",
     "type": "Präsentation",
     "title": "Präsentation: Thema des Monats",
-    "description": "Präsentation über die Ausweitung militärischer Kompetenzen auf EU-Ebene.",
+    "description": "EU-Verteidigungspolitik, Kompetenzerweiterung.",
     "link": "assets/documents/lernprodukte/politik-praesentation-lk-boerse.pdf"
   },
   {
@@ -73,8 +73,8 @@
     "subject": "Geografie",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Geografie",
-    "description": "Arbeitsblätter und Aufgaben für den Geografie-LK.",
-    "modalCta": "Arbeitsblätter auswählen",
+    "description": "Stadtentwicklung, Klimawandel, Raumnutzung.",
+    "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
       {
@@ -87,28 +87,28 @@
     "subject": "Geografie",
     "type": "Wirkungsgefüge",
     "title": "Wirkungsgefüge: Schwammstadt",
-    "description": "Wirkungsgefüge zur Schwammstadt als Lernprodukt.",
+    "description": "Schwammstadt, Ursachen-Wirkung-Ketten.",
     "link": "assets/documents/lernprodukte/geografie-wirkungsgefuege-schwammstadt.pdf"
   },
   {
     "subject": "Geografie",
     "type": "Podcast",
     "title": "Podcast: Land Grabbing in der EU",
-    "description": "Podcastfolge zum Thema Land Grabbing in der EU.",
+    "description": "Landgrabbing, Agrarwirtschaft, EU-Bezüge.",
     "link": "assets/documents/lernprodukte/geografie-podcast-land-grabbing-eu.mp3"
   },
   {
     "subject": "Biologie",
     "type": "Beispielklausur",
     "title": "Beispielklausur Biologie (2015)",
-    "description": "Originalklausur zur Vorbereitung auf den LK.",
+    "description": "Genetik, Ökologie, Auswertung.",
     "link": "assets/documents/klausuren/biologie-klausur-2015.pdf"
   },
   {
     "subject": "Biologie",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblatt Biologie",
-    "description": "Arbeitsblatt für den Biologie-LK.",
+    "description": "Stoffwechsel, Diagramme, Auswertung.",
     "modalCta": "Arbeitsblatt öffnen",
     "links": [
       {
@@ -121,14 +121,14 @@
     "subject": "Musik",
     "type": "Semesterklausur",
     "title": "Semesterklausur Q1 (EWH)",
-    "description": "Semesterklausur zur Orientierung inklusive Erwartungshorizont.",
+    "description": "Werkanalyse, Hörbeispiele, Musiktheorie.",
     "link": "assets/documents/klausuren/musik-semesterklausur-q1-ewh.pdf"
   },
   {
     "subject": "Musik",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblatt: Fahrplan Komponieren",
-    "description": "Arbeitsblatt zur Kompositionsplanung im Musik-LK.",
+    "description": "Kompositionsplanung, Motivarbeit, Struktur.",
     "modalCta": "Arbeitsblatt öffnen",
     "links": [
       {
@@ -168,15 +168,15 @@
     "subject": "Physik",
     "type": "Erklärvideo",
     "title": "Erklärvideo: Zyklotron",
-    "description": "Erklärvideo zum Zyklotron als Lernprodukt für den LK.",
+    "description": "Zyklotron, Magnetfelder, Teilchenbeschleunigung.",
     "link": "https://youtu.be/EUE9OsmNnuM"
   },
   {
     "subject": "Englisch",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Englisch",
-    "description": "Arbeitsblätter und Aufgaben für den Englisch-LK.",
-    "modalCta": "Arbeitsblätter auswählen",
+    "description": "Climate change, civil rights movement, text analysis.",
+    "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
       {
@@ -189,29 +189,29 @@
     "subject": "Englisch",
     "type": "Poster",
     "title": "Poster: Climate Change & Mental Health",
-    "description": "Lernposter zum Einfluss von Climate Change auf Mental Health.",
+    "description": "Climate change, mental health, visual summary.",
     "link": "assets/documents/lernprodukte/englisch-poster-climate-change-mental-health.jpeg"
   },
   {
     "subject": "Englisch",
     "type": "Short Story",
     "title": "Short Story: The White Whale",
-    "description": "Short Story als Lernprodukt für den Englisch-LK.",
+    "description": "Short story, narrative perspective, analysis.",
     "link": "assets/documents/lernprodukte/englisch-short-story-the-white-whale.png"
   },
   {
     "subject": "Chemie",
     "type": "Beispielklausur",
     "title": "Beispielaufgaben Chemie LK (Fachbrief 08)",
-    "description": "Offizielle Beispielaufgaben aus dem Fachbrief Chemie.",
+    "description": "Redox, Kinetik, Gleichgewichte.",
     "link": "https://bildungsserver.berlin-brandenburg.de/fileadmin/bbb/unterricht/fachbriefe_berlin/chemie/fachbrief_chemie_08_beispielaufgaben_lk.pdf"
   },
   {
     "subject": "Chemie",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Chemie",
-    "description": "Arbeitsblätter und Aufgaben für den Chemie-LK.",
-    "modalCta": "Arbeitsblätter auswählen",
+    "description": "Stoffumwandlungen, Gleichgewichte, Reaktionswege.",
+    "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
       {
@@ -231,22 +231,22 @@
     "subject": "Kunst",
     "type": "Lernprodukte",
     "title": "Lernprodukte: Emotion",
-    "description": "Lernprodukte aus dem Kunst-LK rund um das Thema Emotion.",
+    "description": "Emotion, Bildanalyse, Gestaltung.",
     "link": "https://hcg-berlin.de/emotion/"
   },
   {
     "subject": "Französisch",
     "type": "Beispielklausur",
     "title": "Beispielklausur Französisch Q1",
-    "description": "Originalklausur zur Vorbereitung auf den LK.",
+    "description": "Analyse littéraire, argumentation.",
     "link": "assets/documents/klausuren/franzoesisch-klausur-q1.pdf"
   },
   {
     "subject": "Französisch",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Französisch",
-    "description": "Arbeitsblätter und Aufgaben für den Französisch-LK.",
-    "modalCta": "Arbeitsblätter auswählen",
+    "description": "Textanalyse, Argumentation, Hörverstehen.",
+    "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
       {

@@ -3,42 +3,43 @@
     "subject": "Deutsch",
     "title": "LK-Video Deutsch",
     "url": "https://www.youtube.com/embed/dgfZvC8RLuA",
-    "description": "Video-Einblick in den LK Deutsch."
+    "description": ""
   },
   {
     "subject": "Geschichte",
     "title": "LK-Video Geschichte",
     "url": "https://www.youtube.com/embed/xhBwd4TPO0I",
-    "description": "Video-Einblick in den LK Geschichte."
+    "description": ""
   },
   {
     "subject": "Politik",
     "title": "LK-Video Politik",
     "url": "https://www.youtube.com/embed/k1vZDzYY7fE",
-    "description": "Video-Einblick in den LK Politik."
+    "description": ""
   },
   {
     "subject": "Geografie",
     "title": "LK-Video Geografie",
     "url": "https://www.youtube.com/embed/m3MINTA8jUw",
-    "description": "Video-Einblick in den LK Geografie."
+    "description": ""
   },
   {
     "subject": "Biologie",
-    "title": "Video folgt",
-    "description": "Video folgt."
+    "title": "LK-Video Biologie",
+    "url": "https://www.youtube.com/embed/D0TugdaFo6U",
+    "description": ""
   },
   {
     "subject": "Musik",
     "title": "LK-Video Musik",
     "url": "https://www.youtube.com/embed/4lvRfJqCF0w",
-    "description": "Video-Einblick in den LK Musik."
+    "description": ""
   },
   {
     "subject": "Mathe",
     "title": "LK-Video Mathe",
     "url": "https://www.youtube.com/embed/Rzlv-syPfSQ",
-    "description": "Video-Einblick in den LK Mathe."
+    "description": ""
   },
   {
     "subject": "Physik",
@@ -49,13 +50,13 @@
     "subject": "Englisch",
     "title": "LK-Video Englisch",
     "url": "https://www.youtube.com/embed/QTCW_jYO59I",
-    "description": "Video-Einblick in den LK Englisch."
+    "description": ""
   },
   {
     "subject": "Chemie",
     "title": "LK-Video Chemie",
     "url": "https://www.youtube.com/embed/5FHR-5N7wg0",
-    "description": "Video-Einblick in den LK Chemie."
+    "description": ""
   },
   {
     "subject": "Kunst",
@@ -66,6 +67,6 @@
     "subject": "Französisch",
     "title": "YouTube-Video (Französisch)",
     "url": "https://www.youtube.com/embed/E9P1TMEXjNM",
-    "description": "Video-Einblick in den LK Französisch."
+    "description": ""
   }
 ]

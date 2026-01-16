@@ -2,6 +2,8 @@
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.getElementById('navlinks');
 const navAnchors = navLinks?.querySelectorAll('a');
+const headerEl = document.querySelector('header');
+const subjectStrip = document.querySelector('.subject-strip');
 
 if(navToggle && navLinks){
   navToggle.addEventListener('click', () => {
@@ -19,6 +21,30 @@ navAnchors?.forEach((link) => {
   });
 });
 
+const setHeaderHeight = () => {
+  if(!headerEl){
+    return 0;
+  }
+  const height = headerEl.getBoundingClientRect().height;
+  document.documentElement.style.setProperty('--header-height', `${height}px`);
+  return height;
+};
+
+const updateSubjectStripState = () => {
+  if(!subjectStrip){
+    return;
+  }
+  const headerHeight = setHeaderHeight();
+  const stripTop = subjectStrip.getBoundingClientRect().top;
+  const isCollapsed = stripTop <= headerHeight + 1;
+  subjectStrip.classList.toggle('is-collapsed', isCollapsed);
+};
+
+setHeaderHeight();
+updateSubjectStripState();
+window.addEventListener('resize', updateSubjectStripState);
+window.addEventListener('scroll', updateSubjectStripState, { passive: true });
+
 // Footer year
 const yearEl = document.getElementById('year');
 if(yearEl){
@@ -28,11 +54,11 @@ if(yearEl){
 const parseGermanFloat = (value) => Number.parseFloat(String(value).trim().replace(',', '.'));
 
 const setupGradeCharts = () => {
-  const MIN_GRADE = 7.7;
-  const MAX_GRADE = 10;
   const plots = document.querySelectorAll('.grade-chart__plot');
 
   plots.forEach((plot) => {
+    const minGrade = parseGermanFloat(plot.dataset.gradeMin ?? '7.7');
+    const maxGrade = parseGermanFloat(plot.dataset.gradeMax ?? '10');
     const points = Array.from(plot.querySelectorAll('.grade-point'));
     if(points.length === 0){
       return;
@@ -51,15 +77,15 @@ const setupGradeCharts = () => {
         }
       }
       if(!Number.isFinite(gradeValue)){
-        gradeValue = MIN_GRADE;
+        gradeValue = minGrade;
       }
 
-      if(gradeValue < MIN_GRADE || gradeValue > MAX_GRADE){
+      if(gradeValue < minGrade || gradeValue > maxGrade){
         point.hidden = true;
         return { point, gradeValue, visible: false };
       }
 
-      const pct = ((gradeValue - MIN_GRADE) / (MAX_GRADE - MIN_GRADE)) * 100;
+      const pct = ((gradeValue - minGrade) / (maxGrade - minGrade)) * 100;
       point.hidden = false;
       point.style.setProperty('--grade-pct', `${pct}%`);
 
@@ -393,14 +419,18 @@ if(excelLink){
 
 const loadJSON = (path) => fetch(path).then((response) => response.json());
 const withHdVideoParams = (url) => {
-  if(!url || !url.includes('youtube.com/embed')){
+  if(!url || (!url.includes('youtube.com/embed') && !url.includes('youtube-nocookie.com/embed'))){
     return url;
   }
-  const parsed = new URL(url, window.location.href);
+  const sanitizedUrl = url.replace('https://www.youtube.com/embed', 'https://www.youtube-nocookie.com/embed');
+  const parsed = new URL(sanitizedUrl, window.location.href);
   parsed.searchParams.set('vq', 'hd1080');
   parsed.searchParams.set('quality', 'hd1080');
+  parsed.searchParams.set('hd', '1');
   parsed.searchParams.set('rel', '0');
   parsed.searchParams.set('modestbranding', '1');
+  parsed.searchParams.set('showinfo', '0');
+  parsed.searchParams.set('iv_load_policy', '3');
   parsed.searchParams.set('playsinline', '1');
   return parsed.toString();
 };
