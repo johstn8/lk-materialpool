@@ -424,13 +424,13 @@ if(overviewPage){
 
       if(overviewType === 'klausuren'){
         const klausurenMarkup = renderMaterialsBySubject(materials, (item) => /klausur/i.test(item.type));
-        contentHost.innerHTML = klausurenMarkup || '<p class="desc">Beispielklausuren werden später ergänzt.</p>';
+        contentHost.innerHTML = klausurenMarkup;
         return;
       }
 
       if(overviewType === 'abs'){
         const absMarkup = renderMaterialsBySubject(materials, (item) => /arbeitsblätter|aufgaben/i.test(item.type));
-        contentHost.innerHTML = absMarkup || '<p class="desc">Arbeitsblätter werden später ergänzt.</p>';
+        contentHost.innerHTML = absMarkup;
       }
     })
     .catch(() => {
@@ -448,6 +448,9 @@ if(subjectPage){
   const klausurenHost = subjectPage.querySelector('[data-subject-klausuren]');
   const assignmentsHost = subjectPage.querySelector('[data-subject-assignments]');
   const learningProductsHost = subjectPage.querySelector('[data-subject-learning-products]');
+  const learningProductsTitle = subjectPage.querySelector('[data-learning-products-title]');
+  const learningProductsDesc = subjectPage.querySelector('[data-learning-products-desc]');
+  const learningProductsDivider = subjectPage.querySelector('[data-learning-products-divider]');
   const subjectSlug = subject ? subject.toLowerCase().replace(/[^a-z0-9]+/g, '-') : 'subject';
 
   Promise.all([
@@ -502,7 +505,6 @@ if(subjectPage){
 
           return `
             <button class="subject-card subject-card--button" type="button" data-modal-open="${modalId}">
-              <span class="timeline-tag">${item.type}</span>
               <h3>${item.title}</h3>
               <p>${item.description}</p>
               <span class="subject-card__cta">${modalButtonCta}</span>
@@ -525,7 +527,6 @@ if(subjectPage){
         if(item.link){
           return `
             <a class="card subject-card subject-card--link" href="${item.link}" target="_blank" rel="noopener">
-              <span class="timeline-tag">${item.type}</span>
               <h3>${item.title}</h3>
               <p>${item.description}</p>
               <span class="subject-card__cta">Zum Öffnen klicken</span>
@@ -536,12 +537,15 @@ if(subjectPage){
         return '';
       };
 
-      const renderSection = (items, host, emptyText) => {
+      const renderSection = (items, host, { hideParent = false } = {}) => {
         if(!host){
           return;
         }
         if(!items.length){
-          host.innerHTML = `<p class="desc">${emptyText}</p>`;
+          host.innerHTML = '';
+          if(hideParent){
+            host.closest('.subject-materials-block')?.setAttribute('hidden', '');
+          }
           return;
         }
         host.innerHTML = items.map(buildMaterialMarkup).join('');
@@ -551,9 +555,21 @@ if(subjectPage){
       const assignments = subjectMaterials.filter(({ item }) => isAssignment(item));
       const learningProducts = subjectMaterials.filter(({ item }) => !isKlausur(item) && !isAssignment(item));
 
-      renderSection(klausuren, klausurenHost, 'Beispielklausuren werden später ergänzt.');
-      renderSection(assignments, assignmentsHost, 'Arbeitsblätter werden später ergänzt.');
-      renderSection(learningProducts, learningProductsHost, 'Weitere Lerninhalte werden später ergänzt.');
+      renderSection(klausuren, klausurenHost, { hideParent: true });
+      renderSection(assignments, assignmentsHost, { hideParent: true });
+      if(!learningProducts.length){
+        learningProductsHost.innerHTML = '';
+        learningProductsHost.setAttribute('hidden', '');
+        learningProductsTitle?.setAttribute('hidden', '');
+        learningProductsDesc?.setAttribute('hidden', '');
+        learningProductsDivider?.setAttribute('hidden', '');
+      } else {
+        learningProductsHost.removeAttribute('hidden');
+        learningProductsTitle?.removeAttribute('hidden');
+        learningProductsDesc?.removeAttribute('hidden');
+        learningProductsDivider?.removeAttribute('hidden');
+        learningProductsHost.innerHTML = learningProducts.map(buildMaterialMarkup).join('');
+      }
 
       const modalButtons = subjectPage.querySelectorAll('[data-modal-open]');
       const closeButtons = subjectPage.querySelectorAll('[data-modal-close]');
@@ -614,13 +630,13 @@ if(subjectPage){
         gradeHost.innerHTML = '<p class="desc">Platzhalter für den Notendurchschnitt.</p>';
       }
       if(klausurenHost){
-        klausurenHost.innerHTML = '<p class="desc">Beispielklausuren werden später ergänzt.</p>';
+        klausurenHost.innerHTML = '';
       }
       if(assignmentsHost){
-        assignmentsHost.innerHTML = '<p class="desc">Arbeitsblätter werden später ergänzt.</p>';
+        assignmentsHost.innerHTML = '';
       }
       if(learningProductsHost){
-        learningProductsHost.innerHTML = '<p class="desc">Weitere Lerninhalte werden später ergänzt.</p>';
+        learningProductsHost.innerHTML = '';
       }
     });
 }

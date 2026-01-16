@@ -1,13 +1,6 @@
 [
   {
     "subject": "Deutsch",
-    "type": "Beispielklausur",
-    "title": "Beispielklausur Deutsch",
-    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
-    "link": "#"
-  },
-  {
-    "subject": "Deutsch",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Deutsch",
     "description": "Arbeitsblätter und Aufgaben für den Deutsch-LK.",
@@ -29,13 +22,6 @@
   },
   {
     "subject": "Geschichte",
-    "type": "Beispielklausur",
-    "title": "Beispielklausur Geschichte",
-    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
-    "link": "#"
-  },
-  {
-    "subject": "Geschichte",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Geschichte",
     "description": "Arbeitsblätter und Aufgaben für den Geschichte-LK.",
@@ -47,13 +33,6 @@
         "url": "assets/documents/arbeitsblaetter/geschichte-arbeitsblaetter-materialpool.pdf"
       }
     ]
-  },
-  {
-    "subject": "Politik",
-    "type": "Beispielklausur",
-    "title": "Beispielklausur Politik",
-    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
-    "link": "#"
   },
   {
     "subject": "Politik",
@@ -85,10 +64,10 @@
   },
   {
     "subject": "Geografie",
-    "type": "Beispielklausur",
-    "title": "Beispielklausur Geografie",
-    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
-    "link": "#"
+    "type": "Abiturklausur",
+    "title": "Abiturklausur 2015: Namibia",
+    "description": "Abiturklausur zur Orientierung inklusive Aufgaben.",
+    "link": "assets/documents/klausuren/geografie-abi-2015-namibia.pdf"
   },
   {
     "subject": "Geografie",
@@ -123,14 +102,27 @@
     "type": "Beispielklausur",
     "title": "Beispielklausur Biologie (2015)",
     "description": "Originalklausur zur Vorbereitung auf den LK.",
-    "link": "assets/documents/beispielklausur-biologie-2015.pdf"
+    "link": "assets/documents/klausuren/biologie-klausur-2015.pdf"
+  },
+  {
+    "subject": "Biologie",
+    "type": "Arbeitsblätter",
+    "title": "Arbeitsblatt Biologie",
+    "description": "Arbeitsblatt für den Biologie-LK.",
+    "modalCta": "Arbeitsblatt öffnen",
+    "links": [
+      {
+        "title": "Arbeitsblatt Biologie (PDF)",
+        "url": "assets/documents/arbeitsblaetter/biologie-arbeitsblatt-lk.pdf"
+      }
+    ]
   },
   {
     "subject": "Musik",
     "type": "Semesterklausur",
     "title": "Semesterklausur Q1 (EWH)",
     "description": "Semesterklausur zur Orientierung inklusive Erwartungshorizont.",
-    "link": "assets/documents/Beispielklausur-Musik-Q1.pdf"
+    "link": "assets/documents/klausuren/musik-semesterklausur-q1-ewh.pdf"
   },
   {
     "subject": "Musik",
@@ -178,13 +170,6 @@
     "title": "Erklärvideo: Zyklotron",
     "description": "Erklärvideo zum Zyklotron als Lernprodukt für den LK.",
     "link": "https://youtu.be/EUE9OsmNnuM"
-  },
-  {
-    "subject": "Englisch",
-    "type": "Beispielklausur",
-    "title": "Beispielklausur Englisch",
-    "description": "Platzhalter für eine Klausur inklusive Erwartungshorizont.",
-    "link": "#"
   },
   {
     "subject": "Englisch",
@@ -240,7 +225,7 @@
     "type": "Abiturklausur",
     "title": "Abiturklausur Kunst 2015",
     "description": "Original-Abiturklausur aus 2015 zur Vorbereitung.",
-    "link": "assets/documents/abi-klausur-kunst-2015.pdf"
+    "link": "assets/documents/klausuren/kunst-abiturklausur-2015.pdf"
   },
   {
     "subject": "Kunst",
@@ -254,7 +239,7 @@
     "type": "Beispielklausur",
     "title": "Beispielklausur Französisch Q1",
     "description": "Originalklausur zur Vorbereitung auf den LK.",
-    "link": "assets/documents/beispielklausur-franzoesisch-q1.pdf"
+    "link": "assets/documents/klausuren/franzoesisch-klausur-q1.pdf"
   },
   {
     "subject": "Französisch",
