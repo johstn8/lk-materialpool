@@ -34,6 +34,13 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .brand-link:focus-visible{color:inherit; text-decoration:none !important}
 .sv-logo{display:flex; align-items:center; justify-content:flex-end}
 .sv-logo img{height:54px; width:auto; max-width:140px; object-fit:contain}
+.lk-menu{display:none; margin-left:auto; position:relative}
+.lk-menu__toggle{list-style:none; cursor:pointer; border:1px solid var(--border); background:#fff; border-radius:12px; padding:10px 14px; font-size:.95rem; font-weight:600; color:var(--text)}
+.lk-menu__toggle::-webkit-details-marker{display:none}
+.lk-menu__toggle:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.lk-menu__links{display:none; position:absolute; right:0; top:calc(100% + 8px); min-width:200px; padding:12px; border-radius:14px; border:1px solid var(--border); background:#fff; box-shadow:var(--shadow); flex-direction:column; gap:10px; z-index:30}
+.lk-menu__links a{color:var(--text); font-weight:600}
+.lk-menu[open] .lk-menu__links{display:flex}
 .brand-mark{height:46px; width:46px; border-radius:14px; background:#fff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; padding:6px; box-shadow:var(--shadow)}
 .brand-mark img{height:100%; width:100%; object-fit:contain}
 .brand-copy span{display:block; font-size:clamp(20px, 4vw, 30px); font-weight:700; line-height:1}
@@ -48,7 +55,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .nav-toggle{display:none; margin-left:auto; border:1px solid var(--border); background:#fff; border-radius:12px; padding:10px 14px; cursor:pointer; font-size:.95rem; font-weight:600; color:var(--text)}
 .nav-toggle:focus-visible{outline:2px solid var(--accent)}
 
-.hero{padding:72px 0 46px; background:linear-gradient(180deg, rgba(201,64,121,.07), transparent)}
+.hero{padding:56px 0 46px; background:linear-gradient(180deg, rgba(201,64,121,.07), transparent)}
 .hero-grid{display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 520px); gap:40px; align-items:center}
 .hero-grid--single{grid-template-columns:minmax(0, 1fr)}
 .hero-text{max-width:640px}
@@ -64,7 +71,7 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .cta{margin-top:20px; display:flex; gap:12px; flex-wrap:wrap}
 
 .subject-strip{border-bottom:1px solid var(--border); background:var(--bg-alt)}
-.subject-strip__label{margin:0; padding:18px 0 10px; font-weight:800; color:var(--muted); font-size:clamp(1rem, 2vw, 1.2rem)}
+.subject-strip__label{margin:0; padding:14px 0 8px; font-weight:800; color:var(--muted); font-size:clamp(1rem, 2vw, 1.2rem)}
 .subject-pills{display:flex; flex-wrap:nowrap; gap:0; padding-bottom:0; align-items:stretch; overflow:hidden}
 .subject-pill{
   padding:12px var(--pill-padding, 10px) 14px;
@@ -120,14 +127,14 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .subject-card__cta{margin-top:auto; font-weight:700; color:var(--accent); font-size:.95rem}
 .subject-modal__links{display:flex; flex-direction:column; gap:12px; margin-top:18px}
 .subject-modal__links--cards{gap:16px}
-.subject-modal__link{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:var(--bg-alt); text-decoration:none; color:inherit; font-weight:600; transition:border-color .2s ease, box-shadow .2s ease}
+.subject-modal__link{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:0; border-radius:0; border:none; background:transparent; text-decoration:none; color:inherit; font-weight:600; transition:color .2s ease}
 .subject-modal__link--large{min-height:72px; padding:18px 20px; font-size:1rem}
-.subject-modal__link:hover{border-color:rgba(201, 64, 121, 0.4); box-shadow:var(--shadow)}
+.subject-modal__link:hover{color:var(--accent)}
 .subject-modal__link:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 .subject-modal__cta{font-size:.9rem; color:var(--accent)}
 .is-modal-open{overflow:hidden}
 .subject-grade{display:flex; align-items:center; gap:16px}
-.grade-pill{background:rgba(201,64,121,.12); color:var(--accent); font-weight:800; padding:10px 14px; border-radius:12px; font-size:1.2rem; letter-spacing:.02em}
+.grade-pill{background:rgba(201,64,121,.12); color:var(--accent); font-weight:800; padding:10px 14px; border-radius:12px; font-size:1.2rem; letter-spacing:.02em; white-space:nowrap}
 
 .btn{border:none; cursor:pointer; padding:14px 18px; border-radius:12px; font-weight:700; box-shadow:var(--shadow); min-height:44px; display:inline-flex; align-items:center; justify-content:center; text-align:center; transition:transform .2s ease, box-shadow .2s ease; text-decoration:none}
 .btn:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
@@ -272,14 +279,20 @@ textarea{min-height:140px; resize:vertical}
   .brand{width:100%; justify-content:space-between}
   .sv-logo{width:100%; justify-content:flex-start}
   .sv-logo img{height:46px}
+  .lk-menu{display:block}
   .nav-toggle{display:inline-flex; align-items:center; gap:6px}
   .navlinks{display:none; width:100%; flex-direction:column; align-items:flex-start; padding:12px; border:1px solid var(--border); border-radius:16px; background:rgba(255,255,255,.96); box-shadow:var(--shadow); margin-left:0}
   .navlinks.is-open{display:flex}
   .navlinks a{padding:12px 6px}
   .container{width:min(100%, 90%)}
-  .hero{padding:40px 0 22px}
+  .hero{padding:32px 0 22px}
   .hero-grid{grid-template-columns:1fr}
+  .hero-logo{display:none}
   .hero-media{display:block}
+  .subject-strip{display:none}
+  .subject-video{flex-direction:column}
+  .subject-video__media,
+  .subject-video__info{flex:1 1 auto; width:100%}
   .timeline-body{min-width:100%}
   .timeline-track{margin:12px 0 6px}
 }
