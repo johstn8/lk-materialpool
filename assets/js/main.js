@@ -367,10 +367,6 @@ if(eventsHost && scroller && trackPast && trackFuture && todayMarker){
   trackFuture.style.width = `${100 - markerPercent}%`;
   trackFuture.style.left = `${markerPercent}%`;
   todayMarker.style.left = `${markerPercent}%`;
-  const todayLabel = todayMarker.querySelector('.today-label');
-  if(todayLabel){
-    todayLabel.textContent = 'Kurswahl 23.02.';
-  }
 }
 
 // Dummy form submission: clear form and show confirmation
@@ -462,15 +458,24 @@ if(overviewPage){
       }
 
       if(overviewType === 'videos'){
-        const videoMarkup = videos.map((video) => `
-          <article class="overview-modal__video">
-            <h3>${video.subject}</h3>
+        const videoMarkup = videos.map((video) => {
+          const description = video.description ? `<p>${video.description}</p>` : '';
+          const media = video.url
+            ? `
             <div class="framed-video">
               <iframe src="${withHdVideoParams(video.url)}" title="${video.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
-            ${video.description ? `<p>${video.description}</p>` : ''}
-          </article>
-        `).join('');
+          `
+            : `<p class="desc">${video.description || 'Video folgt.'}</p>`;
+
+          return `
+            <article class="overview-modal__video">
+              <h3>${video.subject}</h3>
+              ${media}
+              ${video.url ? description : ''}
+            </article>
+          `;
+        }).join('');
         contentHost.innerHTML = videoMarkup || '<p class="desc">Video-Platzhalter wird später ergänzt.</p>';
         return;
       }
@@ -518,12 +523,14 @@ if(subjectPage){
       const isAssignment = (item) => /arbeitsblätter|aufgaben/i.test(item.type);
 
       if(videoHost){
-        if(video){
+        if(video?.url){
           videoHost.innerHTML = `
             <div class="framed-video">
               <iframe src="${withHdVideoParams(video.url)}" title="${video.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
           `;
+        } else if(video){
+          videoHost.innerHTML = `<p class="desc">${video.description || 'Video folgt.'}</p>`;
         } else {
           videoHost.innerHTML = '<p class="desc">Video-Platzhalter wird später ergänzt.</p>';
         }

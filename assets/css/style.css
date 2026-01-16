@@ -43,7 +43,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .lk-menu[open] .lk-menu__links{display:flex}
 .brand-mark{height:46px; width:46px; border-radius:14px; background:#fff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; padding:6px; box-shadow:var(--shadow)}
 .brand-mark img{height:100%; width:100%; object-fit:contain}
-.brand-copy span{display:block; font-size:clamp(20px, 4vw, 30px); font-weight:700; line-height:1}
+.brand-copy span{display:block; font-size:clamp(20px, 4vw, 30px); font-weight:600; line-height:1}
 .brand-copy small{display:block; margin-top:4px; font-size:.9rem; color:var(--muted); letter-spacing:.01em}
 
 .navlinks{display:flex; align-items:center; gap:14px; flex-wrap:nowrap; margin-left:auto; overflow:hidden}
@@ -60,7 +60,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .hero-grid--single{grid-template-columns:minmax(0, 1fr)}
 .hero-text{max-width:640px}
 .hero-logo{display:flex; align-items:center; justify-content:center; padding:24px; border-radius:20px; background:transparent; border:none; box-shadow:none}
-.hero-logo img{width:min(100%, 320px); height:auto}
+.hero-logo img{width:min(100%, 360px); height:auto}
 .hero-media{position:relative; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-strong); border:1px solid rgba(255,255,255,.7)}
 .hero-media::after{content:""; position:absolute; inset:0; background:linear-gradient(135deg, rgba(201,64,121,.18), transparent); pointer-events:none}
 .hero-media .credit{position:absolute; right:10px; bottom:10px; background:rgba(0,0,0,.4); color:#e5e7eb; padding:3px 7px; border-radius:999px; font-size:.7rem; letter-spacing:.02em}
@@ -167,8 +167,8 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .timeline-scroller::-webkit-scrollbar{display:none}
 .timeline-body{display:flex; flex-direction:column; gap:10px; min-width:720px; width:max-content}
 .timeline-track{position:relative; height:26px; margin:18px 0 10px; min-width:720px}
-.timeline-track::before{content:""; position:absolute; left:0; right:18px; top:50%; height:4px; transform:translateY(-50%); background:#000; border-radius:999px}
-.timeline-track::after{content:""; position:absolute; right:6px; top:50%; width:14px; height:14px; border-right:4px solid #000; border-top:4px solid #000; transform:translateY(-50%) rotate(45deg)}
+.timeline-track::before{content:""; position:absolute; left:0; right:0; top:50%; height:4px; transform:translateY(-50%); background:#000; border-radius:999px}
+.timeline-track::after{content:""; position:absolute; right:0; top:50%; width:14px; height:14px; border-right:4px solid #000; border-top:4px solid #000; transform:translateY(-50%) rotate(45deg)}
 .timeline-track .track-past,.timeline-track .track-future{display:none}
 .today-marker{position:absolute; top:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; transform:translate(-50%, -50%)}
 .today-marker .today-label{position:absolute; bottom:100%; margin-bottom:14px; padding:6px 10px; border-radius:12px; border:1px solid var(--border); background:#fff; box-shadow:var(--shadow); font-weight:700; color:var(--accent)}
@@ -208,11 +208,11 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .stats-item{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:8px 10px; border-radius:10px; background:var(--bg-alt); font-weight:600}
 .stats-item strong{font-size:1.05rem}
 
-.grade-chart{display:grid; gap:24px; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); align-items:start; --axis-min:7; --axis-max:11}
+.grade-chart{display:grid; gap:24px; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); align-items:start; --axis-min:7; --axis-max:10}
 .grade-chart--shared-axis{grid-template-columns:minmax(60px, 80px) repeat(auto-fit, minmax(240px, 1fr)); align-items:start}
 .grade-chart__axis{position:relative; height:260px; margin-top:42px; display:flex; align-items:center; justify-content:center}
 .grade-chart__axis-line{position:absolute; left:50%; top:0; bottom:0; width:2px; background:var(--text); border-radius:999px; transform:translateX(-50%)}
-.grade-chart__axis-label{position:absolute; left:50%; top:50%; transform:translate(-50%, -50%) rotate(-90deg); font-size:.75rem; font-weight:700; letter-spacing:.08em; color:var(--muted); text-transform:uppercase}
+.grade-chart__axis-label{position:absolute; left:calc(50% - 10px); top:50%; transform:translate(-50%, -50%) rotate(-90deg); font-size:.75rem; font-weight:700; letter-spacing:.08em; color:var(--muted); text-transform:uppercase}
 .grade-chart__axis-tick{position:absolute; left:50%; transform:translate(-50%, -50%); font-size:.75rem; font-weight:600; color:var(--muted); background:var(--bg); padding:0 4px}
 .grade-chart__axis-tick--top{top:0}
 .grade-chart__axis-tick--mid{top:50%}
@@ -221,7 +221,7 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .grade-chart__column h3{margin:0}
 .grade-chart__plot{position:relative; height:260px; border-radius:16px; background:linear-gradient(to bottom, rgba(201,64,121,.08), transparent 60%), repeating-linear-gradient(to bottom, rgba(0,0,0,.08), rgba(0,0,0,.08) 1px, transparent 1px, transparent calc(25% - 1px)); border:1px solid var(--border); overflow:visible; padding:12px 0}
 .grade-chart__plot::after{content:\"7\"; position:absolute; left:8px; bottom:6px; font-size:.75rem; color:var(--muted)}
-.grade-chart__plot::before{content:\"11\"; position:absolute; left:8px; top:6px; font-size:.75rem; color:var(--muted)}
+.grade-chart__plot::before{content:\"10\"; position:absolute; left:8px; top:6px; font-size:.75rem; color:var(--muted)}
 .grade-chart__y-label{position:absolute; left:8px; top:50%; transform:translate(-50%, -50%) rotate(-90deg); font-size:.75rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.08em}
 .grade-chart--shared-axis .grade-chart__plot::before,
 .grade-chart--shared-axis .grade-chart__plot::after{opacity:0}
