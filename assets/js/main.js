@@ -25,6 +25,53 @@ if(yearEl){
   yearEl.textContent = new Date().getFullYear();
 }
 
+const parseGermanFloat = (value) => Number.parseFloat(String(value).trim().replace(',', '.'));
+
+const setupGradeCharts = () => {
+  const MIN_GRADE = 4;
+  const MAX_GRADE = 12;
+  const plots = document.querySelectorAll('.grade-chart__plot');
+
+  plots.forEach((plot) => {
+    const points = Array.from(plot.querySelectorAll('.grade-point'));
+    if(points.length === 0){
+      return;
+    }
+
+    const parsedPoints = points.map((point) => {
+      const labelValue = point.querySelector('.grade-point__label strong')?.textContent;
+      let gradeValue = Number.NaN;
+      if(labelValue){
+        gradeValue = parseGermanFloat(labelValue);
+      }
+      if(!Number.isFinite(gradeValue)){
+        const inlineGrade = point.style.getPropertyValue('--grade');
+        if(inlineGrade){
+          gradeValue = Number.parseFloat(inlineGrade);
+        }
+      }
+      if(!Number.isFinite(gradeValue)){
+        gradeValue = MIN_GRADE;
+      }
+
+      const clamped = Math.min(MAX_GRADE, Math.max(MIN_GRADE, gradeValue));
+      const pct = ((clamped - MIN_GRADE) / (MAX_GRADE - MIN_GRADE)) * 100;
+      point.style.setProperty('--grade-pct', `${pct}%`);
+
+      return { point, gradeValue };
+    });
+
+    parsedPoints
+      .slice()
+      .sort((a, b) => b.gradeValue - a.gradeValue)
+      .forEach(({ point }) => plot.appendChild(point));
+  });
+};
+
+if(document.querySelector('.grade-chart__plot')){
+  setupGradeCharts();
+}
+
 const subjectPillsContainers = document.querySelectorAll('.subject-pills');
 subjectPillsContainers.forEach((container) => {
   const pills = Array.from(container.querySelectorAll('.subject-pill'));
