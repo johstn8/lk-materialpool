@@ -398,6 +398,7 @@ const withHdVideoParams = (url) => {
   }
   const parsed = new URL(url, window.location.href);
   parsed.searchParams.set('vq', 'hd1080');
+  parsed.searchParams.set('quality', 'hd1080');
   parsed.searchParams.set('rel', '0');
   parsed.searchParams.set('modestbranding', '1');
   parsed.searchParams.set('playsinline', '1');
