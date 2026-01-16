@@ -212,8 +212,9 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .stats-item{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:8px 10px; border-radius:10px; background:var(--bg-alt); font-weight:600}
 .stats-item strong{font-size:1.05rem}
 
-.grade-chart{display:grid; gap:24px; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); align-items:start; --axis-min:7; --axis-max:10}
-.grade-chart-shell{overflow:hidden}
+.grade-chart{display:grid; gap:24px; grid-template-columns:repeat(3, minmax(260px, 1fr)); align-items:start; --axis-min:7; --axis-max:10; width:max-content}
+.grade-chart-shell{overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:6px}
+.grade-chart-shell::-webkit-scrollbar{display:none}
 
 .overview-card__desc{display:block}
 .grade-chart__column{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:16px}
@@ -265,11 +266,6 @@ textarea{min-height:140px; resize:vertical}
 
 @media (max-width: 1024px){
   nav{gap:10px}
-  .hero{padding:44px 0 30px}
-  .hero-grid{grid-template-columns: minmax(0, 1fr) minmax(0, 360px)}
-  .grade-chart-shell{overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:6px}
-  .grade-chart-shell::-webkit-scrollbar{display:none}
-  .grade-chart{width:max-content; grid-template-columns:repeat(3, minmax(260px, 1fr))}
 }
 
 @media (max-width: 760px){
@@ -306,9 +302,7 @@ textarea{min-height:140px; resize:vertical}
   .timeline-body{min-width:100%}
   .timeline-track{margin:12px 0 6px}
   .overview-card__desc{display:none}
-  .grade-chart-shell{overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:6px}
-  .grade-chart-shell::-webkit-scrollbar{display:none}
-  .grade-chart{width:max-content; grid-template-columns:repeat(3, minmax(240px, 1fr))}
+  .grade-chart{grid-template-columns:repeat(3, minmax(240px, 1fr))}
 }
 
 @media (max-width: 420px){
