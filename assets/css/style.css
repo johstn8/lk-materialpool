@@ -283,14 +283,15 @@ textarea{min-height:140px; resize:vertical}
 }
 
 @media (max-width: 760px){
-  nav{flex-wrap:wrap}
+  header{padding-top:max(env(safe-area-inset-top), 16px); padding-bottom:16px}
+  nav{flex-wrap:wrap; padding:12px 0}
   .home nav{flex-wrap:nowrap}
   .brand{width:auto; justify-content:flex-start}
   .home .brand{width:auto; justify-content:flex-start}
   .brand-copy{display:none}
   .brand-copy span{font-size:clamp(18px, 6vw, 24px)}
   .brand-copy small{display:none}
-  .brand-link::before{display:block; width:102px; height:102px}
+  .brand-link::before{display:block; width:163px; height:163px}
   .sv-logo,
   .brand-mark{display:none}
   .sv-logo{width:100%; justify-content:flex-start}
