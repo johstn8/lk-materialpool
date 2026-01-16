@@ -32,7 +32,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .brand-link{display:flex; align-items:center; gap:12px; color:inherit; text-decoration:none}
 .brand-link:hover,
 .brand-link:focus-visible{color:inherit; text-decoration:none !important}
-.brand-link::before{content:""; display:none; width:46px; height:46px; background:url("../../media/logo-hcg.svg") no-repeat center/contain; flex:0 0 auto}
+.brand-link::before{content:""; display:none; width:46px; height:46px; background:url("../../media/logo-minus-hcg.svg") no-repeat center/contain; flex:0 0 auto}
 .sv-logo{display:flex; align-items:center; justify-content:flex-end}
 .sv-logo img{height:54px; width:auto; max-width:140px; object-fit:contain}
 .lk-menu{display:none; margin-left:auto; position:relative}
@@ -290,7 +290,7 @@ textarea{min-height:140px; resize:vertical}
   .brand-copy{display:none}
   .brand-copy span{font-size:clamp(18px, 6vw, 24px)}
   .brand-copy small{display:none}
-  .brand-link::before{display:block}
+  .brand-link::before{display:block; width:32px; height:32px}
   .sv-logo,
   .brand-mark{display:none}
   .sv-logo{width:100%; justify-content:flex-start}
