@@ -8,19 +8,19 @@
   <meta name="description" content="LK Materialpool am Hans-Carossa-Gymnasium: Fächerübersicht, Materialien und Orientierung für die Leistungskurswahl." />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body>
+<body class="home">
   <header>
     <div class="container">
       <nav>
         <div class="brand">
           <a class="brand-link" href="index.html">
-            <div class="brand-mark">
-              <img src="media/site-icon.svg" alt="LK Materialpool Logo" />
-            </div>
-            <div class="brand-copy">
-              <span>SV 2025/26</span>
+            <div class="sv-logo">
+              <img src="media/site-icon.svg" alt="SV Logo" />
             </div>
           </a>
+        </div>
+        <div class="navlinks navlinks--mobile">
+          <a class="nav-cta" href="klausuren.html">Leistungsprüfung</a>
         </div>
         
         <details class="lk-menu">
@@ -80,27 +80,27 @@
 
     <section class="section">
       <div class="container">
-        <h2>Was dich im Materialpool erwartet…</h2>
+        <h2>Im Materialpool ist …</h2>
         <div class="grid cols-3" data-overview-section>
           <a class="card pictogram-card pictogram-card--link" href="interviews.html">
             <div class="pictogram">🎤</div>
             <div>
               <h3>Interviews mit den Lehrkräften</h3>
-              <p>Worum geht’s im LK, was solltet ihr mitbringen und was macht am meisten Spaß? Das erfahrt ihr hier.</p>
+              <p class="overview-card__desc">Worum geht’s im LK, was solltet ihr mitbringen und was macht am meisten Spaß? Das erfahrt ihr hier.</p>
             </div>
           </a>
           <a class="card pictogram-card pictogram-card--link" href="klausuren.html">
             <div class="pictogram">📝</div>
             <div>
               <h3>Beispielhafte Klausuren</h3>
-              <p>Format, Aufgabenstellungen und Umfang: So sehen LK-Klausuren wirklich aus.</p>
+              <p class="overview-card__desc">Format, Aufgabenstellungen und Umfang: So sehen LK-Klausuren wirklich aus.</p>
             </div>
           </a>
           <a class="card pictogram-card pictogram-card--link" href="arbeitsblaetter.html">
             <div class="pictogram">🗂️</div>
             <div>
-              <h3>ABs und Aufgabenstellung</h3>
-              <p>Typische Arbeitsblätter und Aufgaben: So wird im Leistungskurs gearbeitet.</p>
+              <h3>ABs und Aufgabenstellungen</h3>
+              <p class="overview-card__desc">Typische Arbeitsblätter und Aufgaben: So wird im Leistungskurs gearbeitet.</p>
             </div>
           </a>
         </div>
@@ -121,9 +121,9 @@
 
     <section class="section">
       <div class="container">
-        <h2>Ø der Semesterklausuren nach Aufgabenfeldern</h2>
-        <p class="desc">Hier seht ihr die Ø der Semesterklausuren aus den jeweiligen LKs der letzten Jahrgänge am HCG.</p>
-        <div class="grade-chart grade-chart--shared-axis">
+        <h2>Ø der Semesterklausuren</h2>
+        <div class="grade-chart-shell">
+          <div class="grade-chart grade-chart--shared-axis">
           <div class="grade-chart__axis" aria-hidden="true">
             <span class="grade-chart__axis-label">Punkte</span>
             <span class="grade-chart__axis-line"></span>
@@ -195,6 +195,7 @@
               </div>
             </div>
           </article>
+          </div>
         </div>
         <p class="desc grade-chart__note">Die Punkte zeigen die Ø der Semesterklausuren (Skala 7–10) je Kurs innerhalb der drei Aufgabenfelder.</p>
         <p class="desc grade-chart__note">Die erhobenen Daten können per Anfrage eingesehen werden.</p>

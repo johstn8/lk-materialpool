@@ -147,19 +147,19 @@
   {
     "subject": "Physik",
     "type": "Beispielklausuren",
-    "title": "Beispielklausuren Physik (Lehrerhefte)",
-    "description": "Drei vollständige LK-Klausuren mit Lehrerheft zur Vorbereitung.",
+    "title": "Beispielklausuren Physik (Abiturklausuren)",
+    "description": "Drei vollständige LK-Klausuren als Abiturklausuren zur Vorbereitung.",
     "links": [
       {
-        "title": "Physik LK 2017 (Lehrerheft)",
+        "title": "Physik LK 2017 (Abiturklausur)",
         "url": "https://www.isq.berlin/wordpress/wp-content/uploads/2018/04/2017_Physik_Physik-Leistungskurs-Lehrerheft.pdf"
       },
       {
-        "title": "Physik LK 2016 (Lehrerheft)",
+        "title": "Physik LK 2016 (Abiturklausur)",
         "url": "https://www.isq.berlin/wordpress/wp-content/uploads/2018/04/2016_Physik_Physik-Leistungskurs-Lehrerheft.pdf"
       },
       {
-        "title": "Physik LK 2015 (Lehrerheft)",
+        "title": "Physik LK 2015 (Abiturklausur)",
         "url": "https://www.isq.berlin/wordpress/wp-content/uploads/2018/04/2015_Physik_Physik-Leistungskurs-Lehrerheft.pdf"
       }
     ]
