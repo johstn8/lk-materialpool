@@ -78,6 +78,7 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 
 .subject-strip{background:var(--bg-alt)}
 .subject-strip__title{background:var(--bg-alt)}
+.subject-strip__spacer{height:0}
 .subject-strip__tabs{position:sticky; top:var(--header-h, 0px); z-index:19; background:var(--bg-alt); border-bottom:1px solid var(--border)}
 .subject-strip__label{margin:0; padding:6px 0 4px; font-weight:800; color:var(--muted); font-size:clamp(1rem, 2vw, 1.2rem)}
 .subject-pills{display:flex; flex-wrap:nowrap; gap:0; padding-bottom:0; align-items:stretch; overflow:hidden}
@@ -310,6 +311,21 @@ textarea{min-height:140px; resize:vertical}
   .timeline-track{margin:12px 0 6px}
   .overview-card__desc{display:none}
   .grade-chart{grid-template-columns:repeat(3, minmax(240px, 1fr))}
+}
+
+@media (min-width: 900px){
+  .subject-strip__tabs{position:static; top:auto}
+  .subject-strip__label--hidden{opacity:0; pointer-events:none}
+  .subject-tabs--locked{
+    position:fixed;
+    top:var(--header-h, 0px);
+    left:0;
+    right:0;
+    z-index:19;
+    background:var(--bg-alt);
+    border-bottom:1px solid var(--border);
+    transform:none !important;
+  }
 }
 
 @media (max-width: 420px){

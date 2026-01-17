@@ -4,6 +4,19 @@ const navLinks = document.getElementById('navlinks');
 const navAnchors = navLinks?.querySelectorAll('a');
 const headerEl = document.querySelector('header');
 const subjectStripTabs = document.querySelector('.subject-strip__tabs');
+const subjectStripLabel = document.querySelector('.subject-strip__label');
+const subjectStrip = document.querySelector('.subject-strip');
+const desktopQuery = window.matchMedia('(min-width: 900px)');
+const subjectTabsSpacer = document.getElementById('subject-tabs-spacer') ?? (() => {
+  if(!subjectStrip || !subjectStripTabs){
+    return null;
+  }
+  const spacer = document.createElement('div');
+  spacer.className = 'subject-strip__spacer';
+  spacer.id = 'subject-tabs-spacer';
+  subjectStripTabs.before(spacer);
+  return spacer;
+})();
 
 if(navToggle && navLinks){
   navToggle.addEventListener('click', () => {
@@ -40,16 +53,69 @@ const setSubjectStripMetrics = () => {
   return { tabsHeight };
 };
 
-setHeaderHeight();
-setSubjectStripMetrics();
-window.addEventListener('resize', () => {
+let subjectStripLockY = 0;
+
+const updateSubjectStripLockThreshold = () => {
+  if(!subjectStripLabel || !subjectStripTabs){
+    return 0;
+  }
+  const headerHeight = setHeaderHeight();
+  const labelBottomY = subjectStripLabel.getBoundingClientRect().bottom + window.scrollY;
+  subjectStripLockY = labelBottomY - headerHeight;
+  return subjectStripLockY;
+};
+
+const applySubjectStripLock = () => {
+  if(!subjectStripTabs || !subjectStripLabel || !subjectTabsSpacer){
+    return;
+  }
+  if(!desktopQuery.matches){
+    subjectStripTabs.classList.remove('subject-tabs--locked');
+    subjectStripLabel.classList.remove('subject-strip__label--hidden');
+    subjectTabsSpacer.style.height = '0px';
+    return;
+  }
+  const shouldLock = window.scrollY >= subjectStripLockY;
+  if(shouldLock){
+    subjectStripTabs.classList.add('subject-tabs--locked');
+    subjectStripLabel.classList.add('subject-strip__label--hidden');
+    subjectTabsSpacer.style.height = `${subjectStripTabs.offsetHeight}px`;
+  } else {
+    subjectStripTabs.classList.remove('subject-tabs--locked');
+    subjectStripLabel.classList.remove('subject-strip__label--hidden');
+    subjectTabsSpacer.style.height = '0px';
+  }
+};
+
+const updateSubjectStripLayout = () => {
   setHeaderHeight();
   setSubjectStripMetrics();
+  updateSubjectStripLockThreshold();
+  applySubjectStripLock();
+};
+
+updateSubjectStripLayout();
+window.addEventListener('resize', () => {
+  updateSubjectStripLayout();
 });
 window.addEventListener('load', () => {
-  setHeaderHeight();
-  setSubjectStripMetrics();
+  updateSubjectStripLayout();
 });
+window.addEventListener('scroll', () => {
+  if(!desktopQuery.matches){
+    return;
+  }
+  applySubjectStripLock();
+}, { passive: true });
+desktopQuery.addEventListener('change', () => {
+  updateSubjectStripLayout();
+});
+if(document.fonts?.ready){
+  document.fonts.ready.then(() => {
+    requestAnimationFrame(updateSubjectStripLayout);
+    setTimeout(updateSubjectStripLayout, 0);
+  });
+}
 
 // Footer year
 const yearEl = document.getElementById('year');
