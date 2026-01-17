@@ -9,6 +9,7 @@
   --radius: 14px;
   --shadow: 0 10px 20px rgba(0,0,0,.06);
   --shadow-strong: 0 18px 40px rgba(0,0,0,.14);
+  --header-h: 0px;
   --subject-strip-height: 0px;
   --subject-strip-collapsed-height: 0px;
   --subject-strip-label-height: 0px;
@@ -75,10 +76,10 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .lead{font-size:clamp(16px, 2.2vw, 20px); color:var(--muted); max-width:70ch; line-height:1.6}
 .cta{margin-top:20px; display:flex; gap:12px; flex-wrap:wrap}
 
-.subject-strip{border-bottom:1px solid var(--border); background:var(--bg-alt); position:sticky; top:calc(var(--header-height, 0px) - var(--subject-strip-label-height, 0px)); z-index:19; transition:box-shadow .2s ease, top .2s ease}
-.subject-strip.is-collapsed{top:var(--header-height, 0px)}
-.subject-strip__label{margin:0; padding:10px 0 6px; max-height:80px; font-weight:800; color:var(--muted); font-size:clamp(1rem, 2vw, 1.2rem); transition:max-height .2s ease, opacity .2s ease, margin .2s ease, padding .2s ease}
-.subject-strip.is-collapsed .subject-strip__label{max-height:0; opacity:0; margin:0; padding:0; overflow:hidden}
+.subject-strip{background:var(--bg-alt)}
+.subject-strip__title{background:var(--bg-alt)}
+.subject-strip__tabs{position:sticky; top:var(--header-h, 0px); z-index:19; background:var(--bg-alt); border-bottom:1px solid var(--border)}
+.subject-strip__label{margin:0; padding:6px 0 4px; font-weight:800; color:var(--muted); font-size:clamp(1rem, 2vw, 1.2rem)}
 .subject-pills{display:flex; flex-wrap:nowrap; gap:0; padding-bottom:0; align-items:stretch; overflow:hidden}
 .subject-pill{
   padding:12px var(--pill-padding, 10px) 14px;
@@ -119,7 +120,7 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .sheet-download{display:flex; align-items:center; justify-content:flex-start}
 .sheet-download .btn{min-width:240px}
 
-.subject-hero{padding:calc(48px + var(--subject-strip-collapsed-height, 0px)) 0 16px}
+.subject-hero{padding:calc(24px + var(--subject-strip-collapsed-height, 0px)) 0 16px}
 .subject-hero .container{text-align:center}
 .subject-hero h1{margin:12px 0 6px}
 .subject-meta{color:var(--muted); max-width:70ch; line-height:1.6}
@@ -201,10 +202,11 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .subject-video{display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start}
 .subject-video__media{flex:0 1 60%; min-width:280px}
 .subject-video__info{flex:1 1 35%; min-width:220px; display:flex; flex-direction:column; gap:18px; align-self:flex-start}
-.subject-materials-grid{display:grid; gap:16px; grid-template-columns:1fr; align-content:start}
+.subject-materials-grid{display:grid; gap:0; grid-template-columns:1fr; align-content:start}
+.subject-materials-list + .subject-materials-list{margin-top:12px}
 .subject-materials-block h3{margin:0 0 10px; font-size:1.05rem}
 .subject-materials-list{display:flex; flex-direction:column; gap:12px}
-.subject-divider{border:none; border-top:1px solid var(--border); margin:32px 0 18px}
+.subject-divider{border:none; border-top:1px solid var(--border); margin:22px 0 12px}
 .subject-subtitle{margin:0 0 12px; font-size:clamp(22px, 2.4vw, 28px)}
 
 .diagram{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; align-items:stretch}
