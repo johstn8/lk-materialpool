@@ -3,8 +3,7 @@ const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.getElementById('navlinks');
 const navAnchors = navLinks?.querySelectorAll('a');
 const headerEl = document.querySelector('header');
-const subjectStrip = document.querySelector('.subject-strip');
-const subjectStripLabel = subjectStrip?.querySelector('.subject-strip__label');
+const subjectStripTabs = document.querySelector('.subject-strip__tabs');
 
 if(navToggle && navLinks){
   navToggle.addEventListener('click', () => {
@@ -28,44 +27,29 @@ const setHeaderHeight = () => {
   }
   const height = headerEl.getBoundingClientRect().height;
   document.documentElement.style.setProperty('--header-height', `${height}px`);
+  document.documentElement.style.setProperty('--header-h', `${height}px`);
   return height;
 };
 
 const setSubjectStripMetrics = () => {
-  if(!subjectStrip){
-    return { labelHeight: 0, stripHeight: 0, collapsedHeight: 0 };
+  if(!subjectStripTabs){
+    return { tabsHeight: 0 };
   }
-  const wasCollapsed = subjectStrip.classList.contains('is-collapsed');
-  if(wasCollapsed){
-    subjectStrip.classList.remove('is-collapsed');
-  }
-  const labelHeight = subjectStripLabel?.getBoundingClientRect().height ?? 0;
-  const stripHeight = subjectStrip.getBoundingClientRect().height;
-  const collapsedHeight = Math.max(0, stripHeight - labelHeight);
-  document.documentElement.style.setProperty('--subject-strip-height', `${stripHeight}px`);
-  document.documentElement.style.setProperty('--subject-strip-collapsed-height', `${collapsedHeight}px`);
-  document.documentElement.style.setProperty('--subject-strip-label-height', `${labelHeight}px`);
-  if(wasCollapsed){
-    subjectStrip.classList.add('is-collapsed');
-  }
-  return { labelHeight, stripHeight, collapsedHeight };
-};
-
-const updateSubjectStripState = () => {
-  if(!subjectStrip){
-    return;
-  }
-  setHeaderHeight();
-  const { labelHeight } = setSubjectStripMetrics();
-  const collapseThreshold = Math.max(0, labelHeight);
-  const isCollapsed = window.scrollY > collapseThreshold;
-  subjectStrip.classList.toggle('is-collapsed', isCollapsed);
+  const tabsHeight = subjectStripTabs.getBoundingClientRect().height;
+  document.documentElement.style.setProperty('--subject-strip-collapsed-height', `${tabsHeight}px`);
+  return { tabsHeight };
 };
 
 setHeaderHeight();
-updateSubjectStripState();
-window.addEventListener('resize', updateSubjectStripState);
-window.addEventListener('scroll', updateSubjectStripState, { passive: true });
+setSubjectStripMetrics();
+window.addEventListener('resize', () => {
+  setHeaderHeight();
+  setSubjectStripMetrics();
+});
+window.addEventListener('load', () => {
+  setHeaderHeight();
+  setSubjectStripMetrics();
+});
 
 // Footer year
 const yearEl = document.getElementById('year');
