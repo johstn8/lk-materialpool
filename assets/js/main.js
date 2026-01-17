@@ -184,6 +184,66 @@ if(document.querySelector('.grade-chart__plot')){
   setupGradeCharts();
 }
 
+const modalTriggers = document.querySelectorAll('[data-modal-trigger]');
+const modalCloseButtons = document.querySelectorAll('[data-modal-close]');
+let lastFocusedElement = null;
+
+const closeModal = (modal) => {
+  if(!modal){
+    return;
+  }
+  modal.hidden = true;
+  document.body.classList.remove('is-modal-open');
+  if(lastFocusedElement){
+    lastFocusedElement.focus();
+    lastFocusedElement = null;
+  }
+};
+
+const openModal = (modal) => {
+  if(!modal){
+    return;
+  }
+  lastFocusedElement = document.activeElement;
+  modal.hidden = false;
+  document.body.classList.add('is-modal-open');
+  const focusTarget = modal.querySelector('[data-modal-close]') ?? modal.querySelector('button, a, input, [tabindex="0"]');
+  focusTarget?.focus();
+};
+
+modalTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', (event) => {
+    event.preventDefault();
+    const targetId = trigger.getAttribute('data-modal-trigger');
+    const modal = targetId ? document.getElementById(targetId) : null;
+    openModal(modal);
+  });
+});
+
+modalCloseButtons.forEach((closeButton) => {
+  closeButton.addEventListener('click', () => {
+    const modal = closeButton.closest('.info-modal');
+    closeModal(modal);
+  });
+});
+
+document.addEventListener('keydown', (event) => {
+  if(event.key !== 'Escape'){
+    return;
+  }
+  const openModalEl = document.querySelector('.info-modal:not([hidden])');
+  closeModal(openModalEl);
+});
+
+document.addEventListener('click', (event) => {
+  const backdrop = event.target.closest('.info-modal__backdrop');
+  if(!backdrop){
+    return;
+  }
+  const modal = backdrop.closest('.info-modal');
+  closeModal(modal);
+});
+
 const subjectPillsContainers = document.querySelectorAll('.subject-pills');
 subjectPillsContainers.forEach((container) => {
   const pills = Array.from(container.querySelectorAll('.subject-pill'));
