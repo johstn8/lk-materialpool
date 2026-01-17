@@ -5,6 +5,7 @@ const navAnchors = navLinks?.querySelectorAll('a');
 const headerEl = document.querySelector('header');
 const subjectStripTabs = document.querySelector('.subject-strip__tabs');
 const subjectStripLabel = document.querySelector('.subject-strip__label');
+const subjectStripTitle = document.querySelector('.subject-strip__title');
 const subjectStrip = document.querySelector('.subject-strip');
 const desktopQuery = window.matchMedia('(min-width: 900px)');
 const subjectTabsSpacer = document.getElementById('subject-tabs-spacer') ?? (() => {
@@ -71,19 +72,26 @@ const applySubjectStripLock = () => {
   }
   if(!desktopQuery.matches){
     subjectStripTabs.classList.remove('subject-tabs--locked');
-    subjectStripLabel.classList.remove('subject-strip__label--hidden');
+    subjectStripTitle?.classList.remove('is-hidden');
     subjectTabsSpacer.style.height = '0px';
+    document.documentElement.style.setProperty('--tabs-h', '0px');
+    document.body.classList.remove('has-subject-tabs-locked');
     return;
   }
   const shouldLock = window.scrollY >= subjectStripLockY;
   if(shouldLock){
+    const tabsHeight = Math.ceil(subjectStripTabs.getBoundingClientRect().height);
+    document.documentElement.style.setProperty('--tabs-h', `${tabsHeight}px`);
+    subjectTabsSpacer.style.height = `${tabsHeight}px`;
     subjectStripTabs.classList.add('subject-tabs--locked');
-    subjectStripLabel.classList.add('subject-strip__label--hidden');
-    subjectTabsSpacer.style.height = `${subjectStripTabs.offsetHeight}px`;
+    subjectStripTitle?.classList.add('is-hidden');
+    document.body.classList.add('has-subject-tabs-locked');
   } else {
     subjectStripTabs.classList.remove('subject-tabs--locked');
-    subjectStripLabel.classList.remove('subject-strip__label--hidden');
+    subjectStripTitle?.classList.remove('is-hidden');
     subjectTabsSpacer.style.height = '0px';
+    document.documentElement.style.setProperty('--tabs-h', '0px');
+    document.body.classList.remove('has-subject-tabs-locked');
   }
 };
 
@@ -566,7 +574,7 @@ if(overviewPage){
           const media = video.url
             ? `
             <div class="framed-video">
-              <iframe src="${withHdVideoParams(video.url)}" title="${video.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+              <iframe src="${withHdVideoParams(video.url)}" title="${video.title}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
           `
             : `<p class="desc">${video.description || 'Video folgt.'}</p>`;
@@ -629,7 +637,7 @@ if(subjectPage){
         if(video?.url){
           videoHost.innerHTML = `
             <div class="framed-video">
-              <iframe src="${withHdVideoParams(video.url)}" title="${video.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+              <iframe src="${withHdVideoParams(video.url)}" title="${video.title}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
           `;
         } else if(video){

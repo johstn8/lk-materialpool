@@ -13,6 +13,7 @@
   --subject-strip-height: 0px;
   --subject-strip-collapsed-height: 0px;
   --subject-strip-label-height: 0px;
+  --tabs-h: 0px;
 }
 
 *{box-sizing:border-box}
@@ -31,6 +32,7 @@ header{
   border-bottom:1px solid var(--border);
   padding-top:max(env(safe-area-inset-top), 0px);
 }
+body.has-subject-tabs-locked header{border-bottom:none; box-shadow:none}
 nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:4px 0}
 .brand{display:flex; align-items:center; gap:12px; flex:1 1 auto; min-width:0}
 .brand-link{display:flex; align-items:center; gap:12px; color:inherit; text-decoration:none}
@@ -46,7 +48,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .lk-menu__links{display:flex; position:absolute; right:0; top:calc(100% + 8px); min-width:200px; padding:12px; border-radius:14px; border:1px solid var(--border); background:#fff; box-shadow:var(--shadow); flex-direction:column; gap:10px; z-index:30; opacity:0; transform:translateY(-6px); pointer-events:none; visibility:hidden; transition:opacity .2s ease, transform .2s ease}
 .lk-menu__links a{color:var(--text); font-weight:600}
 .lk-menu[open] .lk-menu__links{opacity:1; transform:translateY(0); pointer-events:auto; visibility:visible}
-.brand-mark{height:56px; width:56px; border-radius:16px; background:#fff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; padding:4px; box-shadow:var(--shadow)}
+.brand-mark{height:45px; width:45px; border-radius:16px; background:#fff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; padding:4px; box-shadow:var(--shadow)}
 .brand-mark img{height:84%; width:84%; object-fit:contain}
 .brand-copy span{display:block; font-size:clamp(18px, 3.2vw, 26px); font-weight:600; line-height:1}
 .brand-copy small{display:block; margin-top:4px; font-size:.9rem; color:var(--muted); letter-spacing:.01em}
@@ -78,6 +80,7 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 
 .subject-strip{background:var(--bg-alt)}
 .subject-strip__title{background:var(--bg-alt)}
+.subject-strip__title.is-hidden{opacity:0; visibility:hidden; pointer-events:none}
 .subject-strip__spacer{height:0}
 .subject-strip__tabs{position:sticky; top:var(--header-h, 0px); z-index:19; background:var(--bg-alt); border-bottom:1px solid var(--border)}
 .subject-strip__label{margin:0; padding:6px 0 4px; font-weight:800; color:var(--muted); font-size:clamp(1rem, 2vw, 1.2rem)}
@@ -121,7 +124,7 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .sheet-download{display:flex; align-items:center; justify-content:flex-start}
 .sheet-download .btn{min-width:240px}
 
-.subject-hero{padding:calc(24px + var(--subject-strip-collapsed-height, 0px)) 0 16px}
+.subject-hero{padding:calc(40px + var(--subject-strip-collapsed-height, 0px)) 0 16px}
 .subject-hero .container{text-align:center}
 .subject-hero h1{margin:12px 0 6px}
 .subject-meta{color:var(--muted); max-width:70ch; line-height:1.6}
@@ -205,6 +208,7 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .subject-video__info{flex:1 1 35%; min-width:220px; display:flex; flex-direction:column; gap:18px; align-self:flex-start}
 .subject-materials-grid{display:grid; gap:0; grid-template-columns:1fr; align-content:start}
 .subject-materials-list + .subject-materials-list{margin-top:12px}
+.subject-materials-list[hidden] + .subject-materials-list{margin-top:0}
 .subject-materials-block h3{margin:0 0 10px; font-size:1.05rem}
 .subject-materials-list{display:flex; flex-direction:column; gap:12px}
 .subject-divider{border:none; border-top:1px solid var(--border); margin:22px 0 12px}
@@ -315,7 +319,6 @@ textarea{min-height:140px; resize:vertical}
 
 @media (min-width: 900px){
   .subject-strip__tabs{position:static; top:auto}
-  .subject-strip__label--hidden{opacity:0; pointer-events:none}
   .subject-tabs--locked{
     position:fixed;
     top:var(--header-h, 0px);
@@ -325,6 +328,8 @@ textarea{min-height:140px; resize:vertical}
     background:var(--bg-alt);
     border-bottom:1px solid var(--border);
     transform:none !important;
+    height:var(--tabs-h);
+    box-sizing:border-box;
   }
 }
 

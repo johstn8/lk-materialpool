@@ -3,7 +3,7 @@
     "subject": "Deutsch",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Deutsch",
-    "description": "Enthält Aufgaben zu Kurzprosa, Argumentation und Schreibtraining mit klaren Analyseaufträgen.",
+    "description": "ABs zur Kurzprosa-Analyse, Erörterung und zum Stilmitteltraining.",
     "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
@@ -24,7 +24,7 @@
     "subject": "Geschichte",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Geschichte",
-    "description": "Arbeitsblätter mit Quellenanalysen und Zeitlinien, um Deutungen historischer Ereignisse zu üben.",
+    "description": "ABs zur Antike und der deutschen Revolution 1848.",
     "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
@@ -38,13 +38,29 @@
     "subject": "Politik",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Politik",
-    "description": "Aufgaben zur Urteilsbildung, zu Grundrechten und zur Entwicklung eigener Positionen.",
+    "description": "Aufgaben zur Urteilsbildung zu den Parteien im Bundestag.",
     "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
       {
         "title": "Arbeitsblatt Politik (PDF)",
         "url": "assets/documents/arbeitsblaetter/politik-arbeitsblatt-lk.pdf"
+      }
+    ]
+  },
+  {
+    "subject": "Politik",
+    "type": "Klausurbeispiele",
+    "title": "Klausurbeispiele Politik",
+    "description": "Zwei Beispielklausuren mit Urteilsbildung zu Bundestagsparteien.",
+    "links": [
+      {
+        "title": "Klausurbeispiel Politik 1 (PDF)",
+        "url": "assets/documents/arbeitsblaetter/Klausurbeispiel Politik.pdf"
+      },
+      {
+        "title": "Klausurbeispiel Politik 2 (PDF)",
+        "url": "assets/documents/arbeitsblaetter/Klausurbeispiel Politik 2.pdf"
       }
     ]
   },
@@ -108,7 +124,7 @@
     "subject": "Biologie",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblatt Biologie",
-    "description": "Arbeitsblatt behandelt Stoffwechselprozesse und Diagramm-Auswertung Schritt für Schritt.",
+    "description": "ABs zu Genetik, Ökologie und Diagramm-Auswertung.",
     "modalCta": "Arbeitsblatt öffnen",
     "links": [
       {
@@ -128,7 +144,7 @@
     "subject": "Musik",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblatt: Fahrplan Komponieren",
-    "description": "Arbeitsblatt führt durch Kompositionsplanung, Motivarbeit und Strukturierung.",
+    "description": "ABs zu Kompositionsplanung, Motivarbeit und Höranalyse.",
     "modalCta": "Arbeitsblatt öffnen",
     "links": [
       {
@@ -143,6 +159,19 @@
     "title": "Abiturklausur von 2015",
     "description": "Enthält die Abiturklausur 2015 samt Aufgaben und Erwartungshorizont.",
     "link": "https://bildungsserver.berlin-brandenburg.de/fileadmin/bbb/unterricht/pruefungen/abitur_bb/Zabi_Mathematik/BE_15_Ma_LK_Aufgaben.pdf"
+  },
+  {
+    "subject": "Mathe",
+    "type": "Arbeitsblätter",
+    "title": "Arbeitsblatt Mathe",
+    "description": "ABs zu Ableitungen mit Rechenwegen und Anwendungsaufgaben.",
+    "modalCta": "Arbeitsblatt öffnen",
+    "links": [
+      {
+        "title": "Ableitungen (PDF)",
+        "url": "assets/documents/arbeitsblaetter/Mathe Ableitungen.pdf"
+      }
+    ]
   },
   {
     "subject": "Physik",
@@ -172,10 +201,23 @@
     "link": "https://youtu.be/EUE9OsmNnuM"
   },
   {
+    "subject": "Physik",
+    "type": "Arbeitsblätter",
+    "title": "Arbeitsblatt Physik",
+    "description": "ABs zu Gravitation, Feldstärke und Rechenwegen.",
+    "modalCta": "Arbeitsblatt öffnen",
+    "links": [
+      {
+        "title": "Gravitation (PDF)",
+        "url": "assets/documents/arbeitsblaetter/Physik Gravitation.pdf"
+      }
+    ]
+  },
+  {
     "subject": "Englisch",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Englisch",
-    "description": "Arbeitsblätter greifen climate change und civil rights movement auf und trainieren Textanalyse.",
+    "description": "ABs zur Textanalyse über climate change und civil rights movement.",
     "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
@@ -210,7 +252,7 @@
     "subject": "Chemie",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Chemie",
-    "description": "Arbeitsblätter zu Stoffumwandlungen, Gleichgewichten und Reaktionswegen mit Übungsaufgaben.",
+    "description": "ABs zu Redox, Kinetik und chemischen Gleichgewichten.",
     "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
@@ -245,7 +287,7 @@
     "subject": "Französisch",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Französisch",
-    "description": "Arbeitsblätter zu Textanalyse, Argumentation und Hörverstehen mit Aufgaben auf LK-Niveau.",
+    "description": "ABs zur Textanalyse, Argumentation und zum Hörverstehen.",
     "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
