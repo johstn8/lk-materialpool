@@ -233,7 +233,7 @@ main[data-subject-page] .subject-section{padding:4px 0}
 .overview-card__desc{display:block}
 .grade-chart__column{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:16px}
 .grade-chart__column h3{margin:0}
-.grade-chart__plot{position:relative; height:260px; border-radius:16px; background:linear-gradient(to bottom, rgba(201,64,121,.08), transparent 60%), repeating-linear-gradient(to bottom, rgba(0,0,0,.08), rgba(0,0,0,.08) 1px, transparent 1px, transparent calc(25% - 1px)); border:1px solid var(--border); overflow:visible; padding:12px 0}
+.grade-chart__plot{position:relative; height:320px; border-radius:16px; background:linear-gradient(to bottom, rgba(201,64,121,.08), transparent 60%), repeating-linear-gradient(to bottom, rgba(0,0,0,.08), rgba(0,0,0,.08) 1px, transparent 1px, transparent calc(25% - 1px)); border:1px solid var(--border); overflow:visible; padding:12px 0}
 .grade-chart__points{position:relative; height:100%; width:78%; margin-left:12px}
 .grade-point{position:absolute; top:calc(100% - var(--grade-pct, calc((var(--grade) - var(--axis-min)) / (var(--axis-max) - var(--axis-min)) * 100%))); left:0; transform:translate(0, -50%); display:flex; align-items:center; gap:8px; justify-content:flex-start}
 .grade-point__dot{height:12px; width:12px; border-radius:999px; background:var(--accent); box-shadow:0 0 0 6px rgba(201,64,121,.16)}
