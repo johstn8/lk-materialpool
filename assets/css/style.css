@@ -127,8 +127,10 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .subject-hero{padding:calc(10px + var(--subject-strip-collapsed-height, 0px)) 0 4px}
 .subject-hero .container{text-align:center}
 .subject-hero h1{margin:12px 0 6px}
-.subject-meta{color:var(--muted); max-width:70ch; line-height:1.6}
 .subject-section{padding:9px 0}
+main[data-subject-page] .subject-hero{padding:calc(10px + var(--subject-strip-collapsed-height, 0px)) 0 2px}
+main[data-subject-page] .subject-section{padding:4px 0}
+.subject-meta{color:var(--muted); max-width:70ch; line-height:1.6}
 .subject-card{display:flex; flex-direction:column; gap:8px}
 .subject-card h3{margin:0}
 .subject-card p{margin:0}
@@ -307,6 +309,8 @@ textarea{min-height:140px; resize:vertical}
   .hero-logo{display:none}
   .hero-media{display:block}
   .subject-hero{padding:7px 0 4px}
+  main[data-subject-page] .subject-hero{padding:7px 0 2px}
+  main[data-subject-page] .subject-section{padding:4px 0}
   .subject-strip{display:none}
   .subject-video{flex-direction:column}
   .subject-video__media,
@@ -321,7 +325,7 @@ textarea{min-height:140px; resize:vertical}
   .subject-strip__tabs{position:static; top:auto}
   .subject-tabs--locked{
     position:fixed;
-    top:calc(var(--header-h, 0px) - 1px);
+    top:calc(var(--header-h, 0px) - 11px);
     left:0;
     right:0;
     z-index:19;
