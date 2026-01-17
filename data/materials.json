@@ -3,7 +3,7 @@
     "subject": "Deutsch",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Deutsch",
-    "description": "Kurzprosa-Analyse, Argumentation, Schreibtraining.",
+    "description": "Enthält Aufgaben zu Kurzprosa, Argumentation und Schreibtraining mit klaren Analyseaufträgen.",
     "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
@@ -17,14 +17,14 @@
     "subject": "Deutsch",
     "type": "Podcast",
     "title": "Podcastreihe: Politische Sprache",
-    "description": "Politische Sprache, Rhetorik, Wirkung.",
+    "description": "Die Reihe erklärt, wie politische Sprache wirkt, inklusive Rhetorik- und Wirkungsanalyse.",
     "link": "https://hcg-berlin.de/politische-sprache/"
   },
   {
     "subject": "Geschichte",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Geschichte",
-    "description": "Quellenanalyse, Zeitlinien, Deutung.",
+    "description": "Arbeitsblätter mit Quellenanalysen und Zeitlinien, um Deutungen historischer Ereignisse zu üben.",
     "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
@@ -38,7 +38,7 @@
     "subject": "Politik",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Politik",
-    "description": "Urteilsbildung, Grundrechte, Positionen.",
+    "description": "Aufgaben zur Urteilsbildung, zu Grundrechten und zur Entwicklung eigener Positionen.",
     "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
@@ -52,28 +52,28 @@
     "subject": "Politik",
     "type": "Positionspapiere",
     "title": "Positionspapier der ESN",
-    "description": "Positionsarbeit zu schulpolitischen Themen.",
+    "description": "Dokumentiert Positionsarbeit zu schulpolitischen Themen und liefert Argumentationsbausteine.",
     "link": "assets/documents/lernprodukte/politik-positionspapiere-lk-boerse.pdf"
   },
   {
     "subject": "Politik",
     "type": "Präsentation",
     "title": "Präsentation: Thema des Monats",
-    "description": "EU-Verteidigungspolitik, Kompetenzerweiterung.",
+    "description": "Präsentation zur EU-Verteidigungspolitik mit Fokus auf Kompetenzerweiterung.",
     "link": "assets/documents/lernprodukte/politik-praesentation-lk-boerse.pdf"
   },
   {
     "subject": "Geografie",
     "type": "Abiturklausur",
     "title": "Abiturklausur 2015: Namibia",
-    "description": "Abiturklausur zur Orientierung inklusive Aufgaben.",
+    "description": "Original-Abiturklausur zur Orientierung mit vollständigen Aufgaben.",
     "link": "assets/documents/klausuren/geografie-abi-2015-namibia.pdf"
   },
   {
     "subject": "Geografie",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Geografie",
-    "description": "Stadtentwicklung, Klimawandel, Raumnutzung.",
+    "description": "Materialien zu Stadtentwicklung, Klimawandel und Raumnutzung mit Leitfragen.",
     "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
@@ -87,28 +87,28 @@
     "subject": "Geografie",
     "type": "Wirkungsgefüge",
     "title": "Wirkungsgefüge: Schwammstadt",
-    "description": "Schwammstadt, Ursachen-Wirkung-Ketten.",
+    "description": "Lernprodukt erklärt das Schwammstadt-Konzept mit Ursache-Wirkung-Ketten.",
     "link": "assets/documents/lernprodukte/geografie-wirkungsgefuege-schwammstadt.pdf"
   },
   {
     "subject": "Geografie",
     "type": "Podcast",
     "title": "Podcast: Land Grabbing in der EU",
-    "description": "Landgrabbing, Agrarwirtschaft, EU-Bezüge.",
+    "description": "Podcast beleuchtet Landgrabbing, Agrarwirtschaft und EU-Bezüge anhand von Beispielen.",
     "link": "assets/documents/lernprodukte/geografie-podcast-land-grabbing-eu.mp3"
   },
   {
     "subject": "Biologie",
     "type": "Beispielklausur",
     "title": "Beispielklausur Biologie (2015)",
-    "description": "Genetik, Ökologie, Auswertung.",
+    "description": "Beispielklausur mit Aufgaben zu Genetik und Ökologie inklusive Auswertung.",
     "link": "assets/documents/klausuren/biologie-klausur-2015.pdf"
   },
   {
     "subject": "Biologie",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblatt Biologie",
-    "description": "Stoffwechsel, Diagramme, Auswertung.",
+    "description": "Arbeitsblatt behandelt Stoffwechselprozesse und Diagramm-Auswertung Schritt für Schritt.",
     "modalCta": "Arbeitsblatt öffnen",
     "links": [
       {
@@ -121,14 +121,14 @@
     "subject": "Musik",
     "type": "Semesterklausur",
     "title": "Semesterklausur Q1 (EWH)",
-    "description": "Werkanalyse, Hörbeispiele, Musiktheorie.",
+    "description": "Semesterklausur mit Werkanalyse, Hörbeispielen und musiktheoretischen Aufgaben.",
     "link": "assets/documents/klausuren/musik-semesterklausur-q1-ewh.pdf"
   },
   {
     "subject": "Musik",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblatt: Fahrplan Komponieren",
-    "description": "Kompositionsplanung, Motivarbeit, Struktur.",
+    "description": "Arbeitsblatt führt durch Kompositionsplanung, Motivarbeit und Strukturierung.",
     "modalCta": "Arbeitsblatt öffnen",
     "links": [
       {
@@ -141,7 +141,7 @@
     "subject": "Mathe",
     "type": "Abiturklausur",
     "title": "Abiturklausur von 2015",
-    "description": "Klausur inklusive Erwartungshorizont.",
+    "description": "Enthält die Abiturklausur 2015 samt Aufgaben und Erwartungshorizont.",
     "link": "https://bildungsserver.berlin-brandenburg.de/fileadmin/bbb/unterricht/pruefungen/abitur_bb/Zabi_Mathematik/BE_15_Ma_LK_Aufgaben.pdf"
   },
   {
@@ -168,14 +168,14 @@
     "subject": "Physik",
     "type": "Erklärvideo",
     "title": "Erklärvideo: Zyklotron",
-    "description": "Zyklotron, Magnetfelder, Teilchenbeschleunigung.",
+    "description": "Erklärvideo zum Zyklotron mit Fokus auf Magnetfelder und Teilchenbeschleunigung.",
     "link": "https://youtu.be/EUE9OsmNnuM"
   },
   {
     "subject": "Englisch",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Englisch",
-    "description": "Climate change, civil rights movement, text analysis.",
+    "description": "Arbeitsblätter greifen climate change und civil rights movement auf und trainieren Textanalyse.",
     "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
@@ -189,28 +189,28 @@
     "subject": "Englisch",
     "type": "Poster",
     "title": "Poster: Climate Change & Mental Health",
-    "description": "Climate change, mental health, visual summary.",
+    "description": "Poster verbindet climate change mit mental health und fasst die Ergebnisse visuell zusammen.",
     "link": "assets/documents/lernprodukte/englisch-poster-climate-change-mental-health.jpeg"
   },
   {
     "subject": "Englisch",
     "type": "Short Story",
     "title": "Short Story: The White Whale",
-    "description": "Short story, narrative perspective, analysis.",
+    "description": "Kurzgeschichte mit Analyse der Erzählperspektive und ihrer Wirkung.",
     "link": "assets/documents/lernprodukte/englisch-short-story-the-white-whale.png"
   },
   {
     "subject": "Chemie",
     "type": "Beispielklausur",
     "title": "Beispielaufgaben Chemie LK (Fachbrief 08)",
-    "description": "Redox, Kinetik, Gleichgewichte.",
+    "description": "Beispielaufgaben zu Redox, Kinetik und chemischen Gleichgewichten auf LK-Niveau.",
     "link": "https://bildungsserver.berlin-brandenburg.de/fileadmin/bbb/unterricht/fachbriefe_berlin/chemie/fachbrief_chemie_08_beispielaufgaben_lk.pdf"
   },
   {
     "subject": "Chemie",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Chemie",
-    "description": "Stoffumwandlungen, Gleichgewichte, Reaktionswege.",
+    "description": "Arbeitsblätter zu Stoffumwandlungen, Gleichgewichten und Reaktionswegen mit Übungsaufgaben.",
     "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [
@@ -224,28 +224,28 @@
     "subject": "Kunst",
     "type": "Abiturklausur",
     "title": "Abiturklausur Kunst 2015",
-    "description": "Original-Abiturklausur aus 2015 zur Vorbereitung.",
+    "description": "Original-Abiturklausur 2015 zur Vorbereitung inklusive Aufgabenstellung.",
     "link": "assets/documents/klausuren/kunst-abiturklausur-2015.pdf"
   },
   {
     "subject": "Kunst",
     "type": "Lernprodukte",
     "title": "Lernprodukte: Emotion",
-    "description": "Emotion, Bildanalyse, Gestaltung.",
+    "description": "Lernprodukte zum Thema Emotion mit Bildanalyse und gestalterischen Umsetzungen.",
     "link": "https://hcg-berlin.de/emotion/"
   },
   {
     "subject": "Französisch",
     "type": "Beispielklausur",
     "title": "Beispielklausur Französisch Q1",
-    "description": "Analyse littéraire, argumentation.",
+    "description": "Beispielklausur mit Analyse littéraire und argumentativer Textarbeit.",
     "link": "assets/documents/klausuren/franzoesisch-klausur-q1.pdf"
   },
   {
     "subject": "Französisch",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Französisch",
-    "description": "Textanalyse, Argumentation, Hörverstehen.",
+    "description": "Arbeitsblätter zu Textanalyse, Argumentation und Hörverstehen mit Aufgaben auf LK-Niveau.",
     "modalCta": "Arbeitsblätter öffnen",
     "modalVariant": "cards",
     "links": [

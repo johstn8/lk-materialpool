@@ -44,6 +44,7 @@ const setSubjectStripMetrics = () => {
   const collapsedHeight = Math.max(0, stripHeight - labelHeight);
   document.documentElement.style.setProperty('--subject-strip-height', `${stripHeight}px`);
   document.documentElement.style.setProperty('--subject-strip-collapsed-height', `${collapsedHeight}px`);
+  document.documentElement.style.setProperty('--subject-strip-label-height', `${labelHeight}px`);
   if(wasCollapsed){
     subjectStrip.classList.add('is-collapsed');
   }
@@ -653,11 +654,13 @@ if(subjectPage){
         }
         if(!items.length){
           host.innerHTML = '';
+          host.setAttribute('hidden', '');
           if(hideParent){
             host.closest('.subject-materials-block')?.setAttribute('hidden', '');
           }
           return;
         }
+        host.removeAttribute('hidden');
         host.innerHTML = items.map(buildMaterialMarkup).join('');
       };
 
