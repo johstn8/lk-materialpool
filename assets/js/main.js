@@ -4,21 +4,7 @@ const navLinks = document.getElementById('navlinks');
 const navAnchors = navLinks?.querySelectorAll('a');
 const headerEl = document.querySelector('header');
 const subjectStripTabs = document.querySelector('.subject-strip__tabs');
-const subjectStripLabel = document.querySelector('.subject-strip__label');
-const subjectStripTitle = document.querySelector('.subject-strip__title');
-const subjectStrip = document.querySelector('.subject-strip');
 const desktopQuery = window.matchMedia('(min-width: 900px)');
-const subjectTabsSpacer = document.getElementById('subject-tabs-spacer') ?? (() => {
-  if(!subjectStrip || !subjectStripTabs){
-    return null;
-  }
-  const spacer = document.createElement('div');
-  spacer.className = 'subject-strip__spacer';
-  spacer.id = 'subject-tabs-spacer';
-  subjectStripTabs.before(spacer);
-  return spacer;
-})();
-
 if(navToggle && navLinks){
   navToggle.addEventListener('click', () => {
     const open = navLinks.classList.toggle('is-open');
@@ -54,52 +40,9 @@ const setSubjectStripMetrics = () => {
   return { tabsHeight };
 };
 
-let subjectStripLockY = 0;
-
-const updateSubjectStripLockThreshold = () => {
-  if(!subjectStripLabel || !subjectStripTabs){
-    return 0;
-  }
-  const headerHeight = setHeaderHeight();
-  const labelBottomY = subjectStripLabel.getBoundingClientRect().bottom + window.scrollY;
-  subjectStripLockY = labelBottomY - headerHeight;
-  return subjectStripLockY;
-};
-
-const applySubjectStripLock = () => {
-  if(!subjectStripTabs || !subjectStripLabel || !subjectTabsSpacer){
-    return;
-  }
-  if(!desktopQuery.matches){
-    subjectStripTabs.classList.remove('subject-tabs--locked');
-    subjectStripTitle?.classList.remove('is-hidden');
-    subjectTabsSpacer.style.height = '0px';
-    document.documentElement.style.setProperty('--tabs-h', '0px');
-    document.body.classList.remove('has-subject-tabs-locked');
-    return;
-  }
-  const shouldLock = window.scrollY >= subjectStripLockY;
-  if(shouldLock){
-    const tabsHeight = Math.ceil(subjectStripTabs.getBoundingClientRect().height);
-    document.documentElement.style.setProperty('--tabs-h', `${tabsHeight}px`);
-    subjectTabsSpacer.style.height = `${tabsHeight}px`;
-    subjectStripTabs.classList.add('subject-tabs--locked');
-    subjectStripTitle?.classList.add('is-hidden');
-    document.body.classList.add('has-subject-tabs-locked');
-  } else {
-    subjectStripTabs.classList.remove('subject-tabs--locked');
-    subjectStripTitle?.classList.remove('is-hidden');
-    subjectTabsSpacer.style.height = '0px';
-    document.documentElement.style.setProperty('--tabs-h', '0px');
-    document.body.classList.remove('has-subject-tabs-locked');
-  }
-};
-
 const updateSubjectStripLayout = () => {
   setHeaderHeight();
   setSubjectStripMetrics();
-  updateSubjectStripLockThreshold();
-  applySubjectStripLock();
 };
 
 updateSubjectStripLayout();
@@ -109,12 +52,6 @@ window.addEventListener('resize', () => {
 window.addEventListener('load', () => {
   updateSubjectStripLayout();
 });
-window.addEventListener('scroll', () => {
-  if(!desktopQuery.matches){
-    return;
-  }
-  applySubjectStripLock();
-}, { passive: true });
 desktopQuery.addEventListener('change', () => {
   updateSubjectStripLayout();
 });
