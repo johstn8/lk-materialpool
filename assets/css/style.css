@@ -82,7 +82,7 @@ h1{font-size:clamp(30px, 4vw, 48px); line-height:1.08; margin:14px 0}
 .subject-strip__title{background:var(--bg-alt)}
 .subject-strip__title.is-hidden{opacity:0; visibility:hidden; pointer-events:none}
 .subject-strip__spacer{height:0}
-.subject-strip__tabs{position:sticky; top:var(--header-h, 0px); z-index:19; background:var(--bg-alt); border-bottom:1px solid var(--border)}
+.subject-strip__tabs{position:sticky; top:var(--header-h, 0px); z-index:19; background:var(--bg-alt); border-bottom:1px solid var(--border); transition:box-shadow .2s ease, border-color .2s ease}
 .subject-strip__label{margin:0; padding:6px 0 4px; font-weight:800; color:var(--muted); font-size:clamp(1rem, 2vw, 1.2rem)}
 .subject-pills{display:flex; flex-wrap:nowrap; gap:0; padding-bottom:0; align-items:stretch; overflow:hidden}
 .subject-pill{
@@ -322,19 +322,9 @@ textarea{min-height:140px; resize:vertical}
 }
 
 @media (min-width: 900px){
-  .subject-strip__tabs{position:static; top:auto}
   .subject-tabs--locked{
-    position:fixed;
-    top:calc(var(--header-h, 0px) - 11px);
-    left:0;
-    right:0;
-    z-index:19;
-    background:var(--bg-alt);
-    border-bottom:1px solid var(--border);
     border-top:1px solid var(--border);
-    transform:none !important;
-    height:var(--tabs-h);
-    box-sizing:border-box;
+    box-shadow:0 6px 16px rgba(15,23,42,.08);
   }
 }
 

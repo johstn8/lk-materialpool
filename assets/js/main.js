@@ -73,15 +73,12 @@ const applySubjectStripLock = () => {
     subjectStripTabs.classList.remove('subject-tabs--locked');
     subjectStripTitle?.classList.remove('is-hidden');
     subjectTabsSpacer.style.height = '0px';
-    document.documentElement.style.setProperty('--tabs-h', '0px');
     document.body.classList.remove('has-subject-tabs-locked');
     return;
   }
   const shouldLock = window.scrollY >= subjectStripLockY;
   if(shouldLock){
-    const tabsHeight = Math.ceil(subjectStripTabs.getBoundingClientRect().height);
-    document.documentElement.style.setProperty('--tabs-h', `${tabsHeight}px`);
-    subjectTabsSpacer.style.height = `${tabsHeight}px`;
+    subjectTabsSpacer.style.height = '0px';
     subjectStripTabs.classList.add('subject-tabs--locked');
     subjectStripTitle?.classList.add('is-hidden');
     document.body.classList.add('has-subject-tabs-locked');
@@ -89,7 +86,6 @@ const applySubjectStripLock = () => {
     subjectStripTabs.classList.remove('subject-tabs--locked');
     subjectStripTitle?.classList.remove('is-hidden');
     subjectTabsSpacer.style.height = '0px';
-    document.documentElement.style.setProperty('--tabs-h', '0px');
     document.body.classList.remove('has-subject-tabs-locked');
   }
 };
