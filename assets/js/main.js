@@ -44,24 +44,28 @@ const setHeaderHeight = () => {
   return height;
 };
 
+let subjectTabsHeight = 0;
+
 const setSubjectStripMetrics = () => {
   if(!subjectStripTabs){
+    subjectTabsHeight = 0;
     return { tabsHeight: 0 };
   }
-  const tabsHeight = subjectStripTabs.getBoundingClientRect().height;
-  document.documentElement.style.setProperty('--subject-strip-collapsed-height', `${tabsHeight}px`);
-  return { tabsHeight };
+  subjectTabsHeight = subjectStripTabs.getBoundingClientRect().height;
+  document.documentElement.style.setProperty('--subject-strip-collapsed-height', `${subjectTabsHeight}px`);
+  document.documentElement.style.setProperty('--tabs-h', `${subjectTabsHeight}px`);
+  return { tabsHeight: subjectTabsHeight };
 };
 
 let subjectStripLockY = 0;
 
 const updateSubjectStripLockThreshold = () => {
-  if(!subjectStripLabel || !subjectStripTabs){
+  if(!subjectStripTabs){
     return 0;
   }
   const headerHeight = setHeaderHeight();
-  const labelBottomY = subjectStripLabel.getBoundingClientRect().bottom + window.scrollY;
-  subjectStripLockY = labelBottomY - headerHeight;
+  const tabsTopY = subjectStripTabs.getBoundingClientRect().top + window.scrollY;
+  subjectStripLockY = tabsTopY - headerHeight;
   return subjectStripLockY;
 };
 
@@ -78,7 +82,7 @@ const applySubjectStripLock = () => {
   }
   const shouldLock = window.scrollY >= subjectStripLockY;
   if(shouldLock){
-    subjectTabsSpacer.style.height = '0px';
+    subjectTabsSpacer.style.height = `${subjectTabsHeight}px`;
     subjectStripTabs.classList.add('subject-tabs--locked');
     subjectStripTitle?.classList.add('is-hidden');
     document.body.classList.add('has-subject-tabs-locked');
