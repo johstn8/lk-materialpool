@@ -174,7 +174,9 @@ main[data-subject-page] .subject-section{padding:4px 0}
 .tips-list{margin:18px 0 0; padding-left:22px; display:flex; flex-direction:column; gap:14px; color:var(--muted); line-height:1.7}
 .tips-list strong{color:var(--text)}
 .accent-link{color:var(--accent); font-weight:700; text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:2px; background:rgba(201,64,121,.12); padding:0 4px; border-radius:6px}
+.accent-link--plain{background:#fff}
 .accent-link--button{border:none; cursor:pointer; font:inherit; display:inline; line-height:inherit; background:rgba(201,64,121,.12)}
+.accent-link--button.accent-link--plain{background:#fff}
 .accent-link--button:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 
 .info-modal{position:fixed; inset:0; display:grid; place-items:center; z-index:60}
