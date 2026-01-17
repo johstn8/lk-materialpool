@@ -322,8 +322,19 @@ textarea{min-height:140px; resize:vertical}
 }
 
 @media (min-width: 900px){
+  .subject-strip__tabs{position:static; top:auto}
   .subject-tabs--locked{
+    position:fixed;
+    top:calc(var(--header-h, 0px) - 11px);
+    left:0;
+    right:0;
+    z-index:19;
+    background:var(--bg-alt);
+    border-bottom:1px solid var(--border);
     border-top:1px solid var(--border);
+    transform:none !important;
+    height:var(--tabs-h);
+    box-sizing:border-box;
     box-shadow:0 6px 16px rgba(15,23,42,.08);
   }
 }
