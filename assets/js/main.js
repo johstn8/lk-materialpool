@@ -64,7 +64,8 @@ const updateSubjectStripLockThreshold = () => {
     return 0;
   }
   const headerHeight = setHeaderHeight();
-  const tabsTopY = subjectStripTabs.getBoundingClientRect().top + window.scrollY;
+  const lockAnchor = subjectTabsSpacer ?? subjectStripTabs;
+  const tabsTopY = lockAnchor.getBoundingClientRect().top + window.scrollY;
   subjectStripLockY = tabsTopY - headerHeight;
   return subjectStripLockY;
 };
