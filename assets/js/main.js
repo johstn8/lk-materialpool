@@ -482,10 +482,14 @@ if(eventsHost && scroller && trackPast && trackFuture && todayMarker){
   const parsedEvents = timelineEvents
     .map((event) => ({ ...event, dateObj: new Date(event.date) }))
     .sort((a, b) => a.dateObj - b.dateObj)
-    .map((event) => ({
-      ...event,
-      status: now.toDateString() === event.dateObj.toDateString() ? 'today' : now > event.dateObj ? 'past' : 'future',
-    }));
+    .map((event, index) => {
+      const baseStatus = now.toDateString() === event.dateObj.toDateString() ? 'today' : now > event.dateObj ? 'past' : 'future';
+      const status = index < 2 ? 'past' : baseStatus === 'past' ? 'future' : baseStatus;
+      return {
+        ...event,
+        status,
+      };
+    });
 
   parsedEvents.forEach((event) => {
     const card = document.createElement('article');

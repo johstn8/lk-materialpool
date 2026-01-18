@@ -32,7 +32,6 @@ header{
   border-bottom:1px solid var(--border);
   padding-top:max(env(safe-area-inset-top), 0px);
 }
-body.has-subject-tabs-locked{--header-bg:var(--bg-alt)}
 body.has-subject-tabs-locked header{border-bottom:1px solid var(--bg); box-shadow:none}
 nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:9px 0}
 .brand{display:flex; align-items:center; gap:12px; flex:1 1 auto; min-width:0}
