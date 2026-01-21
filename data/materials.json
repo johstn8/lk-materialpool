@@ -35,6 +35,13 @@
     ]
   },
   {
+    "subject": "Geschichte",
+    "type": "Beispielklausur",
+    "title": "Beispielklausur Geschichte",
+    "description": "Beispielklausur über den Staat der Athener, Thema wird erst in Sek. 2 behandelt.",
+    "link": "assets/documents/klausuren/geschichte-klausur.pdf"
+  },
+  {
     "subject": "Politik",
     "type": "Arbeitsblätter",
     "title": "Arbeitsblätter Politik",
