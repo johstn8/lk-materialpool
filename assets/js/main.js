@@ -454,8 +454,8 @@ const timelineEvents = [
     description: 'Ihr könnt in vier verschiedene Leistungskurse für jeweils eine Stunde reinschauen.',
   },
   {
-    date: '2025-02-18',
-    displayDate: '18.02.',
+    date: '2025-02-16',
+    displayDate: '16.02.',
     title: 'LK-Infomarkt',
     category: 'Austausch',
     description: 'Ihr könnt mit Schülerinnen und Schülern aus den jeweiligen LKs ins Gespräch gehen und Erfahrungen austauschen.',
