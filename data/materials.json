@@ -207,6 +207,8 @@
     "type": "Beispielklausuren",
     "title": "Beispielklausuren Physik (Abiturklausuren)",
     "description": "Drei vollständige LK-Klausuren als Abiturklausuren zur Vorbereitung.",
+    "modalCta": "Klausuren öffnen",
+    "modalVariant": "cards",
     "links": [
       {
         "title": "Physik LK 2017 (Abiturklausur)",
