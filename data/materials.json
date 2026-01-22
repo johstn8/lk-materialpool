@@ -15,6 +15,28 @@
   },
   {
     "subject": "Deutsch",
+    "type": "Klausuren",
+    "title": "Klausuren Deutsch",
+    "description": "Aktuelle Abituraufgaben mit unterschiedlichen Aufgabenformaten zur Vorbereitung.",
+    "modalCta": "Klausuren öffnen",
+    "modalVariant": "cards",
+    "links": [
+      {
+        "title": "Interpretation literarischer Texte (erhöht)",
+        "url": "https://www.iqb.hu-berlin.de/media/exercise_files/Abituraufgaben_Deutsch/2024DInterpretationliterarischerTexteerhoeht4_Aufgabe.pdf"
+      },
+      {
+        "title": "Erörterung literarischer Texte (erhöht)",
+        "url": "https://www.iqb.hu-berlin.de/media/exercise_files/Abituraufgaben_Deutsch/2022DEroerterungliterarischerTexteerhoeht_Aufgabe.pdf"
+      },
+      {
+        "title": "Analyse pragmatischer Texte (grundlegend)",
+        "url": "https://www.iqb.hu-berlin.de/media/exercise_files/Abituraufgaben_Deutsch/2024DAnalysepragmatischerTextegrundlegend_Aufgabe.pdf"
+      }
+    ]
+  },
+  {
+    "subject": "Deutsch",
     "type": "Podcast",
     "title": "Podcastreihe: Politische Sprache",
     "description": "Die Reihe erklärt, wie politische Sprache wirkt, inklusive Rhetorik- und Wirkungsanalyse.",
@@ -63,11 +85,11 @@
     "links": [
       {
         "title": "Klausurbeispiel Politik 1 (PDF)",
-        "url": "assets/documents/arbeitsblaetter/Klausurbeispiel Politik.pdf"
+        "url": "assets/documents/arbeitsblaetter/politik-klausurbeispiel-1.pdf"
       },
       {
         "title": "Klausurbeispiel Politik 2 (PDF)",
-        "url": "assets/documents/arbeitsblaetter/Klausurbeispiel Politik 2.pdf"
+        "url": "assets/documents/arbeitsblaetter/politik-klausurbeispiel-2.pdf"
       }
     ]
   },
@@ -176,7 +198,7 @@
     "links": [
       {
         "title": "Ableitungen (PDF)",
-        "url": "assets/documents/arbeitsblaetter/Mathe Ableitungen.pdf"
+        "url": "assets/documents/arbeitsblaetter/mathe-arbeitsblatt-ableitungen.pdf"
       }
     ]
   },
@@ -216,7 +238,7 @@
     "links": [
       {
         "title": "Gravitation (PDF)",
-        "url": "assets/documents/arbeitsblaetter/Physik Gravitation.pdf"
+        "url": "assets/documents/arbeitsblaetter/physik-arbeitsblatt-gravitation.pdf"
       }
     ]
   },
@@ -247,6 +269,13 @@
     "title": "Short Story: The White Whale",
     "description": "Kurzgeschichte mit Analyse der Erzählperspektive und ihrer Wirkung.",
     "link": "assets/documents/lernprodukte/englisch-short-story-the-white-whale.png"
+  },
+  {
+    "subject": "Englisch",
+    "type": "Klausur",
+    "title": "Klausur Englisch",
+    "description": "Beispielklausur zur Vorbereitung auf die LK-Anforderungen.",
+    "link": "assets/documents/klausuren/englisch-klausur.pdf"
   },
   {
     "subject": "Chemie",

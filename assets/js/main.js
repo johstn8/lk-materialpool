@@ -447,6 +447,13 @@ const timelineEvents = [
     description: 'Der LK-Materialpool wird für euch zugänglich veröffentlicht.',
   },
   {
+    date: '2025-02-09',
+    displayDate: '09.02.',
+    title: 'Upload Kurswahlrechner',
+    category: 'Service',
+    description: 'Der Kurswahlrechner steht euch zur Planung der Kurswahl zur Verfügung.',
+  },
+  {
     date: '2025-02-16',
     displayDate: '16.02.',
     title: 'LK-Börse',
