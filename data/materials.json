@@ -163,6 +163,13 @@
     ]
   },
   {
+    "subject": "Biologie",
+    "type": "Lernprodukt",
+    "title": "Primäre & sekundäre aktive Transportprozesse",
+    "description": "Lernprodukt erklärt Membrantransport mit Fokus auf primäre und sekundäre aktive Prozesse.",
+    "link": "assets/documents/lernprodukte/biologie-lernprodukt-primaer-sekundaer-aktive-transportprozesse.pdf"
+  },
+  {
     "subject": "Musik",
     "type": "Semesterklausur",
     "title": "Semesterklausur Q1 (EWH)",
