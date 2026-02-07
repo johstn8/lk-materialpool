@@ -555,18 +555,20 @@ document.querySelectorAll('form').forEach((form) => {
   });
 });
 
-const excelLink = document.querySelector('[data-excel-link]');
-if(excelLink){
+document.querySelectorAll('[data-excel-link]').forEach((excelLink) => {
   const source = excelLink.dataset.excelSource || excelLink.getAttribute('href');
-  if(source){
-    const absoluteUrl = new URL(source, window.location.href).toString();
-    const excelOnlineUrl = `https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(absoluteUrl)}`;
-    excelLink.setAttribute('href', excelOnlineUrl);
-    excelLink.setAttribute('target', '_blank');
-    excelLink.setAttribute('rel', 'noopener');
-    excelLink.removeAttribute('download');
+  if(!source){
+    return;
   }
-}
+
+  const absoluteUrl = new URL(source, window.location.href).toString();
+  const cacheBustedUrl = `${absoluteUrl}${absoluteUrl.includes('?') ? '&' : '?'}v=${Date.now()}`;
+  const excelOnlineUrl = `https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(cacheBustedUrl)}&activeCell=%27README%27!A1`;
+  excelLink.setAttribute('href', excelOnlineUrl);
+  excelLink.setAttribute('target', '_blank');
+  excelLink.setAttribute('rel', 'noopener');
+  excelLink.removeAttribute('download');
+});
 
 const loadJSON = (path) => fetch(path).then((response) => response.json());
 const withHdVideoParams = (url) => {
