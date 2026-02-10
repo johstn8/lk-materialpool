@@ -172,7 +172,7 @@
   {
     "subject": "Musik",
     "type": "Semesterklausur",
-    "title": "Semesterklausur Q1 (EWH)",
+    "title": "Semesterklausur Q1 (mit EWH)",
     "description": "Semesterklausur mit Werkanalyse, Hörbeispielen und musiktheoretischen Aufgaben.",
     "link": "assets/documents/klausuren/musik-semesterklausur-q1-ewh.pdf"
   },
@@ -289,7 +289,7 @@
   {
     "subject": "Chemie",
     "type": "Beispielklausur",
-    "title": "Beispielaufgaben Chemie LK (Fachbrief 08)",
+    "title": "Abiturklausur Chemie-LK (Bsp.)",
     "description": "Beispielaufgaben zu Redox, Kinetik und chemischen Gleichgewichten auf LK-Niveau.",
     "link": "https://bildungsserver.berlin-brandenburg.de/fileadmin/bbb/unterricht/fachbriefe_berlin/chemie/fachbrief_chemie_08_beispielaufgaben_lk.pdf"
   },

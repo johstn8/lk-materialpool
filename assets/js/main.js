@@ -447,8 +447,8 @@ const timelineEvents = [
     description: 'Der LK-Materialpool wird für euch zugänglich veröffentlicht.',
   },
   {
-    date: '2025-02-09',
-    displayDate: '09.02.',
+    date: '2025-02-11',
+    displayDate: '11.02.',
     title: 'Upload Kurswahlrechner',
     category: 'Service',
     description: 'Der Kurswahlrechner steht euch zur Planung der Kurswahl zur Verfügung.',
@@ -575,17 +575,7 @@ const withHdVideoParams = (url) => {
   if(!url || (!url.includes('youtube.com/embed') && !url.includes('youtube-nocookie.com/embed'))){
     return url;
   }
-  const sanitizedUrl = url.replace('https://www.youtube.com/embed', 'https://www.youtube-nocookie.com/embed');
-  const parsed = new URL(sanitizedUrl, window.location.href);
-  parsed.searchParams.set('vq', 'hd1080');
-  parsed.searchParams.set('quality', 'hd1080');
-  parsed.searchParams.set('hd', '1');
-  parsed.searchParams.set('rel', '0');
-  parsed.searchParams.set('modestbranding', '1');
-  parsed.searchParams.set('showinfo', '0');
-  parsed.searchParams.set('iv_load_policy', '3');
-  parsed.searchParams.set('playsinline', '1');
-  return parsed.toString();
+  return url;
 };
 
 const overviewPage = document.querySelector('[data-overview-page]');
@@ -753,9 +743,11 @@ if(subjectPage){
             </button>
             <div class="goal-overlay subject-modal" id="${modalId}" hidden>
               <div class="goal-overlay__card subject-modal__card" role="dialog" aria-modal="true" aria-labelledby="${modalId}-title">
-                <button class="goal-overlay__close" type="button" data-modal-close aria-label="Pop-up schließen">×</button>
                 <div class="goal-overlay__body">
-                  <h2 id="${modalId}-title">${item.title}</h2>
+                  <div class="goal-overlay__header">
+                    <h2 id="${modalId}-title">${item.title}</h2>
+                    <button class="goal-overlay__close" type="button" data-modal-close aria-label="Pop-up schließen">×</button>
+                  </div>
                   <p>${item.description}</p>
                   <div class="subject-modal__links${item.modalVariant === 'cards' ? ' subject-modal__links--cards' : ''}">
                     ${linksMarkup}
