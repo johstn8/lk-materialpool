@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Abitur-Planer</title>
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+  <a
+    id="abitur-planer-link"
+    href="assets/documents/abitur-planer-berlin.xlsx"
+    data-excel-link
+    data-excel-source="https://johstn8.github.io/lk-materialpool/assets/documents/abitur-planer-berlin.xlsx"
+    hidden
+    aria-hidden="true"
+    tabindex="-1"
+  >Abitur-Planer</a>
+
+  <script>
+    (() => {
+      const link = document.getElementById('abitur-planer-link');
+      if(!link){
+        return;
+      }
+
+      const createExcelOnlineUrl = () => {
+        const source = link.dataset.excelSource || link.getAttribute('href');
+        if(!source){
+          return null;
+        }
+        const absoluteUrl = new URL(source, window.location.href).toString();
+        const cacheBustedUrl = `${absoluteUrl}${absoluteUrl.includes('?') ? '&' : '?'}v=${Date.now()}`;
+        return `https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(cacheBustedUrl)}&activeCell=%27README%27!A1`;
+      };
+
+      const redirectTo = (url) => {
+        if(!url){
+          return;
+        }
+        window.location.replace(url);
+      };
+
+      const maxWaitMs = 2000;
+      const start = Date.now();
+
+      const waitForLink = () => {
+        const href = link.getAttribute('href') || '';
+        if(href.includes('view.officeapps.live.com')){
+          setTimeout(() => redirectTo(href), 300);
+          return;
+        }
+
+        if(Date.now() - start >= maxWaitMs){
+          redirectTo(createExcelOnlineUrl());
+          return;
+        }
+
+        requestAnimationFrame(waitForLink);
+      };
+
+      window.addEventListener('load', waitForLink, { once: true });
+    })();
+  </script>
+</body>
+</html>
