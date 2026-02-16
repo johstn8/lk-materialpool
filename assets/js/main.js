@@ -556,14 +556,20 @@ document.querySelectorAll('form').forEach((form) => {
 });
 
 document.querySelectorAll('[data-excel-link]').forEach((excelLink) => {
-  const source = excelLink.dataset.excelSource || excelLink.getAttribute('href');
-  if(!source){
+  const sourceList = excelLink.dataset.excelSource || excelLink.getAttribute('href') || '';
+  const sources = sourceList
+    .split('|')
+    .map((source) => source.trim())
+    .filter(Boolean);
+
+  if(sources.length === 0){
     return;
   }
 
-  const absoluteUrl = new URL(source, window.location.href).toString();
+  const firstSource = sources[0];
+  const absoluteUrl = new URL(firstSource, window.location.href).toString();
   const cacheBustedUrl = `${absoluteUrl}${absoluteUrl.includes('?') ? '&' : '?'}v=${Date.now()}`;
-  const excelOnlineUrl = `https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(cacheBustedUrl)}&activeCell=%27README%27!A1`;
+  const excelOnlineUrl = `https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(cacheBustedUrl)}`;
   excelLink.setAttribute('href', excelOnlineUrl);
   excelLink.setAttribute('target', '_blank');
   excelLink.setAttribute('rel', 'noopener');
