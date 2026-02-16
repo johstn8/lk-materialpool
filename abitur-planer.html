@@ -12,7 +12,7 @@
     id="abitur-planer-link"
     href="assets/documents/abitur-planer-berlin.xlsx"
     data-excel-link
-    data-excel-source="https://johstn8.github.io/lk-materialpool/assets/documents/abitur-planer-berlin.xlsx"
+    data-excel-source="https://raw.githubusercontent.com/johstn8/lk-materialpool/main/assets/documents/abitur-planer-berlin.xlsx|https://johstn8.github.io/lk-materialpool/assets/documents/abitur-planer-berlin.xlsx|assets/documents/abitur-planer-berlin.xlsx"
     hidden
     aria-hidden="true"
     tabindex="-1"
@@ -25,14 +25,21 @@
         return;
       }
 
-      const createExcelOnlineUrl = () => {
-        const source = link.dataset.excelSource || link.getAttribute('href');
+      const getSources = () => {
+        const sourceList = link.dataset.excelSource || link.getAttribute('href') || '';
+        return sourceList
+          .split('|')
+          .map((source) => source.trim())
+          .filter(Boolean);
+      };
+
+      const createExcelOnlineUrl = (source) => {
         if(!source){
           return null;
         }
         const absoluteUrl = new URL(source, window.location.href).toString();
         const cacheBustedUrl = `${absoluteUrl}${absoluteUrl.includes('?') ? '&' : '?'}v=${Date.now()}`;
-        return `https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(cacheBustedUrl)}&activeCell=%27README%27!A1`;
+        return `https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(cacheBustedUrl)}`;
       };
 
       const redirectTo = (url) => {
@@ -53,7 +60,8 @@
         }
 
         if(Date.now() - start >= maxWaitMs){
-          redirectTo(createExcelOnlineUrl());
+          const firstAvailableSource = getSources()[0];
+          redirectTo(createExcelOnlineUrl(firstAvailableSource));
           return;
         }
 
