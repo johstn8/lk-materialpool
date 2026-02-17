@@ -379,3 +379,40 @@ textarea{min-height:140px; resize:vertical}
 #team .hero-text .lead{
   font-size:1rem;
 }
+
+.btn-abiturplaner{
+  font-size:clamp(1.02rem, 1.25vw, 1.14rem);
+  padding:15px 22px;
+}
+
+#excel-choice-modal .info-modal__panel{
+  background:linear-gradient(180deg, rgba(201,64,121,.09), #fff 34%);
+}
+
+#excel-choice-modal .sheet-download--excel-choice{
+  gap:14px;
+}
+
+#excel-choice-modal .sheet-download--excel-choice .btn{
+  border-radius:14px;
+  min-width:255px;
+  min-height:50px;
+  font-size:1rem;
+  letter-spacing:.01em;
+  border:1px solid transparent;
+}
+
+#excel-choice-modal .sheet-download--excel-choice .btn-ghost{
+  background:linear-gradient(180deg, #fff, #fdf2f8);
+  border-color:rgba(201,64,121,.26);
+}
+
+#excel-choice-modal .sheet-download--excel-choice .btn-ghost:hover{
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-strong);
+  border-color:rgba(201,64,121,.42);
+}
+
+.abitur-planer-page{
+  min-height:100vh;
+}
