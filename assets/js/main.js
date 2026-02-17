@@ -939,7 +939,7 @@ const createExcelChoiceModal = () => {
       </div>
       <div class="info-modal__body">
         <p>Wähle aus, wie du den Abitur-Planer öffnen möchtest.</p>
-        <div class="sheet-download">
+        <div class="sheet-download sheet-download--excel-choice">
           <button class="btn btn-accent" type="button" data-excel-action="browser">Im Browser öffnen</button>
           <button class="btn btn-ghost" type="button" data-excel-action="app">In der App öffnen</button>
           <button class="btn btn-ghost" type="button" data-excel-action="download">Datei herunterladen</button>
