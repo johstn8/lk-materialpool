@@ -124,7 +124,7 @@ body.has-subject-tabs-locked .subject-strip__tabs{background:var(--header-bg)}
 .pictogram-card--link:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 .pictogram{height:52px; width:52px; border-radius:16px; background:rgba(201,64,121,.12); color:var(--accent); font-size:1.6rem; display:flex; align-items:center; justify-content:center; flex:0 0 auto}
 
-.sheet-download{display:flex; align-items:center; justify-content:flex-start}
+.sheet-download{display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:flex-start}
 .sheet-download .btn{min-width:240px}
 
 .subject-hero{padding:calc(4px + var(--subject-strip-collapsed-height, 0px)) 0 4px}
