@@ -879,3 +879,189 @@ if(subjectPage){
       }
     });
 }
+
+const excelChoiceTriggers = document.querySelectorAll('[data-excel-choice]');
+
+const parseExcelSources = (trigger) => {
+  const sourceList = trigger?.dataset.excelSource?.trim();
+  if(!sourceList){
+    return [];
+  }
+  return sourceList
+    .split('|')
+    .map((item) => item.trim())
+    .filter(Boolean);
+};
+
+const toAbsoluteUrl = (url) => {
+  if(!url){
+    return null;
+  }
+  return new URL(url, window.location.href).toString();
+};
+
+const createExcelOnlineUrl = (source) => {
+  const absoluteUrl = toAbsoluteUrl(source);
+  if(!absoluteUrl){
+    return null;
+  }
+  const cacheBustedUrl = `${absoluteUrl}${absoluteUrl.includes('?') ? '&' : '?'}v=${Date.now()}`;
+  return `https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(cacheBustedUrl)}`;
+};
+
+const createExcelAppUrl = (source) => {
+  const absoluteUrl = toAbsoluteUrl(source);
+  if(!absoluteUrl){
+    return null;
+  }
+  return `ms-excel:ofe|u|${absoluteUrl}`;
+};
+
+const createExcelAndroidIntent = (source) => {
+  const absoluteUrl = toAbsoluteUrl(source);
+  if(!absoluteUrl){
+    return null;
+  }
+  return `intent://${absoluteUrl.replace(/^https?:\/\//, '')}#Intent;scheme=https;package=com.microsoft.office.excel;end`;
+};
+
+const createExcelChoiceModal = () => {
+  const modal = document.createElement('div');
+  modal.className = 'info-modal';
+  modal.id = 'excel-choice-modal';
+  modal.hidden = true;
+  modal.innerHTML = `
+    <div class="info-modal__backdrop" data-excel-modal-close></div>
+    <div class="info-modal__panel" role="dialog" aria-modal="true" aria-labelledby="excel-choice-modal-title">
+      <div class="info-modal__header">
+        <h3 id="excel-choice-modal-title">Abitur-Planer öffnen</h3>
+        <button class="info-modal__close" type="button" data-excel-modal-close>Schließen</button>
+      </div>
+      <div class="info-modal__body">
+        <p>Wähle aus, wie du den Abitur-Planer öffnen möchtest.</p>
+        <div class="sheet-download">
+          <button class="btn btn-accent" type="button" data-excel-action="browser">Im Browser öffnen</button>
+          <button class="btn btn-ghost" type="button" data-excel-action="app">In der App öffnen</button>
+          <button class="btn btn-ghost" type="button" data-excel-action="download">Datei herunterladen</button>
+        </div>
+        <p><strong>Merksatz:</strong> Wenn du <strong>Im Browser öffnen</strong> nutzt, musst du oben rechts zuerst eine Kopie speichern, bevor du die Datei bearbeiten kannst.</p>
+      </div>
+    </div>
+  `;
+  document.body.append(modal);
+  return modal;
+};
+
+let excelChoiceModal = null;
+let activeExcelTrigger = null;
+
+const closeExcelChoiceModal = () => {
+  if(!excelChoiceModal){
+    return;
+  }
+  excelChoiceModal.hidden = true;
+  document.body.classList.remove('is-modal-open');
+  activeExcelTrigger?.focus();
+};
+
+const openExcelChoiceModal = (trigger) => {
+  excelChoiceModal = excelChoiceModal ?? createExcelChoiceModal();
+  activeExcelTrigger = trigger;
+  const title = trigger?.dataset.excelTitle?.trim() || 'Abitur-Planer öffnen';
+  const titleEl = excelChoiceModal.querySelector('#excel-choice-modal-title');
+  if(titleEl){
+    titleEl.textContent = title;
+  }
+  excelChoiceModal.hidden = false;
+  document.body.classList.add('is-modal-open');
+  excelChoiceModal.querySelector('[data-excel-action="browser"]')?.focus();
+};
+
+const openExcelInApp = (source) => {
+  const appUrl = createExcelAppUrl(source);
+  if(!appUrl){
+    return;
+  }
+
+  const userAgent = navigator.userAgent.toLowerCase();
+  const isAndroid = userAgent.includes('android');
+
+  if(isAndroid){
+    const intentUrl = createExcelAndroidIntent(source);
+    if(intentUrl){
+      window.location.href = intentUrl;
+      return;
+    }
+  }
+
+  window.location.href = appUrl;
+};
+
+const handleExcelChoiceAction = (action) => {
+  if(!activeExcelTrigger){
+    return;
+  }
+  const sources = parseExcelSources(activeExcelTrigger);
+  const firstSource = sources[0] || activeExcelTrigger.dataset.excelDownload;
+
+  if(action === 'browser'){
+    window.location.href = createExcelOnlineUrl(firstSource);
+    return;
+  }
+
+  if(action === 'app'){
+    openExcelInApp(firstSource);
+    return;
+  }
+
+  if(action === 'download'){
+    const downloadUrl = toAbsoluteUrl(activeExcelTrigger.dataset.excelDownload || firstSource);
+    if(downloadUrl){
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.download = '';
+      document.body.append(link);
+      link.click();
+      link.remove();
+    }
+  }
+};
+
+excelChoiceTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', (event) => {
+    event.preventDefault();
+    openExcelChoiceModal(trigger);
+  });
+
+  if(trigger.dataset.excelAutostart === 'true'){
+    window.addEventListener('load', () => {
+      openExcelChoiceModal(trigger);
+    }, { once: true });
+  }
+});
+
+document.addEventListener('click', (event) => {
+  const closeButton = event.target.closest('[data-excel-modal-close]');
+  if(closeButton){
+    closeExcelChoiceModal();
+    return;
+  }
+
+  const actionButton = event.target.closest('[data-excel-action]');
+  if(!actionButton){
+    return;
+  }
+
+  const action = actionButton.getAttribute('data-excel-action');
+  closeExcelChoiceModal();
+  handleExcelChoiceAction(action);
+});
+
+document.addEventListener('keydown', (event) => {
+  if(event.key !== 'Escape'){
+    return;
+  }
+  if(excelChoiceModal && !excelChoiceModal.hidden){
+    closeExcelChoiceModal();
+  }
+});
