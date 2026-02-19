@@ -938,13 +938,12 @@ const createExcelChoiceModal = () => {
         <button class="info-modal__close" type="button" data-excel-modal-close>Schließen</button>
       </div>
       <div class="info-modal__body">
-        <p>Wähle aus, wie du den Abitur-Planer öffnen möchtest.</p>
+        <p>Wenn du die Datei aufgemacht hast, musst du oben rechts zuerst eine Kopie speichern, bevor du die Datei bearbeiten kannst! Am empfehlenswertesten ist die Excel-App am einem Computer zu benutzen. Dort müsst ihr dann unter „Datei“ eine Kopie auf eurem iPad/Computer speichern und könnt erst dann bearbeiten.</p>
         <div class="sheet-download sheet-download--excel-choice">
           <button class="btn btn-accent" type="button" data-excel-action="browser">Im Browser öffnen</button>
           <button class="btn btn-ghost" type="button" data-excel-action="app">In der App öffnen</button>
           <button class="btn btn-ghost" type="button" data-excel-action="download">Datei herunterladen</button>
         </div>
-        <p><strong>Merksatz:</strong> Wenn du <strong>Im Browser öffnen</strong> nutzt, musst du oben rechts zuerst eine Kopie speichern, bevor du die Datei bearbeiten kannst.</p>
       </div>
     </div>
   `;
@@ -1010,7 +1009,8 @@ const handleExcelChoiceAction = (action) => {
   }
 
   if(action === 'app'){
-    openExcelInApp(firstSource);
+    const appSource = activeExcelTrigger.dataset.excelApp?.trim() || firstSource;
+    openExcelInApp(appSource);
     return;
   }
 

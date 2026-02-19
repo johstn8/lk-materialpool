@@ -386,7 +386,7 @@ textarea{min-height:140px; resize:vertical}
 }
 
 #excel-choice-modal .info-modal__panel{
-  background:linear-gradient(180deg, rgba(201,64,121,.09), #fff 34%);
+  background:linear-gradient(180deg, #fef7fb, #f8fafc 36%);
 }
 
 #excel-choice-modal .sheet-download--excel-choice{
